@@ -2,8 +2,10 @@ import React, { Component } from "react";
 
 class ActiveVacansie extends Component {
     constructor(props) {
-        super(props)
-        this.props = props
+        super({
+            vacansie: props
+        })
+        
         console.log(this.props)
     }
     render() {

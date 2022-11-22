@@ -18,19 +18,25 @@ import NewVacansieContainer from './VacansiesList/NewVacansieContainer';
 import EditVacansie from './VacansiesList/AddVacansiesComponents/EditVacansie';
 import ActiveVacansie from './VacansiesList/ActivVacansie';
 import ActiveVacansieContainer from './VacansiesList/ActiveVacansieContainer';
-
+import {AuthProvider} from '../context/AuthContext';
+import LoginPage from '../pages/LoginPage';
 
 const App = () => {
   return (
     <div className="app">
       <Router>
+        <AuthProvider>
+
+        
+
         <Header />
         <div className='container'>
         <Sidebar />
 
 
-        
+         <NavLink to="/auth/login" className="">dlfldl </NavLink>
         <Routes>
+          <Route path='/auth/login' element={<LoginPage />}></Route>
           <Route path="/vacansies"  exact element={ <Vacansies />}  />
           <Route path="/resumes"  element={<Resumes />} />
           <Route path="/request"  element={<MyRequest />} />
@@ -45,7 +51,8 @@ const App = () => {
           <Route path="*" element={<Vacansies />}/>  {/* тут должна быть ошибка 404 */}
         </Routes>
         </div>
-        <Registration />
+        {/* <Registration /> */}
+        </AuthProvider>
       </Router>
       
     </div>

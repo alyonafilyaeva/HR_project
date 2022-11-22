@@ -8,9 +8,9 @@ const newVacansie = (props) => {
         <div>
             <p>progressbar</p>
             <p>стрелочка</p>
-          
-            {props.vacansies[0].status === 'published' && <AddVacansieContainer />}
-            <NavLink to="/vacansies/new_vacansie/see">n</NavLink>
+            <AddVacansieContainer />
+            {/* {props.vacansies[0].status === 'published' && <AddVacansieContainer />} */}
+            
         </div>
         
     )

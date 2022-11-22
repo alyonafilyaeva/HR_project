@@ -25,22 +25,27 @@ const AddVacansie = (props) => {
         props.ChangeVacansie(titleVac, salaryVac, expVac, textVac)
     }
     debugger;
+    console.log(props)
     return (
         <div>
-            {status === '1' && <button>редактировать</button>}
+            {status === '1' && <button onClick={() => {setStatus('0')}}>редактировать</button>}
             <form>
                 <p>Название вакансии:</p>
-                {status === '0' ? <input onChange={onVacChange} type='text' name='title' ref={title} value={props.newVacTitle}/> : <p>{props.vacansies[1].title}</p>}
+                {status === '0' ? <input onChange={onVacChange} type='text' name='title' ref={title} value={props.newVacTitle}/> :
+                 <p>{props.vacansies[props.vacansies.length-1].title}</p>}
                 {/* <input onChange={onVacChange} type='text' name='title' ref={title} value={props.newVacTitle}/> */}
                 <p>департамент</p>
                 <p>из бд</p>
                 <p>Мин зарплата</p>
-                <input onChange={onVacChange} type='text' name='salary' ref={salary} value={props.newVacSalery}/>
+                {status === '0' ? <input onChange={onVacChange} type='text' name='salary' ref={salary} value={props.newVacSalery}/> :
+                 <p>{props.vacansies[props.vacansies.length-1].salary}</p>}
                 <p>Стаж работы</p>
-                <input onChange={onVacChange} type='text' name='salary' ref={exp} value={props.newVacExp}/>
+                {status === '0' ? <input onChange={onVacChange} type='text' name='salary' ref={exp} value={props.newVacExp}/> :
+                 <p>{props.vacansies[props.vacansies.length-1].exp_work}</p>}
                 <p>Описание вакансии</p>
-                <textarea onChange={onVacChange} type='text' name="text" ref={text} value={props.newVacText}/>
-                <button onClick={onAddVac}>Создать вакансию</button>
+                {status === '0' ? <textarea onChange={onVacChange} type='text' name="text" ref={text} value={props.newVacText}/> :
+                 <p>{props.vacansies[props.vacansies.length-1].description}</p>}
+                <button onClick={onAddVac} >Создать вакансию</button>
             </form>
             {/* <NavLink to="/vacansies/new_vacansie/see"onClick={onAddVac}>Создать вакансию</NavLink> */}
         </div>

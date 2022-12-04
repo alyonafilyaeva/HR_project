@@ -46,9 +46,23 @@ export const AuthProvider = ({ children }) => {
             setUser(dataUser.user)
             localStorage.setItem('authTokens', JSON.stringify(data))
             localStorage.setItem('user', JSON.stringify(dataUser.user))
-            nav('/')
+            nav('/profile')
         } else {
             alert('Ошибочка')
+        }
+    }
+
+    let registerUser = async (e) => {
+        e.preventDefault()
+        let response = await fetch('http://127.0.0.1:8000/api/register/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ 'email': e.target.email.value, 'password': e.target.password.value, 'password2': e.target.password2.value })
+        })
+        if (response.status === 200) {
+            loginUser(e)
         }
     }
 
@@ -87,7 +101,8 @@ export const AuthProvider = ({ children }) => {
         user: user,
         authToken: authToken,
         loginUser: loginUser,
-        logoutUser: logoutUser
+        logoutUser: logoutUser,
+        registerUser: registerUser
     }
 
     useEffect(() => {

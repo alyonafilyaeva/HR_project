@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { AddVacansieActionCreator, ChangeVacansieActionCreator } from "../../../redux/vacansies-reducer";
+import { AddVacansieActionCreator, ChangeVacansieActionCreator, GetIDVacansieActionCreator, SendVacansieActionCreator } from "../../../redux/vacansies-reducer";
 import AddVacansie from "./AddVacansie";
 
 let mapStateToProps = (state) => {
     return {
+        ID: state.vacansiesPage.ID,
         vacansies: state.vacansiesPage.vacansies,
         newVacTitle: state.vacansiesPage.newVacansie,
         newVacSalery: state.vacansiesPage.newVacansie,
@@ -16,12 +17,14 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         AddVacansie: () => {
-            debugger;
             dispatch(AddVacansieActionCreator())
         },
         ChangeVacansie: (titleVac, salaryVac, expVac, textVac) => {
-            debugger;
             dispatch(ChangeVacansieActionCreator(titleVac, salaryVac, expVac, textVac))
+        },
+        GetID: (ID) => {
+            debugger;
+            dispatch(GetIDVacansieActionCreator(ID))
         }
     }
 }

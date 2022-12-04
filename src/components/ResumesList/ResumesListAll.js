@@ -1,9 +1,24 @@
 import React from "react";
 import Resume from "./Resume";
-import { Component } from "react";
+import { Component , useContext, useLayoutEffect} from "react";
 import axios from "axios"
+import AuthContext from "../../context/AuthContext";
 
-/* function ResumesListAll(props) {
+function ResumesListAll(props) {
+    let { authToken } = useContext(AuthContext)
+
+    useLayoutEffect(() => {
+        axios.get("http://127.0.0.1:8000/api/resumes/", {
+            'headers': {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${String(authToken.access)}`
+            }
+        }).then(response => {
+            props.setResumes(response.data)
+            console.log(response.data)
+        })
+    }, [])
+
     const resumeElements = props.resumesPage.resumes.map(resume =>
         <Resume resume = {resume} />
         )
@@ -12,9 +27,9 @@ import axios from "axios"
             {resumeElements}
         </ul>
     )
-} */
+}
 
-class ResumesListAll extends Component {
+/* class ResumesListAll extends Component {
     constructor(props) {
         super(props);
         this.resumeElements = this.props.resumesPage.resumes.map(resume =>
@@ -22,14 +37,7 @@ class ResumesListAll extends Component {
             );
             axios.get("http://127.0.0.1:8000/api/resumes/").then(response =>  
             {
-                debugger;
-                /* for (let i = 0; i < response.data.length; i++) {
-                    props.setResumes(response.data[i]);
-                    
-                } */
                 console.log(props.setResumes(response.data))
-                
-                
             })
     }
     render() {
@@ -39,6 +47,6 @@ class ResumesListAll extends Component {
             </ul>
         )
     }
-}
+} */
 
 export default ResumesListAll;

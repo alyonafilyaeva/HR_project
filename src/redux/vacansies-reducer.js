@@ -1,7 +1,12 @@
+import { act } from "react-dom/test-utils"
+
 const ADD_VACANSIE = 'ADD-VACANSIE'
 const CHANGE_VACANSIE = 'CHANGE-VACANSIE'
 const SET_VACANSIES = 'SET-VACANSIES'
 const FILTER_VACANSIES = 'FILTER-VACANSIES'
+const SEND_VACANSIE = 'SEND-VACANSIE'
+const EDIT_VACANSIE = 'EDIT-VACANSIE'
+const GET_ID = 'GET-ID'
 
 let initialState = {
     vacansies: [
@@ -54,8 +59,9 @@ let initialState = {
     ] */
     newVacTitle: '',
     newVacSalery: '',
-    newVacExp: '',
-    newVacText: ''
+    newVacExp: '0',
+    newVacText: '',
+    ID: ''
 }
 const vacansiesReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -67,21 +73,17 @@ const vacansiesReducer = (state = initialState, action) => {
                 salary: state.newVacSalery,
                 exp_work: state.newVacExp,
                 description: state.newVacText,
-                status: "unpublished"
+                status: "T_W"
             }
             return {
                 ...state,
                 vacansies: [...state.vacansies, newVac],
-                /* newVacTitle: "",
+                newVacTitle: "",
                 newVacSalery: "",
                 newVacExp: "",
-                newVacText: "", */
+                newVacText: "",
+                
             }
-            /* state.vacansies.unshift(newVac);
-            state.newVacTitle = action.newTitle
-            state.newVacSalery = action.newSalery
-            state.newVacExp = action.newExp
-            state.newVacText = action.newText */
 
         }
         case CHANGE_VACANSIE: {
@@ -92,17 +94,17 @@ const vacansiesReducer = (state = initialState, action) => {
                 newVacExp: action.newExp,
                 newVacText: action.newText,
             }
-            /* state.newVacTitle = action.newTitle
-            state.newVacSalery = action.newSalery
-            state.newVacExp = action.newExp
-            state.newVacText = action.newText
-            return state */
         }
         case SET_VACANSIES:
             debugger;
             return {
                 ...state,
-                vacansies: [...state.vacansies, action.vacansies]
+                vacansies: action.vacansies
+            }
+        case SEND_VACANSIE:
+            return {
+                ...state,
+                vacansies: action.vacansies
             }
         case FILTER_VACANSIES:
             return {
@@ -111,6 +113,21 @@ const vacansiesReducer = (state = initialState, action) => {
                     vacansie.title.toLowerCase().includes(action.vacansies.toLowerCase())
                 )
             };
+        case EDIT_VACANSIE:
+            debugger
+            return {
+                ...state,
+                newVacTitle: action.oldTitle,
+                newVacSalery: action.oldSalery,
+                newVacExp: action.oldExp,
+                newVacText: action.oldText, 
+            }
+        case GET_ID:
+            debugger;
+            return {
+                ...state,
+                ID: action.ID
+            }
         default:
             return state
     }
@@ -124,13 +141,45 @@ export const ChangeVacansieActionCreator = (titleVac, salaryVac, expVac, textVac
     return { type: CHANGE_VACANSIE, newTitle: titleVac, newSalery: salaryVac, newExp: expVac, newText: textVac }
 }
 
+export const EditVacansieActionCreator = (vacansie) => {
+    debugger
+    return { type: EDIT_VACANSIE, oldTitle: vacansie.title, oldSalery: vacansie.salary, oldExp: vacansie.exp_work, oldText: vacansie.description }
+}
+
+/* export const SendVacansieActionCreator = (titleVac, salaryVac, expVac, textVac) => {
+    let { authToken } = useContext(AuthContext)
+    return (dispatch) => { 
+        axios.post("http://127.0.0.1:8000/api/vacancies/",
+        {
+            titleVac, salaryVac, expVac, textVac
+        },
+         {
+            'headers': {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${String(authToken.access)}`
+            }
+
+        }).then(response => {
+            console.log(response.data)
+            dispatch({
+                type: SEND_VACANSIE,
+                vacansie: response.data
+            })
+        }).catch(console.error('Ошибочка'))
+
+}
+} */
+
 export const SetVacansiesActionCreator = (vacansies) => {
-    debugger;
     return { type: SET_VACANSIES, vacansies: vacansies }
 }
 export const FilterVacansiesActionCreator = (vacansies) => {
     
     return { type: FILTER_VACANSIES, vacansies: vacansies }
+}
+
+export const GetIDVacansieActionCreator = (ID) => {
+    return { type: GET_ID, ID: ID }
 }
 
 export default vacansiesReducer;

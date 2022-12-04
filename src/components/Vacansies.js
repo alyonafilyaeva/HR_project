@@ -4,14 +4,15 @@ import VacansiesListAllContainer from "./VacansiesList/VacansiesListAllContainer
 import "./Styles/app.css"
 import { NavLink } from "react-router-dom";
 import axios from "axios"
+import VacansiesListMyContainer from "./VacansiesList/VacansiesListMyContainer";
 
-function Vacansies() {
+function Vacansies(props) {
     const [status, setStatus] = React.useState('all')
         return (
             <div className="vacancies">
                 <div>
                     <input type="text" placeholder="Поиск по вакансии"></input>
-                    <NavLink to="/vacansies/new_vacansie/" className="vacansies-top__btn">Создать вакансию </NavLink>
+                    {/* props.user.is_header_dep && */ <NavLink to="/vacansies/new_vacansie/" className="vacansies-top__btn">Создать вакансию </NavLink>}
                 </div>
                 <div className="sorts">
                     <input placeholder="Сортировать"></input>
@@ -32,7 +33,7 @@ function Vacansies() {
                     </div>
                 </div>
                     <div className="vacansies-list">
-                        {status === 'all' ? <VacansiesListAllContainer /> : <VacansiesListMy />}
+                        {status === 'all' ? <VacansiesListAllContainer /> : <VacansiesListMyContainer />}
                         
                     </div>
             </div>

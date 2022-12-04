@@ -1,31 +1,32 @@
-import React, { Component } from "react";
+import React from "react";
+import { NavLink, useLocation } from "react-router-dom";
 
-class ActiveVacansie extends Component {
-    constructor(props) {
-        super({
-            vacansie: props
-        })
-        
-        console.log(this.props)
-    }
-    render() {
-
-        console.log(this.props)
-        return(
-            <div className="vacansie" >
-                <div className="vacansie-item">
-                    <div className="vacansie-top">
-                        <h2>{this.props.vacansie.title}</h2>
-                        <p className="blur">{this.props.vacansie.data_updated}</p>
-                    </div>
-                    <p className="blur">{this.props.vacansie.salary}</p>
-                    <p className="blur">Опыт работы: {this.props.vacansie.exp_work}</p>
-                    <section>{this.props.vacansie.description}</section>
-                </div>
-            </div>
-        )
-    }
+const ActiveVacansie = (props) => {
+    debugger;
+    const location = useLocation();
+    console.log(location.state);
+    console.log(props.user.id);
+    let path = `/vacansie/edit/${location.state.id}`
     
+    return (
+        <div  >
+            <div >
+                <NavLink to="/vacansies">Назад</NavLink>
+                {(location.state.user == props.user.id )&& <NavLink to={path} state={location.state}>Редактиров</NavLink>}
+                <div >
+                    <h2>{location.state.title}</h2>
+                    <p className="blur">{location.state.department}</p>
+                </div>
+                <p className="blur">{location.state.salary}</p>
+                <p className="blur">Опыт работы: {location.state.exp_work}</p>
+                <section>{location.state.description}</section>
+                {(location.state.user != props.user.id ) && <button>Отправить заявку</button>}
+                {(location.state.user == props.user.id ) && <button>Снять с публикации</button>}
+            </div>
+        </div>
+    )
+
+
 }
 
 export default ActiveVacansie;

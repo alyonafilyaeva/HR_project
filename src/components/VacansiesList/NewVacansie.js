@@ -7,9 +7,8 @@ const newVacansie = (props) => {
     return(
         <div>
             <p>progressbar</p>
-            <p>стрелочка</p>
+            <NavLink to="/vacansies">Назад</NavLink>
             <AddVacansieContainer />
-            {/* {props.vacansies[0].status === 'published' && <AddVacansieContainer />} */}
             
         </div>
         

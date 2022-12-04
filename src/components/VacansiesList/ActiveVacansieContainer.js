@@ -1,27 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
 import ActiveVacansie from "./ActivVacansie";
-
+import { connect } from "react-redux";
 
 let mapStateToProps = (state) => {
     return {
-        vacansie: state.vacansiesPage.vacansies[0],
+        user: state.profilePage.user,
+        vacansies: state.vacansiesPage.vacansies
     }
 }
 
-/* let mapDispatchToProps = (dispatch) => {
-    return {
-        AddVacansie: () => {
-            debugger;
-            dispatch(AddVacansieActionCreator())
-        },
-        ChangeVacansie: (titleVac, salaryVac, expVac, textVac) => {
-            debugger;
-            dispatch(ChangeVacansieActionCreator(titleVac, salaryVac, expVac, textVac))
-        }
-    }
-} */
-
-const ActiveVacansieContainer = connect(mapStateToProps) (ActiveVacansie);
+let ActiveVacansieContainer = connect(mapStateToProps) (ActiveVacansie);
 
 export default ActiveVacansieContainer;

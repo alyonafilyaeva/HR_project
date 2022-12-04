@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import VacansiesListAll from "./VacansiesListAll"
 import { SetVacansiesActionCreator } from "../../redux/vacansies-reducer";
+import VacansiesListMy from "./VacansiesListMy";
 
 let mapStateToProps = (state) => {
     return {
@@ -20,9 +21,9 @@ let mapDispatchToProps = (dispatch) => {
 }
 debugger;
 
-let VacansiesListAllContainer = connect(mapStateToProps, mapDispatchToProps) (VacansiesListAll);
+let VacansiesListMyContainer = connect(mapStateToProps, mapDispatchToProps) (VacansiesListMy);
 
-export default VacansiesListAllContainer;
+export default VacansiesListMyContainer;
 
 
 

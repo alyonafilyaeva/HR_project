@@ -1,0 +1,34 @@
+.vacansie-item {
+    background: linear-gradient(106.55deg, #ffd0a638 2.94%, rgba(255, 208, 166, 0) 76.52%), linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
+    border: 1px solid #ffcda24f;
+    margin-top: 20px;
+    padding: 20px;
+    width:55%;
+    border-radius: 10px;
+    margin-right: 50px;
+}
+
+.vacansie-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.vacansie {
+    display: flex;
+    line-height: 25px;
+}
+
+.blur {
+    opacity: .7;
+    padding-top: 2px;
+}
+
+.vacansie-right {
+    background: linear-gradient(106.55deg, #ffd0a638 2.94%, rgba(255, 208, 166, 0) 76.52%), linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
+    border: 1px solid #ffcda24f;
+    margin-top: 20px;
+    padding: 20px;
+    width: 20%;
+    border-radius: 10px;
+}
+

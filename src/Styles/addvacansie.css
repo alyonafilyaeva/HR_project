@@ -1,0 +1,38 @@
+.form{
+    padding: 20px 60px;
+    width: 80%;
+    height: 400px;
+    line-height: 28px;
+    margin-right: 250px;
+    border-radius: 20px;
+    background: linear-gradient(106.55deg, #ffd0a638 2.94%, rgba(255, 208, 166, 0) 76.52%), linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
+    border: 1px solid #ffcda24f;
+}
+
+form{
+    flex-direction: column;
+}
+
+input[type=text], textarea {
+    width: 375px;
+    height: 25px;
+    border: 1px solid #CFD3D5;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.create_vacancy{
+    justify-content: center;
+    align-items: center;
+    padding: 15px 24px;
+    position: absolute;
+    width: 178px;
+    height: 47px;
+    left: 950px;
+    top: 410px;
+    background: #E58025;
+    border: 1px solid #E58025;
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+}

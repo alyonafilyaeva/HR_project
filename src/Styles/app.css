@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    background-color: #F5F5F5;
+    padding-left: 70px;
+    padding-bottom: 50px;
+    font-family: 'Inter', sans-serif;
+}
+
+.is-active {
+    font-size: 20px;
+    background-color: blue;
+}
+
+.sidebar {
+    text-decoration: none;
+    width: 20%;
+    padding-right: 60px;
+}
+
+.header {
+    padding: 10px 0;
+    font-size: 40px;
+}
+
+.container {
+    display: flex;
+}
+
+a {
+    text-decoration: none
+}
+
+@import url(./vacansies.css);
+@import url(./vacansieItem.css);
+@import url(./addvacansie.css);
+@import url(./addresume.css);
+@import url(./sidebar.css);

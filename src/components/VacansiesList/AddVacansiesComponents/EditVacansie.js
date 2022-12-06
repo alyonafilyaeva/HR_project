@@ -13,6 +13,7 @@ const EditVacansie = (props) => {
     let salary = React.createRef()
     let exp = React.createRef()
     let { authToken } = useContext(AuthContext)
+    let path = `/vacansie/${location.state.id}`
 
     useLayoutEffect(() => {
         console.log(location.state.id)
@@ -26,16 +27,13 @@ const EditVacansie = (props) => {
             console.log(response.data)
         })
     }, [])
-    
-        let pop = location.state.title
-    
    
     let onEditVac = (e) => {
         e.preventDefault()
         axios
         .put(`http://127.0.0.1:8000/api/vacancies/${location.state.id}/`, 
         {
-            "title":  pop,
+            "title":  title.current.value,
             "description": text.current.value,
             "exp_work": exp.current.value,
             "salary": salary.current.value,
@@ -49,7 +47,6 @@ const EditVacansie = (props) => {
         })
         .then(response => console.log(response.data))
         .catch(error => console.log(error.response))
-        console.log(title)
     }
 
     let onVacChange = () => {
@@ -65,20 +62,18 @@ const EditVacansie = (props) => {
             {status === '1' && <button onClick={() => {setStatus('0')}}>редактировать</button>}
             <form>
                 <p>Название вакансии:</p>
-                <input onChange={onVacChange} type='text' name='title' ref={title} value={props.newVacTitle} placeholder={location.state.title}/> 
-                {/* <input onChange={onVacChange} type='text' name='title' ref={title} value={props.newVacTitle}/> */}
+                <input onChange={onVacChange} type='text' name='title' ref={title} value={props.newVacTitle} /> 
                 <p>департамент</p>
                 <p>{location.state.department}</p>
                 <p>Мин зарплата</p>
-                <input onChange={onVacChange} type='text' name='salary' ref={salary} value={props.newVacSalary} placeholder={location.state.salary}/> 
-
+                <input onChange={onVacChange} type='text' name='salary' ref={salary} value={props.newVacSalery} /> 
                 <p>Стаж работы</p>
-                <input onChange={onVacChange} type='text' name='exp' ref={exp} value={props.newVacExp} placeholder={location.state.exp_work}/> 
+                <input onChange={onVacChange} type='text' name='exp' ref={exp} value={props.newVacExp} /> 
 
                 <p>Описание вакансии</p>
-                <textarea onChange={onVacChange} type='text' name="text" ref={text} value={props.newVacText} placeholder={location.state.description}/> 
+                <textarea onChange={onVacChange} type='text' name="text" ref={text} value={props.newVacText} /> 
 
-                <button onClick={onEditVac} >Опубликовать вакансию</button>
+                <NavLink to={path} state={location.state} onClick={onEditVac} >Опубликовать вакансию</NavLink>
             </form>
             {/* <NavLink to="/vacansies/new_vacansie/see"onClick={onAddVac}>Создать вакансию</NavLink> */}
         </div>

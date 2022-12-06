@@ -27,6 +27,9 @@ import VacansiesListAllContainer from './VacansiesList/VacansiesListAllContainer
 import VacansiesListMyContainer from './VacansiesList/VacansiesListMyContainer';
 import EditVacansieContainer from './VacansiesList/AddVacansiesComponents/EditVacansieContainer';
 import RegisterPage from '../pages/RegisterPage';
+import ActiveResumeContainer from './ResumesList/ActiveResumeContainer';
+import EditResumeContainer from './ResumesList/EditResumeContainer';
+import EditProfileContainer from './Profile/EditProfileContainer';
 
 
 const App = () => {
@@ -58,10 +61,11 @@ const App = () => {
           <Route path="/vacansies/new_vacansie/see" element={<SeeVacansieContainer />}/>
           <Route path="/vacansie/edit/:id" element={ <EditVacansieContainer />} />
           <Route path="/vacansie/:id" element={<ActiveVacansieContainer />}/>
-          <Route path="/resume" element={<ActiveResume />}/>
+          <Route path="/resume/:id" element={<ActiveResumeContainer />}/>
+          <Route path="/resume/edit/:id" element={<EditResumeContainer />}/>
           <Route path="/resumes/create_resume"  element={<AddResumeContainer />} />
           <Route path="/profile" element={<ProfileContainer />}/>
-          <Route path="/profile/edit" element={<EditProfile />}/>
+          <Route path="/profile/edit" element={<EditProfileContainer />}/>
           <Route path="*" element={<Vacansies />}/>  {/* тут должна быть ошибка 404 */}
         </Routes>
         </div>

@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 const Resume = (props) => {
+    let path = `/resume/${props.resume.id}`
         return(
-            <NavLink to={"/resume/"} state={props.resume} >
+            <NavLink to={path} state={props.resume} >
             <div className="vacansie">
                 <div className="vacansie-item">
                     <div className="vacansie-top">
-                        <h2>{props.resume.user}</h2>
+                        <h2>{props.resume.user.full_name}</h2>
                         <p className="blur">{props.resume.data_updated}</p>
                     </div>
                     <p className="blur">{props.resume.salary}</p>

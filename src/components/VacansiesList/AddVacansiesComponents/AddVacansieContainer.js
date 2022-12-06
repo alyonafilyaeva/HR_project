@@ -7,10 +7,10 @@ let mapStateToProps = (state) => {
     return {
         ID: state.vacansiesPage.ID,
         vacansies: state.vacansiesPage.vacansies,
-        newVacTitle: state.vacansiesPage.newVacansie,
-        newVacSalery: state.vacansiesPage.newVacansie,
-        newVacExp: state.vacansiesPage.newVacansie,
-        newVacText: state.vacansiesPage.newVacansie
+        newVacTitle: state.vacansiesPage.newVacTitle,
+        newVacSalery: state.vacansiesPage.newVacSalery,
+        newVacExp: state.vacansiesPage.newVacExp,
+        newVacText: state.vacansiesPage.newVacText
     }
 }
 

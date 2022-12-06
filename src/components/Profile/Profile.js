@@ -18,7 +18,7 @@ function Profile(props) {
             console.log(response.data.user)
         })
     }, [])
-    console.log(props.user)
+    console.log(props.profilePage.user)
     return(
         <div>
             <p>Профиль</p>
@@ -36,7 +36,7 @@ function Profile(props) {
                     </div>
                 </div>
                 <div>
-                    photo
+                <img src={props.profilePage.user.image}></img>
                 </div>
             </div>
         </div>

@@ -18,12 +18,10 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         AddResume: () => {
-            debugger;
             dispatch(AddResumeActionCreator())
         },
-        ChangeResume: (postRes, aboutRes, salaryRes, expRes) => {
-            debugger;
-            dispatch(ChangeResumeActionCreator(postRes, aboutRes, salaryRes, expRes))
+        ChangeResume: (salaryRes, expRes, aboutRes) => {
+            dispatch(ChangeResumeActionCreator( salaryRes, expRes, aboutRes))
         }
     }
 }

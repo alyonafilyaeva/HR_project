@@ -1,4 +1,5 @@
 let SET_USER = "SET-USER"
+let CHANGE_PROFILE = "CHANGE-PROFILE"
 
 let initialState = {
     user: {
@@ -9,7 +10,9 @@ let initialState = {
         "image": null,
         "is_admin": false,
         "is_header_dep": true
-    }
+    },
+    newName: '',
+    newEmail: ''
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -17,7 +20,16 @@ const profileReducer = (state = initialState, action) => {
         case SET_USER:
             return {
                 ...state,
-                user: action.user
+                user: action.user,
+                newName: action.user.full_name,
+                newEmail: action.user.email
+            }
+            case CHANGE_PROFILE: {
+                return {
+                    ...state,
+                    newName: action.name,
+                    newEmail: action.email
+                };
             }
         default:
             return state
@@ -27,6 +39,13 @@ const profileReducer = (state = initialState, action) => {
 export const SetProfileActionCreator = (user) => {
     debugger;
     return { type: SET_USER, user: user }
+}
+
+
+
+export const ChangeProfileActionCreator = (nameProfile, emailProfile) => {
+    debugger;
+    return { type: CHANGE_PROFILE, name: nameProfile, email: emailProfile }
 }
 
 export default profileReducer;

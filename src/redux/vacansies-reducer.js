@@ -1,5 +1,3 @@
-import { act } from "react-dom/test-utils"
-
 const ADD_VACANSIE = 'ADD-VACANSIE'
 const CHANGE_VACANSIE = 'CHANGE-VACANSIE'
 const SET_VACANSIES = 'SET-VACANSIES'
@@ -59,9 +57,13 @@ let initialState = {
     ] */
     newVacTitle: '',
     newVacSalery: '',
-    newVacExp: '0',
+    newVacExp: '',
     newVacText: '',
-    ID: ''
+    ID: '',
+    activeVacTitle: '',
+    activeVacSalery: '',
+    activeVacExp: '',
+    activeVacText: '',
 }
 const vacansiesReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -121,6 +123,7 @@ const vacansiesReducer = (state = initialState, action) => {
                 newVacSalery: action.oldSalery,
                 newVacExp: action.oldExp,
                 newVacText: action.oldText, 
+                
             }
         case GET_ID:
             debugger;
@@ -145,30 +148,6 @@ export const EditVacansieActionCreator = (vacansie) => {
     debugger
     return { type: EDIT_VACANSIE, oldTitle: vacansie.title, oldSalery: vacansie.salary, oldExp: vacansie.exp_work, oldText: vacansie.description }
 }
-
-/* export const SendVacansieActionCreator = (titleVac, salaryVac, expVac, textVac) => {
-    let { authToken } = useContext(AuthContext)
-    return (dispatch) => { 
-        axios.post("http://127.0.0.1:8000/api/vacancies/",
-        {
-            titleVac, salaryVac, expVac, textVac
-        },
-         {
-            'headers': {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${String(authToken.access)}`
-            }
-
-        }).then(response => {
-            console.log(response.data)
-            dispatch({
-                type: SEND_VACANSIE,
-                vacansie: response.data
-            })
-        }).catch(console.error('Ошибочка'))
-
-}
-} */
 
 export const SetVacansiesActionCreator = (vacansies) => {
     return { type: SET_VACANSIES, vacansies: vacansies }

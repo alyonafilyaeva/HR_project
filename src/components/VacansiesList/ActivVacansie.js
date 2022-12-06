@@ -12,7 +12,7 @@ const ActiveVacansie = (props) => {
         <div  >
             <div >
                 <NavLink to="/vacansies">Назад</NavLink>
-                {(location.state.user == props.user.id )&& <NavLink to={path} state={location.state}>Редактиров</NavLink>}
+                {(location.state.user.id == props.user.id )&& <NavLink to={path} state={location.state}>Редактиров</NavLink>}
                 <div >
                     <h2>{location.state.title}</h2>
                     <p className="blur">{location.state.department}</p>
@@ -20,8 +20,8 @@ const ActiveVacansie = (props) => {
                 <p className="blur">{location.state.salary}</p>
                 <p className="blur">Опыт работы: {location.state.exp_work}</p>
                 <section>{location.state.description}</section>
-                {(location.state.user != props.user.id ) && <button>Отправить заявку</button>}
-                {(location.state.user == props.user.id ) && <button>Снять с публикации</button>}
+                {(location.state.user.id != props.user.id ) && <button>Отправить заявку</button>}
+                {(location.state.user.id == props.user.id ) && <button>Снять с публикации</button>}
             </div>
         </div>
     )

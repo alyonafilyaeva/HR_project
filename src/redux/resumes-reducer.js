@@ -101,12 +101,12 @@ export const ChangeResumeActionCreator = ( salaryRes, expRes, aboutRes) => {
 }
 
 export const EditResumeActionCreator = (resume) => {
-    debugger
+
     return { type: EDIT_RESUME,  oldSalery: resume.salary, oldExp: resume.exp_work, oldAbout: resume.about_me, oldFile: resume.file, oldImg: resume.image }
 }
 
 export const SetResumesActionCreator = (resumes) => {
-    debugger;
+
     return { type: SET_RESUMES, resumes: resumes }
 }
 

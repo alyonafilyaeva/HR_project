@@ -5,6 +5,7 @@ const FILTER_VACANSIES = 'FILTER-VACANSIES'
 const SEND_VACANSIE = 'SEND-VACANSIE'
 const EDIT_VACANSIE = 'EDIT-VACANSIE'
 const GET_ID = 'GET-ID'
+const CHANGE_SORT = 'CHANGE-SORT'
 
 let initialState = {
     vacansies: [
@@ -64,6 +65,10 @@ let initialState = {
     activeVacSalery: '',
     activeVacExp: '',
     activeVacText: '',
+    sort: '',
+    salary: '',
+    exp: '',
+    dep: ''
 }
 const vacansiesReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -131,6 +136,14 @@ const vacansiesReducer = (state = initialState, action) => {
                 ...state,
                 ID: action.ID
             }
+            case CHANGE_SORT:
+                return {
+                    ...state,
+                    sort: action.sortValue,
+                    salary: action.salaryValue,
+                    exp: action.expValue,
+                    dep: action.depValue
+                }
         default:
             return state
     }
@@ -159,6 +172,10 @@ export const FilterVacansiesActionCreator = (vacansies) => {
 
 export const GetIDVacansieActionCreator = (ID) => {
     return { type: GET_ID, ID: ID }
+}
+
+export const ChangeSortActionCreator = (sortValue, salaryValue, expValue, depValue) => {
+    return { type: CHANGE_SORT, sortValue, salaryValue, expValue, depValue }
 }
 
 export default vacansiesReducer;

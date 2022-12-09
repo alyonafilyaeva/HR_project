@@ -1,0 +1,31 @@
+.vacansies-top {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+.active {
+    color:#000;
+    text-decoration: underline #E58025 3px;
+}
+
+.sorts {
+    display: flex;
+}
+
+.vacansies-top__btn {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding: 7px;
+    background-color: #E58025;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+.vacansies-top__btn a {
+    color: #fff;
+}
+
+.vacansie-item {
+    cursor: pointer;
+}

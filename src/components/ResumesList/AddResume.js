@@ -1,5 +1,5 @@
 import React from "react";
-import "../Styles/app.css";
+import "../../Styles/app.css";
 import axios from "axios";
 import AuthContext from "../../context/AuthContext";
 import { useContext } from "react";

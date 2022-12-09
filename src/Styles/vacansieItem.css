@@ -1,0 +1,32 @@
+.vacansie-item {
+    background-color:#fff;
+    margin-top: 20px;
+    padding: 20px;
+    width: 60%;
+    border-radius: 10px;
+    margin-right: 50px;
+   /*  border: 2px solid red; */
+}
+
+.blur {
+    opacity: .7;;
+}
+
+.vacansie-top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.vacansie {
+    display: flex;
+    
+}
+
+.vacansie-right {
+    background-color: #fff;
+    margin-top: 20px;
+    padding: 20px;
+    width: 25%;
+    border-radius: 10px;
+}
+

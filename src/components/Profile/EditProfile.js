@@ -12,20 +12,20 @@ const EditProfile = (props) => {
     let image = React.createRef()
     let file = React.createRef()
     let { authToken } = useContext(AuthContext)
+    let { user } = useContext(AuthContext)
 
     useLayoutEffect(() => {
-        
         axios.get(`http://127.0.0.1:8000/api/profile`, {
             'headers': {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${String(authToken.access)}`
             }
         }).then(response => {
-            
-            console.log(response.data)
-        })
+            console.log(response.data.user)
+            props.setUser(response.data.user)
+        }).catch(error => console.log(error.response))
     }, [])
-   
+   console.log(props)
     let onEditProfile = (e) => {
         e.preventDefault()
         axios
@@ -36,8 +36,6 @@ const EditProfile = (props) => {
             "image": 'https://s10.stc.yc.kpcdn.net/share/i/12/11065821/wr-960.webp'
             /* "file": file.current.value,
             "image": file.current.value, */
-
-            
         }, 
         {
             'headers': {
@@ -57,7 +55,7 @@ const EditProfile = (props) => {
 
     return(
         <div>
-            <p>Профиль</p>
+            <p>Редактирование профиля</p>
             <div className="cart">
                 <div >
                     <p>{props.user.full_name}</p>
@@ -74,7 +72,7 @@ const EditProfile = (props) => {
                         
                     </div>
                     <div>
-                        <button onClick={onEditProfile}>Сохранить</button>
+                        <NavLink to="/vacansies" onClick={onEditProfile}>Сохранить</NavLink >
                     </div>
                 </div>
                 <div>

@@ -41,8 +41,6 @@ export const SetProfileActionCreator = (user) => {
     return { type: SET_USER, user: user }
 }
 
-
-
 export const ChangeProfileActionCreator = (nameProfile, emailProfile) => {
     debugger;
     return { type: CHANGE_PROFILE, name: nameProfile, email: emailProfile }

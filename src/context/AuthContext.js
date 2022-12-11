@@ -95,6 +95,10 @@ export const AuthProvider = ({ children }) => {
         nav('/auth/login')
     }
 
+    let updateUser = (newUser) => {
+        setUser(newUser)
+    }
+
     let updateToken = async () => {
         console.log('Обновилиии')
         let response = await fetch('http://127.0.0.1:8000/auth/jwt/refresh/', {
@@ -121,6 +125,7 @@ export const AuthProvider = ({ children }) => {
     let contextData = {
         user: user,
         authToken: authToken,
+        updateUser: updateUser,
         loginUser: loginUser,
         logoutUser: logoutUser,
         registerUser: registerUser

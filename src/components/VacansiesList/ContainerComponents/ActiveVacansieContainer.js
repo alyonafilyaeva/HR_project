@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 import { ChangeVacansieActionCreator, EditedVacansiesActionCreator, EditVacansieActionCreator } from "../../../redux/vacansies-reducer";
-import EditVacansie from "../PresentationComponents/EditVacansie";
+import ActiveVacansie from "../PresentationComponents/ActiveVacansie";
+
 
 let mapStateToProps = (state) => {
     return {
@@ -36,6 +37,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-let EditVacansieContainer = connect(mapStateToProps, mapDispatchToProps) (EditVacansie);
+let ActiveVacansieContainer = connect(mapStateToProps, mapDispatchToProps) (ActiveVacansie);
 
-export default EditVacansieContainer;
+export default ActiveVacansieContainer;

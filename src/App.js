@@ -23,6 +23,7 @@ import Resumes from './pages/Resumes';
 import ActiveVacansie from './components/VacansiesList/PresentationComponents/ActiveVacansie';
 import AddVacansieContainer from './components/VacansiesList/ContainerComponents/AddVacansieContainer';
 import EditVacansieContainer from './components/VacansiesList/ContainerComponents/EditVacansieContainer';
+import ActiveVacansieContainer from './components/VacansiesList/ContainerComponents/ActiveVacansieContainer';
 
 const App = () => {
   return (
@@ -46,7 +47,7 @@ const App = () => {
                   <Route path="/vacansies/new_vacansie" element={<NewVacansieContainer />} />
                   <Route path="/vacansies/new_vacansie/create" element={<AddVacansieContainer />} />
                   <Route path="/vacansie/edit/:id" element={<EditVacansieContainer />} />
-                  <Route path="/vacansie/:id" element={<ActiveVacansie />} />
+                  <Route path="/vacansie/:id" element={<ActiveVacansieContainer />} />
                   <Route path="/resume/:id" element={<ActiveResumeContainer />} />
                   <Route path="/resume/edit/:id" element={<EditResumeContainer />} />
                   <Route path="/resumes/create_resume" element={<AddResumeContainer />} />

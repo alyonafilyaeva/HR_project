@@ -15,12 +15,12 @@ const Resume = (props) => {
                     <p className="blur">Опыт работы: {props.resume.exp_work}</p>
                     <section>{props.resume.about_me}</section>
                 </div>
-                <div className="vacansie-right">
+                {/* <div className="vacansie-right">
                     <p>Департамент</p>
                     <p className="blur">{props.resume.department}</p>
                     <p>Глава департамента</p>
-                    <p className="blur">{props.resume.headDepartment}</p>
-                </div>
+                    <p className="blur">{props.resume.user.full_name}</p>
+                </div> */}
             </div>
             </NavLink>
         )

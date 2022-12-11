@@ -1,90 +1,106 @@
-import React, { useLayoutEffect } from "react";
+import React, { useLayoutEffect, useEffect, useState, useRef } from "react";
 import "../../Styles/app.css";
 import axios from "axios";
 import AuthContext from "../../context/AuthContext";
 import { useContext } from "react";
-import { NavLink, useLocation } from "react-router-dom";
+import { Navigate, NavLink, useLocation, useNavigate } from "react-router-dom";
 
 const EditResume = (props) => {
     const location = useLocation()
-    let about = React.createRef()
-    let salary = React.createRef()
-    let exp = React.createRef()
-    let image = React.createRef()
-    let file = React.createRef()
-    let { authToken } = useContext(AuthContext)
+    let [state, setState] = useState()
+    let [salary, setSalary] = useState(0)
+    let [exp_work, setExp_Work] = useState(0)
+    let [about_me, setAbout_Me] = useState('')
+    let [image, setImage] = useState()
+    let [file, setFile] = useState()
+    let { authToken, user } = useContext(AuthContext)
+
+    const nav = useNavigate()
 
     useLayoutEffect(() => {
-        console.log(location.state.id)
         axios.get(`http://127.0.0.1:8000/api/resumes/${location.state.id}`, {
             'headers': {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${String(authToken.access)}`
             }
-        }).then(response => {
-            props.EditResume(response.data)
-            console.log(response.data)
-        })
+        }).then(response => response.data)
+            .then((response) => {
+                setState(response)
+                setAbout_Me(response.about_me)
+                setSalary(response.salary)
+                setExp_Work(response.exp_work)
+                // setImage(response.image)
+                // setFile(response.file)
+            })
     }, [])
-   
+
     let onEditRes = (e) => {
         e.preventDefault()
+
+        const formData = new FormData()
+
+        formData.append("about_me", about_me)
+        formData.append("exp_work", exp_work)
+        formData.append("salary", salary)
+        formData.append("image", image ? image : state.image)
+        formData.append("status", 'N_P')
+        formData.append("file", file ? file : state.file)
+
         axios
-        .put(`http://127.0.0.1:8000/api/resumes/${location.state.id}/`, 
-        {
-            "about_me": about.current.value,
-            "exp_work": exp.current.value,
-            "file": file.current.value,
-            "image": file.current.value,
-            "salary": salary.current.value,
-            "status": 'Y_P'
-        }, 
-        {
-            'headers': {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${String(authToken.access)}`
-            }
-        })
-        .then(response => console.log(response.data))
-        .catch(error => console.log(error.response))
+            .put(`http://127.0.0.1:8000/api/resumes/${location.state.id}/`,
+                formData,
+                {
+                    'headers': {
+                        'Authorization': `Bearer ${String(authToken.access)}`
+                    }
+                })
+            .then(response => {
+                if (response.status == 200) {
+                    nav('/resumes')
+                }
+            })
+            .catch(error => console.log(error.response))
     }
 
-    let onResChange = () => {
-        let salaryRes = salary.current.value;
-        let expRes = exp.current.value;
-        let aboutRes = about.current.value;
-        let fileRes = file.current.value;
-        let imgRes = image.current.value;
-        props.ChangeResume(salaryRes, expRes, aboutRes, fileRes, imgRes)
+    let onResChange = (e) => {
+        if (e.target.name === 'salary') {
+            setSalary(Number(e.target.value))
+        } else if (e.target.name === 'exp_work') {
+            setExp_Work(Number(e.target.value))
+        } else if (e.target.name === 'about_me') {
+            setAbout_Me(e.target.value)
+        }
+        else if (e.target.name === 'image') {
+            setImage(e.target.files[0])
+        }
+        else if (e.target.name === 'file') {
+            setFile(e.target.files[0])
+        }
     }
 
-    debugger;
     return (
         <div>
-            <NavLink to="/resumes">Назад</NavLink>
-            <form>
+            <NavLink to={`/resumes`}>Назад</NavLink>
+            <form onSubmit={onEditRes}>
                 <div>
                     <div>
-                        <h2>{location.state.user.full_name}</h2>
-                        <p>Email: {location.state.user.email}</p>
+                        <h2>{user.full_name}</h2>
+                        <p>Email: {user.email}</p>
                         <p>Мин зарплата</p>
-                        <input onChange={onResChange} type='text' name='salary' ref={salary} value={props.newResSalery} required/>
+                        <input onChange={onResChange} type='number' name='salary' value={salary} required />
                         <p>Стаж работы</p>
-                        <input onChange={onResChange} type='text' name='salary' ref={exp} value={props.newResExp} required/>
+                        <input onChange={onResChange} type='number' name='exp_work' value={exp_work} required />
                         <p>О себе</p>
-                        <textarea onChange={onResChange} type='text' name="about" ref={about} value={props.newResAbout} required/>
+                        <textarea onChange={onResChange} type='text' name="about_me" value={about_me} required />
                     </div>
                     <div>
                         <p>Загрузите изображние</p>
-                        <input type="file" name="photo" accept="image/*" ref={image} value={props.newResImg} />
+                        <input onChange={onResChange} type="file" name="image" accept="image/*" required />
                         <p>Загрузите свое резюме</p>
-                        <input type="file" name="photo" /* accept="application/pdf" */ ref={file} value={props.newResFile} />
+                        <input onChange={onResChange} type="file" name="file" accept="application/*" required />
                     </div>
                 </div>
-
-                
-                
-                <button onClick={onEditRes}>Опубликовать резюме</button>
+                <button type="submit" >Сохранить изменения</button>
             </form>
         </div>
     )

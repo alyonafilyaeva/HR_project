@@ -1,5 +1,5 @@
 import React  from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../../../Styles/app.css"
 import axios from "axios"
 import AuthContext from "../../../context/AuthContext";
@@ -12,13 +12,14 @@ const AddVacansie = (props) => {
     let text = React.createRef()
     let salary = React.createRef()
     let exp = React.createRef()
-    let { authToken } = useContext(AuthContext)
+    let { authToken, user } = useContext(AuthContext)
+    const nav = useNavigate()
 
+    console.log(user)
     let onAddVac = (e) => {
         e.preventDefault()
         setStatus('1')
-        props.AddVacansie()
-        console.log(props.vacansies)
+        props.AddVacansie(user)
 
         axios
         .post("http://127.0.0.1:8000/api/vacancies/", 
@@ -27,6 +28,34 @@ const AddVacansie = (props) => {
             "description": text.current.value,
             "exp_work": exp.current.value,
             "salary": salary.current.value,
+            "user": user,
+            "status": 'N_P'
+        }, 
+        {
+            'headers': {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${String(authToken.access)}`
+            }
+        })
+        .then(response => {
+            console.log(response.data)
+            /* nav('/vacansies') */
+            props.EditedVacansie(response.data)
+        })
+        .catch(error => console.log(error.response))
+        props.ChangeVacansie('', '', '', '')
+        
+    }
+
+    let onPubVac = () => {
+        axios
+        .post("http://127.0.0.1:8000/api/vacancies/", 
+        {
+            "title": title.current.value,
+            "description": text.current.value,
+            "exp_work": exp.current.value,
+            "salary": salary.current.value,
+            "user": user,
             "status": 'Y_P'
         }, 
         {
@@ -35,7 +64,12 @@ const AddVacansie = (props) => {
                 'Authorization': `Bearer ${String(authToken.access)}`
             }
         })
-        .then(response => console.log(response.data))
+        .then(response => {
+            console.log(response.data)
+            if (response.status === 200) {
+                nav(`/vacansies`)
+            }
+        })
         .catch(error => console.log(error.response))
     }
 
@@ -45,31 +79,33 @@ const AddVacansie = (props) => {
         let salaryVac = salary.current.value;
         let expVac = exp.current.value;
         props.ChangeVacansie(titleVac, salaryVac, expVac, textVac)
+        
     }
-    let path = `/vacansie/edit/${props.ID}`
-    console.log(props.newVacTitle)
+    let path = `/vacansie/edit/${props.editedVacansie.id}`
     return (
         <div>
-            {status === '1' && <NavLink to={path} state={props.vacansies[0]}>редактировать</NavLink>}
+            {status === '1' && <NavLink to={path} state={props.editedVacansie}>редактировать</NavLink>}
             <form>
                 <p>Название вакансии:</p>
                 {status === '0' ? <input onChange={onVacChange} type='text' name='title' ref={title} value={props.newVacTitle}/>
-                : <p>{props.vacansies[0].title}</p>} 
+                : <p>{props.editedVacansie.title}</p>} 
                 <p>департамент</p>
                 <p>из бд</p>
                 <p>Мин зарплата</p>
                 {status === '0' ? <input onChange={onVacChange} type='text' name='salary' ref={salary} value={props.newVacSalery}/> 
-                : <p>{props.vacansies[0].salary}</p>}
+                : <p>{props.editedVacansie.salary}</p>}
 
                 <p>Стаж работы</p>
                 {status === '0' ? <input onChange={onVacChange} type='text' name='salary' ref={exp} value={props.newVacExp}/>
-                : <p>{props.vacansies[0].exp_work}</p>} 
+                : <p>{props.editedVacansie.exp_work}</p>} 
 
                 <p>Описание вакансии</p>
                 {status === '0' ? <textarea onChange={onVacChange} type='text' name="text" ref={text} value={props.newVacText}/>
-                : <p>{props.vacansies[0].description}</p>} 
+                : <p>{props.editedVacansie.description}</p>} 
 
-                <button onClick={onAddVac} >Создать вакансию</button>
+                {status === '0' ? <button onClick={onAddVac}>Создать вакансию</button> :<button onClick={onPubVac}>Опубликовать вакансию</button>}
+                {/* <button onClick={onAddVac}>Опубликовать вакансию</button> */}
+                {/* <NavLink onClick={onAddVac} to={path} state={props.ID}>Создать вакансию</NavLink> */}
             </form>
         </div>
     )

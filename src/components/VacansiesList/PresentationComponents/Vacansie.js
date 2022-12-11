@@ -3,9 +3,9 @@ import { NavLink} from "react-router-dom";
 
 const Vacansie = (props) => {
     let path = `/vacansie/${props.vacansie.id}`
-    console.log(props.vacansie.id)
+    console.log(props)
     return (
-        <NavLink className="vacansie" to={path} state={props.vacansie} >
+        <NavLink  to={path} state={props.vacansie} >
         <div className="vacansie">
             <div  className="vacansie-item" >
                 <div className="vacansie-top">
@@ -20,8 +20,8 @@ const Vacansie = (props) => {
                 <p>Департамент</p>
                 <p className="blur">{props.vacansie.department}</p>
                 <p>Глава департамента</p>
-                <p className="blur">{props.vacansie.headDepartment}</p>
-                {/* <p className="blur">{props.vacansie.status}</p> */}
+                <p className="blur">{props.vacansie.user.full_name}</p>
+                <p className="blur">{props.vacansie.status}</p>
             </div>
         </div>
         </NavLink>

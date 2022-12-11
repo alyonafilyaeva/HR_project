@@ -1,9 +1,9 @@
 const ADD_VACANSIE = 'ADD-VACANSIE'
 const CHANGE_VACANSIE = 'CHANGE-VACANSIE'
 const SET_VACANSIES = 'SET-VACANSIES'
-const FILTER_VACANSIES = 'FILTER-VACANSIES'
 const SEND_VACANSIE = 'SEND-VACANSIE'
 const EDIT_VACANSIE = 'EDIT-VACANSIE'
+const EDITED_VACANSIE = 'EDITED-VACANSIE'
 const GET_ID = 'GET-ID'
 const CHANGE_SORT = 'CHANGE-SORT'
 
@@ -47,7 +47,6 @@ let initialState = {
         },
 
     ],
-    filtredVacansies: [],
     /* newVacansie: [
         {
             newVacTitle: '',
@@ -55,31 +54,27 @@ let initialState = {
             newVacExp: '',
             newVacText: ''
         }
-    ] */
+    ], */
     newVacTitle: '',
     newVacSalery: '',
     newVacExp: '',
     newVacText: '',
     ID: '',
-    activeVacTitle: '',
-    activeVacSalery: '',
-    activeVacExp: '',
-    activeVacText: '',
     sort: '',
     salary: '',
     exp: '',
-    dep: ''
+    dep: '',
+    editedVacansie: {}
 }
 const vacansiesReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_VACANSIE: {
             let newVac = {
-                id: "8",
-                date: "03.11.2022",
                 title: state.newVacTitle,
                 salary: state.newVacSalery,
                 exp_work: state.newVacExp,
                 description: state.newVacText,
+                user: action.user,
                 status: "T_W"
             }
             return {
@@ -89,9 +84,7 @@ const vacansiesReducer = (state = initialState, action) => {
                 newVacSalery: "",
                 newVacExp: "",
                 newVacText: "",
-                
             }
-
         }
         case CHANGE_VACANSIE: {
             return {
@@ -103,7 +96,7 @@ const vacansiesReducer = (state = initialState, action) => {
             }
         }
         case SET_VACANSIES:
-            debugger;
+
             return {
                 ...state,
                 vacansies: action.vacansies
@@ -113,44 +106,43 @@ const vacansiesReducer = (state = initialState, action) => {
                 ...state,
                 vacansies: action.vacansies
             }
-        case FILTER_VACANSIES:
-            return {
-                ...state,
-                vacansies: [...state.vacansies].filter((vacansie) =>
-                    vacansie.title.toLowerCase().includes(action.vacansies.toLowerCase())
-                )
-            };
         case EDIT_VACANSIE:
-            debugger
+
             return {
                 ...state,
                 newVacTitle: action.oldTitle,
                 newVacSalery: action.oldSalery,
                 newVacExp: action.oldExp,
-                newVacText: action.oldText, 
+                newVacText: action.oldText,
                 
             }
         case GET_ID:
-            debugger;
+
             return {
                 ...state,
                 ID: action.ID
             }
-            case CHANGE_SORT:
-                return {
-                    ...state,
-                    sort: action.sortValue,
-                    salary: action.salaryValue,
-                    exp: action.expValue,
-                    dep: action.depValue
-                }
+        case CHANGE_SORT:
+            return {
+                ...state,
+                sort: action.sortValue,
+                salary: action.salaryValue,
+                exp: action.expValue,
+                dep: action.depValue
+            }
+        case EDITED_VACANSIE:
+            debugger;
+            return {
+                ...state,
+                editedVacansie: action.vacansie
+            }
         default:
             return state
     }
 }
 
-export const AddVacansieActionCreator = () => {
-    return { type: ADD_VACANSIE }
+export const AddVacansieActionCreator = (user) => {
+    return { type: ADD_VACANSIE, user: user }
 }
 
 export const ChangeVacansieActionCreator = (titleVac, salaryVac, expVac, textVac) => {
@@ -165,10 +157,6 @@ export const EditVacansieActionCreator = (vacansie) => {
 export const SetVacansiesActionCreator = (vacansies) => {
     return { type: SET_VACANSIES, vacansies: vacansies }
 }
-export const FilterVacansiesActionCreator = (vacansies) => {
-    
-    return { type: FILTER_VACANSIES, vacansies: vacansies }
-}
 
 export const GetIDVacansieActionCreator = (ID) => {
     return { type: GET_ID, ID: ID }
@@ -176,6 +164,10 @@ export const GetIDVacansieActionCreator = (ID) => {
 
 export const ChangeSortActionCreator = (sortValue, salaryValue, expValue, depValue) => {
     return { type: CHANGE_SORT, sortValue, salaryValue, expValue, depValue }
+}
+
+export const EditedVacansiesActionCreator = (vacansie) => {
+    return { type: EDITED_VACANSIE, vacansie: vacansie }
 }
 
 export default vacansiesReducer;

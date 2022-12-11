@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { AddVacansieActionCreator, ChangeVacansieActionCreator, GetIDVacansieActionCreator, SendVacansieActionCreator } from "../../../redux/vacansies-reducer";
+import { AddVacansieActionCreator, ChangeVacansieActionCreator, EditedVacansiesActionCreator, GetIDVacansieActionCreator, SendVacansieActionCreator } from "../../../redux/vacansies-reducer";
 import AddVacansie from "../PresentationComponents/AddVacansie";
 
 let mapStateToProps = (state) => {
@@ -10,14 +10,15 @@ let mapStateToProps = (state) => {
         newVacTitle: state.vacansiesPage.newVacTitle,
         newVacSalery: state.vacansiesPage.newVacSalery,
         newVacExp: state.vacansiesPage.newVacExp,
-        newVacText: state.vacansiesPage.newVacText
+        newVacText: state.vacansiesPage.newVacText,
+        editedVacansie: state.vacansiesPage.editedVacansie,
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        AddVacansie: () => {
-            dispatch(AddVacansieActionCreator())
+        AddVacansie: (user) => {
+            dispatch(AddVacansieActionCreator(user))
         },
         ChangeVacansie: (titleVac, salaryVac, expVac, textVac) => {
             dispatch(ChangeVacansieActionCreator(titleVac, salaryVac, expVac, textVac))
@@ -25,7 +26,11 @@ let mapDispatchToProps = (dispatch) => {
         GetID: (ID) => {
             debugger;
             dispatch(GetIDVacansieActionCreator(ID))
-        }
+        },
+        EditedVacansie: (vacansie) => {
+            debugger;
+            dispatch(EditedVacansiesActionCreator(vacansie))
+        },
     }
 }
 

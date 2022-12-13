@@ -51,10 +51,11 @@ const AddResume = (props) => {
     debugger;
     return (
         <div>
+            <h3>Создание резюме</h3>
             <NavLink to="/resumes">Назад</NavLink>
             <form>
-                <div>
-                    <div>
+                <div className="form form_resume">
+                    <div className="field_input">
                         <p>Почта:</p>
                         {props.user.email}
                         <p>департамент</p>
@@ -66,7 +67,7 @@ const AddResume = (props) => {
                         <p>О себе</p>
                         <textarea onChange={onResChange} type='text' name="about" ref={about} value={props.newResAbout} required/>
                     </div>
-                    <div>
+                    <div className="download_fields">
                         <p>Загрузите изображние</p>
                         <input type="file" name="photo" accept="image/*" />
                         <p>Загрузите свое резюме</p>
@@ -75,7 +76,7 @@ const AddResume = (props) => {
                 </div>
 
                 
-                <button onClick={onAddRes}>Создать резюме</button>
+                <button onClick={onAddRes} className="create_resume">Создать резюме</button>
             </form>
         </div>
     )

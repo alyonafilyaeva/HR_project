@@ -44,16 +44,19 @@ const SortsVacansies = (props) => {
     }
     return (
         <div>
-            <div>
-                <input type="text" placeholder="Поиск по вакансии"></input>
-                <button className="vacansies-top__btn">Очистить</button>
-                <button onClick={onAddSort} className="vacansies-top__btn">Применить</button>
+            <div className='search text-field__icon text-field__icon_search'>
+                <input type="text" placeholder="Поиск по резюме"></input>
+                <div className='sorts_btns'>
+                <button className="sorts-top_btn clear">Очистить</button>
+                <button onClick={onAddSort} className="sorts-top_btn apply">Применить</button>
+                </div>
+                
             </div>
             <div className="sorts">
-                <input placeholder="Сортировать" onChange={onSortsChange} type='text' name='sort' ref={sort} value={props.vacansiesPage.sort}></input>
-                <input placeholder="Зарплата от" onChange={onSortsChange} type='text' name='salary' ref={salary} value={props.vacansiesPage.salary}></input>
-                <input placeholder="Опыт работы от" onChange={onSortsChange} type='text' name='exp' ref={exp} value={props.vacansiesPage.exp}></input>
-                <input placeholder="Департамент" onChange={onSortsChange} type='text' name='dep' ref={dep} value={props.vacansiesPage.dep}></input>
+                <input className="parametr" placeholder="Сортировать" onChange={onSortsChange} type='text' name='sort' ref={sort} value={props.vacansiesPage.sort}></input>
+                <input className="parametr" placeholder="Зарплата от" onChange={onSortsChange} type='number' name='salary' ref={salary} value={props.vacansiesPage.salary}></input>
+                <input className="parametr" placeholder="Опыт работы от" onChange={onSortsChange} type='number' name='exp' ref={exp} value={props.vacansiesPage.exp}></input>
+                <input className="parametr" placeholder="Департамент" onChange={onSortsChange}  name='dep' ref={dep} value={props.vacansiesPage.dep}></input>
             </div>
         </div>
 

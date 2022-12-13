@@ -1,0 +1,8 @@
+.sidebar li{
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #E58025;
+    border-radius: 12px;
+    width: 100px;
+    list-style-type: none;
+}

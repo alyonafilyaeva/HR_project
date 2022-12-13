@@ -6,7 +6,7 @@ const Resume = (props) => {
         return(
             <NavLink to={path} state={props.resume} >
             <div className="vacansie">
-                <div className="vacansie-item">
+                <div className="resume-item">
                     <div className="vacansie-top">
                         <h2>{props.resume.user.full_name}</h2>
                         <p className="blur">{props.resume.data_updated}</p>

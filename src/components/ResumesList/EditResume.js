@@ -79,10 +79,11 @@ const EditResume = (props) => {
     }
 
     return (
-        <div>
+        <div className="container">
             <NavLink to={`/resumes`}>Назад</NavLink>
+            <div>
             <form onSubmit={onEditRes}>
-                <div>
+                <div className="form form_resume">
                     <div>
                         <h2>{user.full_name}</h2>
                         <p>Email: {user.email}</p>
@@ -102,6 +103,8 @@ const EditResume = (props) => {
                 </div>
                 <button type="submit" >Сохранить изменения</button>
             </form>
+            </div>
+            
         </div>
     )
 }

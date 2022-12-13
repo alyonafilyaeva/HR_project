@@ -4,7 +4,7 @@ import AddVacansieContainer from "../ContainerComponents/AddVacansieContainer";
 
 const newVacansie = (props) => {
     return(
-        <div>
+        <div className="container">
             <p>progressbar</p>
             <NavLink to="/vacansies">Назад</NavLink>
             <AddVacansieContainer />

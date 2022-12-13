@@ -9,28 +9,30 @@ import SortsResumesContainer from "../components/ResumesList/SortsResumesContain
 function Resumes(props) {
     const [status, setStatus] = React.useState('all')
     let { user } = useContext(AuthContext)
-        return (
-            <div className="vacancies">
-                <p>Резюме</p>
-                {user.is_header_dep && <SortsResumesContainer />}
-                <div className="vacansies-top">
-                    <div className="vacansies-top__all">
-                        <h2 onClick={() => {setStatus('all')}} className={`${status === 'all' && 'active'}`  }>Резюме</h2>
+    return (
+        <div className="container">
+            {user.is_header_dep && <SortsResumesContainer />}
+            <div className="vacansies-top">
+                <div className="vacansies_name_list">
+                    <div className="list all">
+                        <h2 onClick={() => { setStatus('all') }} className={`${status === 'all' && 'clicked'}`}>Резюме</h2>
                     </div>
-                    <div className="vacansies-top__my">
-                        <h2 onClick={() => {setStatus('my')}} className={`${status === 'my' && 'active'}`  }>
+                    <div className="list my">
+                        <h2 onClick={() => { setStatus('my') }} className={`${status === 'my' && 'clicked'}`}>
                             {user.is_header_dep ? 'Мое резюме' : ''}
                         </h2>
                     </div>
-                    <div>
-                        <NavLink to="/resumes/create_resume" className="vacansies-top__btn">Создать резюме </NavLink>
-                    </div>
                 </div>
-                    <div className="vacansies-list">
-                        {status === 'all' ? <ResumesListAllContainer /> : <ResumesListMy />}
-                    </div>
+
+                <div>
+                    <NavLink to="/resumes/create_resume" className="vacansies-top__btn">Создать резюме </NavLink>
+                </div>
             </div>
-        )
-} 
+            <div className="vacansies-list">
+                {status === 'all' ? <ResumesListAllContainer /> : <ResumesListMy />}
+            </div>
+        </div>
+    )
+}
 
 export default Resumes;

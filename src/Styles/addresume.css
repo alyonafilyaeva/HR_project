@@ -1,0 +1,70 @@
+.form_resume {
+    /* column-count: 2; */
+    display: flex;
+    line-height: 30px;
+    width: 70%;
+    position: relative;
+    flex-direction: row;
+    padding: 20px 40px;
+}
+
+.form_resume input[type=text]  {
+    height: 10px;
+    border: 1px solid #CFD3D5;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 90%;
+}
+
+input[type=file]{
+    padding: 100px;
+    width: 375px;
+    height: 10px;
+    /* border: 1px dashed #CFD3D5; */
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+input[accept]{
+    padding: 11px 24px;
+    width: 375px;
+    height: 80px;
+    border: 1px dashed #CFD3D5;
+    border-radius: 8px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #E58025;
+}
+
+.create_resume{
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 24px;
+    width: 178px;
+    height: 47px;
+    background: #E58025;
+    border: 1px solid #E58025;
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+    margin-top: 20px;
+    left: 80%;
+    top: 80%
+}
+.create_resume {
+    width: 15%;
+    padding: 11px 20px;
+    background: #E68025;
+    border: 1px solid #E58025;
+    box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.3);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.download_fields {
+    padding-top: 10% 0 0 10% ;
+}

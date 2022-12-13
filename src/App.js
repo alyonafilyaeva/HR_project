@@ -31,7 +31,7 @@ const App = () => {
       <Router>
         <AuthProvider>
           <Header />
-          <div className='container'>
+          <div className='app_container'>
             <Sidebar />
             <div>
               <AuthPage />
@@ -45,7 +45,7 @@ const App = () => {
                   <Route path="/resumes" element={<Resumes />} />
                   <Route path="/request" element={<MyRequest />} />
                   <Route path="/vacansies/new_vacansie" element={<NewVacansieContainer />} />
-                  <Route path="/vacansies/new_vacansie/create" element={<AddVacansieContainer />} />
+                  <Route path="/vacansies/create_vacansie" element={<AddVacansieContainer />} />
                   <Route path="/vacansie/edit/:id" element={<EditVacansieContainer />} />
                   <Route path="/vacansie/:id" element={<ActiveVacansieContainer />} />
                   <Route path="/resume/:id" element={<ActiveResumeContainer />} />

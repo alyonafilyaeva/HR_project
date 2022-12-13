@@ -78,22 +78,26 @@ const EditVacansie = (props) => {
     }
 
     return (
-        <div>
-            <form>
-                <p>Название вакансии:</p>
-                <input onChange={onVacChange} type='text' name='title' value={title} />
-                <p>департамент</p>
-                <p>{location.state.department}</p>
-                <p>Мин зарплата</p>
-                <input onChange={onVacChange} type='number' name='salary' value={salary} />
-                <p>Стаж работы</p>
-                <input onChange={onVacChange} type='number' name='exp' value={exp} />
+        <div className="container">
+            <h3>Редактировать вакансию</h3>
+            <div className="form form_vacansie">
+                <form>
+                    <p>Название вакансии:</p>
+                    <input onChange={onVacChange} type='text' name='title' value={title} />
+                    <p>департамент</p>
+                    <p>{location.state.department}</p>
+                    <p>Мин зарплата</p>
+                    <input onChange={onVacChange} type='number' name='salary' value={salary} />
+                    <p>Стаж работы</p>
+                    <input onChange={onVacChange} type='number' name='exp' value={exp} />
 
-                <p>Описание вакансии</p>
-                <textarea onChange={onVacChange} type='text' name="text" value={text} />
+                    <p>Описание вакансии</p>
+                    <textarea onChange={onVacChange} type='text' name="text" value={text} />
 
-                <NavLink to={path} state={location.state} onClick={onEditVac} >Сохранить</NavLink>
-            </form>
+                    <NavLink to={path} state={location.state} onClick={onEditVac} >Сохранить</NavLink>
+                </form>
+            </div>
+
         </div>
     )
 }

@@ -16,10 +16,10 @@ const ActiveVacansie = (props) => {
                 {(location.state.user.id == user.id && location.state.status !== 'Y_P') && <NavLink to={path} state={location.state}>Редактировать</NavLink>}
                 <div >
                     <h2>{location.state.title}</h2>
-                    <p className="blur">{location.state.department}</p>
+                    <p>Департамент: {location.state.department}</p>
                 </div>
-                <p className="blur">{location.state.salary}</p>
-                <p className="blur">Опыт работы: {location.state.exp_work}</p>
+                <p>Минимальная зарплата: {location.state.salary}</p>
+                <p>Стаж работы: {location.state.exp_work}</p>
                 <section>{location.state.description}</section>
                 {(location.state.user.id !== user.id) && <button>Отправить заявку</button>}
                 {(location.state.user.id === user.id && location.state.status !== 'Y_P') && <button>Опубликовать</button>}

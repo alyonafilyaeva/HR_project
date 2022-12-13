@@ -81,19 +81,21 @@ const SortsVacansies = (props) => {
     }
     return (
         <div>
-            <div>
+            <div className='search text-field__icon text-field__icon_search'>
                 <input onChange={onSortsChange} name='search' value={search} type="text" placeholder="Поиск по вакансии"></input>
-                <button onClick={onDeleteSort} className="vacansies-top__btn">Очистить</button>
-                <button onClick={onAddSort} className="vacansies-top__btn">Применить</button>
+                <div className='sorts_btns'>
+                    <button onClick={onDeleteSort} className="sorts-top_btn clear">Очистить</button>
+                    <button onClick={onAddSort} className="sorts-top_btn apply">Применить</button>
+                </div>
             </div>
             <div className="sorts">
-                <select placeholder="Сортировать" onChange={onSortsChange} type='text' name='sort' value={sort}>
+                <select className='parametr' placeholder="Сортировать" onChange={onSortsChange} type='text' name='sort' value={sort}>
                     <option value='-data_updated'>Сначала новые</option>
                     <option value='data_updated'>Сначала старые</option>
                 </select>
-                <input placeholder="Зарплата от" onChange={onSortsChange} type='number' name='salary' value={salary}></input>
-                <input placeholder="Опыт работы от" onChange={onSortsChange} type='number' name='exp_work' value={exp_work}></input>
-                <select placeholder="Департамент" onChange={onSortsChange} name='dep' value={dep}>
+                <input className='parametr' placeholder="Зарплата от" onChange={onSortsChange} type='number' name='salary' value={salary}></input>
+                <input className='parametr' placeholder="Опыт работы от" onChange={onSortsChange} type='number' name='exp_work' value={exp_work}></input>
+                <select className='parametr last' placeholder="Департамент" onChange={onSortsChange} name='dep' value={dep}>
                     <option value=''></option>
                     {departments.map(department =>
                         <option value={department.id}>{department.name}</option>

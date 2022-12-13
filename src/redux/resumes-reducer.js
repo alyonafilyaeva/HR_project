@@ -30,7 +30,7 @@ let initialState = {
             newResAbout: ''
         }
     ] */
-    newResSalery: '0',
+    newResSalery: '',
     newResExp: '',
     newResAbout: '',
     newResFile: null,

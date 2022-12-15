@@ -24,11 +24,9 @@ let mapDispatchToProps = (dispatch) => {
             dispatch(ChangeVacansieActionCreator(titleVac, salaryVac, expVac, textVac))
         },
         GetID: (ID) => {
-            debugger;
             dispatch(GetIDVacansieActionCreator(ID))
         },
         EditedVacansie: (vacansie) => {
-            debugger;
             dispatch(EditedVacansiesActionCreator(vacansie))
         },
     }

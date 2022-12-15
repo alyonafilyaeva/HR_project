@@ -12,7 +12,6 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         setUser: (user) => {
-            debugger;
             dispatch(SetProfileActionCreator(user))
         }
     }

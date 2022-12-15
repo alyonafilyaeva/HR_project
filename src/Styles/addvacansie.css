@@ -1,6 +1,6 @@
 .form{
     padding: 20px 40px;
-    
+    margin: 20px 0;
     width: 110%;
     /* height: 400px; */
     line-height: 28px;
@@ -11,14 +11,35 @@
     position: relative;
 }
 
-h3 {
-    color:  #E58025
+/* .form_item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+} */
+
+.back {
+    margin: 100px 0;
+    color:  #E58025;
 }
 
-input[type=text]  {
+h3 {
+    color:  #E58025;
+    margin-bottom: 20px;
+}
+
+input[type=text]   {
     /* width: 100%; */
-    
+    padding: 10px 5px;
     height: 10px;
+    border: 1px solid #CFD3D5;
+    border-radius: 8px;
+    font-size: 14px;
+}
+ .search input{
+    padding-left: 10px;
+}
+input[type=number] {
+    padding: 5px;
     border: 1px solid #CFD3D5;
     border-radius: 8px;
     font-size: 14px;
@@ -31,12 +52,12 @@ input[type=text]  {
     align-items: center;
     /* padding: ; */
     position: absolute;
-    width: 178px;
-    height: 47px;
+    width: 140px;
+    height: 42px;
     left: 110%;
     top: 110%;
-    background: #E58025;
-    border: 1px solid #E58025;
+    /* background: #E58025;
+    border: 1px solid #E58025; */
     border-radius: 12px;
     color: white;
     font-size: 14px;
@@ -44,13 +65,46 @@ input[type=text]  {
 
 .create_vacancy {
     width: 40%;
-    padding: 11px 20px;
-    background: #E68025;
-    border: 1px solid #E58025;
+    padding: 11px 15px;
+    
     box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.3);
     border-radius: 12px;
     font-weight: 600;
     font-size: 14px;
     color: #FFFFFF;
     cursor: pointer;
+}
+
+.active_block_item {
+    margin: 10px 0;
+}
+
+.orange {
+    /* width: 40%; */
+    padding: 9px 15px;
+    box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.3);
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #FFFFFF;
+    cursor: pointer;
+    background: #E68025;
+    border: 1px solid #E58025;
+}
+
+.active_block {
+    width: 90%;
+    margin: 20px 0;
+}
+
+textarea {
+    display: block;
+    /* height: 100%; */
+    padding: 5px ;
+}
+
+.save {
+    position: absolute;
+    top: 110%;
+    left: 70%
 }

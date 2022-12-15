@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import VacansiesListAllContainer from '../components/VacansiesList/ContainerComponents/VacansiesListAllContainer'
 import "../Styles/app.css"
 import { NavLink } from "react-router-dom";
@@ -7,7 +7,7 @@ import SortsVacansiesContainer from '../components/VacansiesList/ContainerCompon
 import VacansiesListMyContainer from '../components/VacansiesList/ContainerComponents/VacansiesListMyContainer'
 
 function Vacansies() {
-    const [status, setStatus] = React.useState('all')
+    const [status, setStatus] = useState('all')
     let { user } = useContext(AuthContext)
     let [vacancies, setVac] = useState(<VacansiesListAllContainer />)
 
@@ -25,7 +25,7 @@ function Vacansies() {
                         </div>}
                 </div>
                 {user.is_header_dep && <div>
-                    <NavLink to="/vacansies/create_vacansie" className="vacansies-top__btn">Создать вакансию </NavLink>
+                    <NavLink to="/vacansies/create_vacansie/" className="orange">Создать вакансию </NavLink>
                 </div>}
             </div>
             <div className="vacansies-list" value={vacancies}>

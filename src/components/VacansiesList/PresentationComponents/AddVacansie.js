@@ -18,7 +18,7 @@ const AddVacansie = (props) => {
     console.log(user)
     let onAddVac = (e) => {
         e.preventDefault()
-        setStatus('1')
+        /* setStatus('1') */
         props.AddVacansie(user)
 
         axios
@@ -39,7 +39,12 @@ const AddVacansie = (props) => {
                 })
             .then(response => {
                 console.log(response.data)
-                /* nav('/vacansies') */
+                if (response.status === 201) {
+                    nav(`/vacansie/${response.data.id}`, {
+                        state: response.data
+                    })
+                }
+
                 props.EditedVacansie(response.data)
             })
             .catch(error => console.log(error.response))
@@ -65,11 +70,9 @@ const AddVacansie = (props) => {
                     }
                 })
             .then(response => {
+                console.log(response.data)
                 if (response.status === 200) {
-                    console.log(response.data)
-                    nav(`/vacansie/${response.data.id}`, {
-                        state: response.data
-                    })
+                    nav(`/vacansies`)
                 }
             })
             .catch(error => console.log(error.response))
@@ -87,33 +90,30 @@ const AddVacansie = (props) => {
     return (
         <div className="container">
             <h3>Создание вакансии</h3>
-            <NavLink to="/vacansies">Назад</NavLink>
+            <NavLink to="/vacansies" className="back">Назад</NavLink>
             <div className="form form_vacansie">
-                {status === '1' && <NavLink to={path} state={props.editedVacansie}>редактировать</NavLink>}
                 <form>
-                    <div>
-                        <p>Название вакансии:</p>
-                        {status === '0' ? <input onChange={onVacChange} type='text' name='title' ref={title} value={props.newVacTitle} />
-                            : <p>{props.editedVacansie.title}</p>}
-                        <p>департамент</p>
-                        <p>из бд</p>
-                        <p>Мин зарплата</p>
-                        {status === '0' ? <input onChange={onVacChange} type='text' name='salary' ref={salary} value={props.newVacSalery} />
-                            : <p>{props.editedVacansie.salary}</p>}
-
-                        <p>Стаж работы</p>
-                        {status === '0' ? <input onChange={onVacChange} type='text' name='salary' ref={exp} value={props.newVacExp} />
-                            : <p>{props.editedVacansie.exp_work}</p>}
-
-                        <p>Описание вакансии</p>
-                        {status === '0' ? <textarea onChange={onVacChange} type='text' name="text" ref={text} value={props.newVacText} />
-                            : <p>{props.editedVacansie.description}</p>}
-
-                        {status === '0' ? <button onClick={onAddVac} className="create_vacancy">Создать вакансию</button> : <button onClick={onPubVac} className="create_vacancy">Опубликовать вакансию</button>}
-                        {/* <button onClick={onAddVac}>Опубликовать вакансию</button> */}
-                        {/* <NavLink onClick={onAddVac} to={path} state={props.ID}>Создать вакансию</NavLink> */}
-                    </div>
-
+                        <div className="form_item">
+                            <p>Название вакансии:</p>
+                            <input onChange={onVacChange} type='text' name='title' ref={title} value={props.newVacTitle} />
+                        </div>
+                        <div className="form_item">
+                            
+                            <p>Департамент: {user.department}</p>
+                        </div>
+                        <div className="form_item">
+                            <p>Минимальная зарплата:</p>
+                            <input onChange={onVacChange} type='number' name='salary' ref={salary} value={props.newVacSalery} />
+                        </div>
+                        <div className="form_item">
+                            <p>Стаж работы:</p>
+                            <input onChange={onVacChange} type='number' name='salary' ref={exp} value={props.newVacExp} />
+                        </div>
+                        <div className="form_item">
+                            <p>Описание вакансии</p>
+                            <textarea onChange={onVacChange} type='text' name="text" ref={text} value={props.newVacText} />
+                        </div>
+                        <button onClick={onAddVac} className="btn orange create_vacancy">Создать вакансию</button>
                 </form>
             </div>
         </div>

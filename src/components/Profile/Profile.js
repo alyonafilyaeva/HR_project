@@ -5,7 +5,6 @@ import AuthContext from "../../context/AuthContext";
 import axios from "axios"
 
 function Profile(props) {
-    console.log(props)
     let { authToken } = useContext(AuthContext)
     
     useLayoutEffect(() => {

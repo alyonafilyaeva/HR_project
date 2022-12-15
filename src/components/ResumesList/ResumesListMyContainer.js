@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import ResumesListAll from "./ResumesListAll"
+import ResumesListMy from "./ResumesListMy";
 import { SetResumesActionCreator } from "../../redux/resumes-reducer";
 
 let mapStateToProps = (state) => {
@@ -18,6 +18,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-let ResumesListAllContainer = connect(mapStateToProps, mapDispatchToProps) (ResumesListAll);
+let ResumesListMyContainer = connect(mapStateToProps, mapDispatchToProps) (ResumesListMy);
 
-export default ResumesListAllContainer;
+export default ResumesListMyContainer;

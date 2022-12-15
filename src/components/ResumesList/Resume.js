@@ -11,7 +11,7 @@ const Resume = (props) => {
                         <h2>{props.resume.user.full_name}</h2>
                         <p className="blur">{props.resume.data_updated}</p>
                     </div>
-                    <p className="blur">{props.resume.salary}</p>
+                    <p className="blur">{props.resume.salary} руб</p>
                     <p className="blur">Опыт работы: {props.resume.exp_work}</p>
                     <section>{props.resume.about_me}</section>
                 </div>

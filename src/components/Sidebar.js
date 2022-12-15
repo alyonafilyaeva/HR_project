@@ -8,7 +8,6 @@ const Sidebar = (props) => {
         display: 'none'
     }
     let { user } = useContext(AuthContext)
-    console.log(user)
     return (
         user ?
             <div className="sidebar">

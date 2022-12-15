@@ -6,10 +6,19 @@
 
 .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    background-color: #fff;
+    margin-bottom: 20px;
+    background-color: #E68025;
+    box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.3);
+    opacity: .8;
 }
 
 .info {
     display: flex;
     flex-direction: row;
+}
+
+h4 {
+    color: #fff;
 }

@@ -12,7 +12,6 @@ const Header = () => {
     return (
         user ?
             <div className="header">
-                ЗДЕСЬ БУДЕТ HEADER
                 {/* <NavLink to="/profile" >О себе</NavLink> */}
                 <ProfileHeaderContainer />
             </div>

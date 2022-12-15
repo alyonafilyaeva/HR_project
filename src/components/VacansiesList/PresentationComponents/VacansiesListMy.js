@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useLayoutEffect } from "react";
-import { Component } from "react";
+import React, { useContext, useLayoutEffect } from "react";
 import Vacansie from "./Vacansie";
 import axios from "axios"
 import AuthContext from "../../../context/AuthContext";
 
 function VacansiesListMy(props) {
     let { authToken } = useContext(AuthContext)
+    
     useLayoutEffect(() => {
         axios({
             method: "get",
@@ -18,13 +18,14 @@ function VacansiesListMy(props) {
             }
         })
             .then(response => {
-                console.log(response.data)
                 props.setVacansies(response.data)
             })
     }, [])
+
     const vacansieElements = props.vacansiesPage.vacansies.map(vacansie =>
         <Vacansie vacansie={vacansie} />
     )
+
     return (
         <ul className="vacansiesList">
             {vacansieElements}

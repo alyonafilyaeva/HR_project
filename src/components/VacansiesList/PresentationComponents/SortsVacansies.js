@@ -45,7 +45,6 @@ const SortsVacansies = (props) => {
     }, [])
 
     let onSortsChange = (e) => {
-        console.log(e.target.name, e.target.value)
         if (e.target.name === 'salary') {
             setSalary(Number(e.target.value))
         } else if (e.target.name === 'exp_work') {
@@ -82,10 +81,10 @@ const SortsVacansies = (props) => {
     return (
         <div>
             <div className='search text-field__icon text-field__icon_search'>
-                <input onChange={onSortsChange} name='search' value={search} type="text" placeholder="Поиск по вакансии"></input>
+                <input onChange={onSortsChange} name='search' value={search} type="text" placeholder="Поиск по вакансии" className='search'></input>
                 <div className='sorts_btns'>
-                    <button onClick={onDeleteSort} className="sorts-top_btn clear">Очистить</button>
-                    <button onClick={onAddSort} className="sorts-top_btn apply">Применить</button>
+                    <button onClick={onDeleteSort} className="sorts-top_btn grey">Очистить</button>
+                    <button onClick={onAddSort} className="sorts-top_btn orange">Применить</button>
                 </div>
             </div>
             <div className="sorts">

@@ -1,8 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import VacansiesListAll from "../PresentationComponents/VacansiesListAll"
-import { SetVacansiesActionCreator } from "../../../redux/vacansies-reducer";
 import VacansiesListMy from "../PresentationComponents/VacansiesListMy";
+import { SetVacansiesActionCreator } from "../../../redux/vacansies-reducer";
 
 let mapStateToProps = (state) => {
     return {
@@ -14,12 +13,10 @@ let mapStateToProps = (state) => {
 let mapDispatchToProps = (dispatch) => {
     return {
         setVacansies: (vacansies) => {
-            debugger;
             dispatch(SetVacansiesActionCreator(vacansies))
         }
     }
 }
-debugger;
 
 let VacansiesListMyContainer = connect(mapStateToProps, mapDispatchToProps) (VacansiesListMy);
 

@@ -131,7 +131,6 @@ const vacansiesReducer = (state = initialState, action) => {
                 dep: action.depValue
             }
         case EDITED_VACANSIE:
-            debugger;
             return {
                 ...state,
                 editedVacansie: action.vacansie
@@ -150,7 +149,6 @@ export const ChangeVacansieActionCreator = (titleVac, salaryVac, expVac, textVac
 }
 
 export const EditVacansieActionCreator = (vacansie) => {
-    debugger
     return { type: EDIT_VACANSIE, oldTitle: vacansie.title, oldSalery: vacansie.salary, oldExp: vacansie.exp_work, oldText: vacansie.description }
 }
 

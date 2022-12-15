@@ -1,27 +1,23 @@
 import React from "react";
 import { connect } from "react-redux";
-import { SetVacansiesActionCreator } from "../../redux/vacansies-reducer";
+import { SetResumesActionCreator } from "../../redux/resumes-reducer";
 import { ChangeSortActionCreator } from "../../redux/vacansies-sorts-reducer";
 import SortsResumes from "./SortsResumes";
 
 let mapStateToProps = (state) => {
     return {
-        vacansiesPage: state.vacansiesPage,
+        resumesPage: state.resumesPage,
     }
 }
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        setVacansies: (vacansies) => {
-            debugger;
-            dispatch(SetVacansiesActionCreator(vacansies))
-        },
-        changeSorts: (sortValue, salaryValue, expValue, depValue) => {
-            dispatch(ChangeSortActionCreator(sortValue, salaryValue, expValue, depValue))
+        setResumes: (resumes) => {
+            dispatch(SetResumesActionCreator(resumes))
         }
     }
 }
 
-let SortsResumesContainer = connect(mapStateToProps, mapDispatchToProps) (SortsResumes);
+let SortsResumesContainer = connect(mapStateToProps, mapDispatchToProps)(SortsResumes);
 
 export default SortsResumesContainer;

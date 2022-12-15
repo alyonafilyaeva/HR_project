@@ -30,7 +30,7 @@ let initialState = {
             newResAbout: ''
         }
     ] */
-    newResSalery: '',
+    newResSalery: '0',
     newResExp: '',
     newResAbout: '',
     newResFile: null,
@@ -65,13 +65,11 @@ const resumesReducer = (state = initialState, action) => {
             };
         }
         case SET_RESUMES:
-            debugger;
             return {
                 ...state,
                 resumes: action.resumes
             }
         case EDIT_RESUME:
-            debugger
             return {
                 ...state,
                 newResSalery: action.oldSalery,
@@ -82,7 +80,6 @@ const resumesReducer = (state = initialState, action) => {
 
             }
         case GET_ID:
-            debugger;
             return {
                 ...state,
                 ID: action.ID

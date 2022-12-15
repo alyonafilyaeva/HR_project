@@ -6,7 +6,6 @@ import "./Styles/app.css"
 import AddResumeContainer from "./components/ResumesList/AddResumeContainer";
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
-import NewVacansieContainer from './components/VacansiesList/ContainerComponents/NewVacansieContainer';
 import { AuthProvider } from './context/AuthContext';
 import LoginPage from './pages/LoginPage';
 import ProfileContainer from './components/Profile/ProfileContainer';
@@ -44,7 +43,6 @@ const App = () => {
                   <Route path="/vacansies/my" element={<VacansiesListMyContainer />} />
                   <Route path="/resumes" element={<Resumes />} />
                   <Route path="/request" element={<MyRequest />} />
-                  <Route path="/vacansies/new_vacansie" element={<NewVacansieContainer />} />
                   <Route path="/vacansies/create_vacansie" element={<AddVacansieContainer />} />
                   <Route path="/vacansie/edit/:id" element={<EditVacansieContainer />} />
                   <Route path="/vacansie/:id" element={<ActiveVacansieContainer />} />

@@ -38,21 +38,11 @@ input[accept]{
 
 .create_resume{
     position: absolute;
-    justify-content: center;
-    align-items: center;
-    padding: 15px 24px;
-    width: 178px;
-    height: 47px;
-    background: #E58025;
-    border: 1px solid #E58025;
-    border-radius: 12px;
-    color: white;
-    font-size: 14px;
-    margin-top: 20px;
+
     left: 80%;
     top: 80%
 }
-.create_resume {
+/* .create_resume {
     width: 15%;
     padding: 11px 20px;
     background: #E68025;
@@ -63,8 +53,19 @@ input[accept]{
     font-size: 14px;
     color: #FFFFFF;
     cursor: pointer;
-}
+} */
 
 .download_fields {
     padding-top: 10% 0 0 10% ;
+}
+
+.photo {
+    width: 200px;
+    height: 250px;
+}
+
+.resume {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

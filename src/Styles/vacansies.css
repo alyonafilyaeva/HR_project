@@ -48,7 +48,8 @@ input[type=text], textarea {
 
 .parametr{
     width: 210px;
-    height: 35px;
+    /* height: 35px; */
+    padding: 10px 0;
     border: 1px solid #CFD3D5;
     border-radius: 8px;
     text-align: center;
@@ -101,15 +102,15 @@ input[type=text], textarea {
     color: #ABAFB1;
     font-size: 14px;
 }
-/* .btn_sorts{
+.btn_sorts{
     width: 20%;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
-    gap: 30px;
-} */
+    /* gap: 30px; */
+}
 
- .apply, .vacansies-top__btn{
+/*  .apply{
     width: 60%;
     padding: 11px 36px;
     background: #E68025;
@@ -120,10 +121,11 @@ input[type=text], textarea {
     font-size: 14px;
     color: #FFFFFF;
     cursor: pointer;
-}
+} */
 
-.clear{
-    padding: 11px 24px;
+
+.grey{
+    padding: 10px 20px;
     width: 100%;
     margin-right: 10%;
     border: 1px solid #E58025;
@@ -132,6 +134,11 @@ input[type=text], textarea {
     font-size: 14px;
     color: #E58025;
     cursor: pointer;
+}
+
+.edit {
+    margin-left: 20px;
+    margin-bottom: 20px;
 }
 
 .text-field__icon {
@@ -147,8 +154,10 @@ input[type=text], textarea {
     left: 0.625rem;
     top: 50%;
     transform: translateY(-50%);
+    margin-right: 10px;
 }
 .text-field__icon .text-field__input {
+    margin-right: 10px;
     padding-left: 2rem;
 }
 
@@ -157,4 +166,5 @@ input[type=text], textarea {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23bdbdbd' viewBox='0 0 16 16'%3E%3Cpath d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'%3E%3C/path%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: center;
+    margin-right: 10px;
 }

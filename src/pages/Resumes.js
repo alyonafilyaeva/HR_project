@@ -1,14 +1,15 @@
-import React, { useContext } from "react";
-import "../Styles/app.css"
-import ResumesListMy from "../components/ResumesList/ResumesListMy";
+import { useContext, useState } from "react";
 import ResumesListAllContainer from "../components/ResumesList/ResumesListAllContainer";
+import "../Styles/app.css"
 import { NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import SortsResumesContainer from "../components/ResumesList/SortsResumesContainer";
+import ResumesListMyContainer from '../components/ResumesList/ResumesListMyContainer'
 
 function Resumes(props) {
-    const [status, setStatus] = React.useState('all')
+    const [status, setStatus] = useState('all')
     let { user } = useContext(AuthContext)
+    let [resumes, setRes] = useState(<ResumesListAllContainer />)
     return (
         <div className="container">
             {user.is_header_dep && <SortsResumesContainer />}
@@ -25,11 +26,11 @@ function Resumes(props) {
                 </div>
 
                 <div>
-                    <NavLink to="/resumes/create_resume" className="vacansies-top__btn">Создать резюме </NavLink>
+                    <NavLink to="/resumes/create_resume" className="orange">Создать резюме </NavLink>
                 </div>
             </div>
             <div className="vacansies-list">
-                {status === 'all' ? <ResumesListAllContainer /> : <ResumesListMy />}
+                {status === 'all' ? <ResumesListAllContainer /> : <ResumesListMyContainer />}
             </div>
         </div>
     )

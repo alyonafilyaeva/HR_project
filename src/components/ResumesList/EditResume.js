@@ -18,12 +18,17 @@ const EditResume = (props) => {
     const nav = useNavigate()
 
     useLayoutEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/resumes/${location.state.id}`, {
-            'headers': {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${String(authToken.access)}`
-            }
-        }).then(response => response.data)
+        axios({
+            method: "get",
+            url: `http://127.0.0.1:8000/api/resumes/${location.state.id}/`,
+            headers: {
+                Authorization: `Bearer ${String(authToken.access)}`,
+            },
+            params: {
+                status: 'my',
+            },
+        })
+        .then(response => response.data)
             .then((response) => {
                 setState(response)
                 setAbout_Me(response.about_me)
@@ -45,18 +50,30 @@ const EditResume = (props) => {
         formData.append("image", image ? image : state.image)
         formData.append("status", 'N_P')
         formData.append("file", file ? file : state.file)
-
-        axios
+        axios({
+            method: "put",
+            url: `http://127.0.0.1:8000/api/resumes/${location.state.id}/`,
+            headers: {
+                Authorization: `Bearer ${String(authToken.access)}`,
+            },
+            params: {
+                status: 'my',
+            },
+            data: formData
+        })
+        /* axios
             .put(`http://127.0.0.1:8000/api/resumes/${location.state.id}/`,
                 formData,
                 {
                     'headers': {
                         'Authorization': `Bearer ${String(authToken.access)}`
                     }
-                })
+                }) */
             .then(response => {
                 if (response.status == 200) {
-                    nav('/resumes')
+                    nav(`/resume/${location.state.id}`,{
+                        state: response.data
+                    })
                 }
             })
             .catch(error => console.log(error.response))
@@ -80,14 +97,16 @@ const EditResume = (props) => {
 
     return (
         <div className="container">
-            <NavLink to={`/resumes`}>Назад</NavLink>
+            <h3>Редактирование резюме</h3>
+            <NavLink to={`/resumes`} className='back'>Назад</NavLink>
             <div>
             <form onSubmit={onEditRes}>
                 <div className="form form_resume">
                     <div>
                         <h2>{user.full_name}</h2>
                         <p>Email: {user.email}</p>
-                        <p>Мин зарплата</p>
+                        <p>Департамент: {props.user.department}</p>
+                        <p>Желаемая зарплата</p>
                         <input onChange={onResChange} type='number' name='salary' value={salary} required />
                         <p>Стаж работы</p>
                         <input onChange={onResChange} type='number' name='exp_work' value={exp_work} required />
@@ -101,7 +120,7 @@ const EditResume = (props) => {
                         <input onChange={onResChange} type="file" name="file" accept="application/*" required />
                     </div>
                 </div>
-                <button type="submit" >Сохранить изменения</button>
+                <button type="submit" className="orange ">Сохранить изменения</button>
             </form>
             </div>
             

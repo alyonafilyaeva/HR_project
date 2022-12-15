@@ -13,7 +13,6 @@ function MyRequest() {
             }
 
         }).then(response => {
-            debugger;
            /*  for (let i = 0; i < response.data.length; i++) {
                 props.setVacansies(response.data[i]);
             } */

@@ -1,26 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
+import AuthContext from "../../context/AuthContext";
 import { NavLink, useLocation } from "react-router-dom";
 
 const ActiveResume = (props) => {
-    debugger;
+    let { user } = useContext(AuthContext)
     const location = useLocation();
-    console.log(location.state)
     let path = `/resume/edit/${location.state.id}`
     return (
         <div  >
+            <NavLink to="/resumes" className='back'>Назад</NavLink>
+            {location.state.user.id == user.id && <NavLink to={path} state={location.state} className='grey edit'>Редактировать</NavLink>}
             <div >
-                <NavLink to="/resumes">Назад</NavLink>
-                {(location.state.user.id == props.user.id ) && <NavLink to={path} state={location.state}>Редактировать</NavLink>}
-                <div >
-                    <h2>{location.state.user.full_name}</h2>
-                    <p>Email: {location.state.user.email}</p>
+                
+                <div className="active_block resume">
+                    <div>
+                        <h2 className="active_block_item">{location.state.user.full_name}</h2>
+                        <p className="active_block_item">Email: {location.state.user.email}</p>
+                        <p className="active_block_item">Желаемая зарплата: {location.state.salary} руб</p>
+                        <p className="active_block_item">Опыт работы: {location.state.exp_work}</p>
+                        <section>{location.state.about_me}</section>
+                    </div>
+                    <div>
+                        <img className='photo' src={location.state.image} />
+                        <a href={location.state.file} download target='_blank'>Резюме</a>
+                    </div>
                 </div>
-                <p className="blur">{location.state.salary}</p>
-                <p className="blur">Опыт работы: {location.state.exp_work}</p>
-                <section>{location.state.about_me}</section>
-                <img src={location.state.file}></img>
-                <button>Отправить заявку</button>
             </div>
+            {location.state.user.id !== user.id && <button>Отправить заявку</button>}
         </div>
     )
 

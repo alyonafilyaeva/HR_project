@@ -3,7 +3,6 @@ import { NavLink} from "react-router-dom";
 
 const Vacansie = (props) => {
     let path = `/vacansie/${props.vacansie.id}`
-    console.log(props)
     return (
         <NavLink  to={path} state={props.vacansie} >
         <div className="vacansie">
@@ -12,7 +11,7 @@ const Vacansie = (props) => {
                     <h2>{props.vacansie.title}</h2>
                     <p className="blur">{props.vacansie.data_updated}</p>
                 </div>
-                <p className="blur">{props.vacansie.salary}</p>
+                <p className="blur">{props.vacansie.salary} руб</p>
                 <p className="blur">Опыт работы: {props.vacansie.exp_work}</p>
                 <p>{props.vacansie.description}</p>
             </div>

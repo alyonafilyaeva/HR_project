@@ -1,66 +1,109 @@
-import React from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 import axios from "axios";
 import AuthContext from "../../context/AuthContext";
 import { useContext } from "react";
 
-const SortsVacansies = (props) => {
-    console.log(props)
-    let sort = React.createRef()
-    let salary = React.createRef()
-    let exp = React.createRef()
-    let dep = React.createRef()
+const SortsResumes = (props) => {
+    let [salary, setSalary] = useState('')
+    let [exp_work, setExp_Work] = useState('')
+    let [sort, setSort] = useState('-data_updated')
+    // let [dep, setDep] = useState('')
+    let [search, setSearch] = useState('')
+    let [departments, setDepartments] = useState([])
     let { authToken } = useContext(AuthContext)
 
     let onAddSort = (e) => {
-        let path = ''
+        let path = `http://127.0.0.1:8000/api/resumes/?search=${search}&exp_work=${exp_work}&salary=${salary}&ordering=${sort}`/* &department=${dep} */
         e.preventDefault()
-        if (props.vacansiesPage.exp !== '') {
-            path = `http://127.0.0.1:8000/api/vacancies?exp_work=${props.vacansiesPage.exp}`
-        }
-
-        if (props.vacansiesPage.salary !== '') {
-            path = `http://127.0.0.1:8000/api/vacancies?salary=${props.vacansiesPage.salary}`
-        }
-        
         axios
-        .get(path, 
-        {
-            'headers': {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${String(authToken.access)}`
-            }
+            .get(path,
+                {
+                    'headers': {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${String(authToken.access)}`
+                    }
 
-        })
-        .then(response => props.setVacansies(response.data))
-        .catch(error => console.log(error.response))
+                })
+            .then(response => {
+                props.setResumes(response.data)
+            })
+            .catch(error => console.log(error.response))
     }
 
-    let onSortsChange = () => {
-        let sortValue = sort.current.value;
-        let salaryValue = salary.current.value;
-        let expValue = exp.current.value;
-        let depValue = dep.current.value;
-        props.changeSorts(sortValue, salaryValue, expValue, depValue)
+    useLayoutEffect(() => {
+        axios
+            .get("http://127.0.0.1:8000/api/departments",
+                {
+                    'headers': {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${String(authToken.access)}`
+                    }
+
+                })
+            .then(response => setDepartments(response.data))
+            .catch(error => console.log(error.response))
+    }, [])
+
+    let onSortsChange = (e) => {
+        if (e.target.name === 'salary') {
+            setSalary(Number(e.target.value))
+        } else if (e.target.name === 'exp_work') {
+            setExp_Work(Number(e.target.value))
+        } /* else if (e.target.name === 'dep') {
+setDep(e.target.value)
+} */
+        else if (e.target.name === 'sort') {
+            setSort(e.target.value)
+        }
+        else if (e.target.name === 'search') {
+            setSearch(e.target.value)
+        }
+    }
+
+    let onDeleteSort = () => {
+        setSalary('')
+        setExp_Work('')
+        setSearch('')
+        setSort('-data_updated')
+        // setDep('')
+        axios
+            .get('http://127.0.0.1:8000/api/resumes',
+                {
+                    'headers': {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${String(authToken.access)}`
+                    }
+
+                })
+            .then(response => props.setResumes(response.data))
+            .catch(error => console.log(error.response))
     }
     return (
         <div>
             <div className='search text-field__icon text-field__icon_search'>
                 <input type="text" placeholder="Поиск по резюме"></input>
                 <div className='sorts_btns'>
-                <button className="sorts-top_btn clear">Очистить</button>
-                <button onClick={onAddSort} className="sorts-top_btn apply">Применить</button>
+                    <button onClick={onDeleteSort} className="sorts-top_btn grey">Очистить</button>
+                    <button onClick={onAddSort} className="sorts-top_btn orange">Применить</button>
                 </div>
-                
             </div>
             <div className="sorts">
-                <input className="parametr" placeholder="Сортировать" onChange={onSortsChange} type='text' name='sort' ref={sort} value={props.vacansiesPage.sort}></input>
-                <input className="parametr" placeholder="Зарплата от" onChange={onSortsChange} type='number' name='salary' ref={salary} value={props.vacansiesPage.salary}></input>
-                <input className="parametr" placeholder="Опыт работы от" onChange={onSortsChange} type='number' name='exp' ref={exp} value={props.vacansiesPage.exp}></input>
-                <input className="parametr" placeholder="Департамент" onChange={onSortsChange}  name='dep' ref={dep} value={props.vacansiesPage.dep}></input>
+                <select placeholder="Сортировать" onChange={onSortsChange} type='text' name='sort' value={sort}>
+                    <option value='-data_updated'>Сначала новые</option>
+                    <option value='data_updated'>Сначала старые</option>
+                </select>
+                <input placeholder="Зарплата" onChange={onSortsChange} type='number' name='salary' value={salary}></input>
+                <input placeholder="Опыт работы" onChange={onSortsChange} type='number' name='exp_work' value={exp_work}></input>
+                {/* <select placeholder="Департамент" onChange={onSortsChange} name='dep' value={dep}>
+<option value=''></option>
+{departments.map(department =>
+<option value={department.id}>{department.name}</option>
+)}
+</select> */}
             </div>
         </div>
 
     )
 }
 
-export default SortsVacansies;
+export default SortsResumes;

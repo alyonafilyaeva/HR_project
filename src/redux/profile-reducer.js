@@ -37,12 +37,10 @@ const profileReducer = (state = initialState, action) => {
 }
 
 export const SetProfileActionCreator = (user) => {
-    debugger;
     return { type: SET_USER, user: user }
 }
 
 export const ChangeProfileActionCreator = (nameProfile, emailProfile) => {
-    debugger;
     return { type: CHANGE_PROFILE, name: nameProfile, email: emailProfile }
 }
 

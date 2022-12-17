@@ -88,14 +88,18 @@ const SortsVacansies = (props) => {
                 </div>
             </div>
             <div className="sorts">
-                <select className='parametr' placeholder="Сортировать" onChange={onSortsChange} type='text' name='sort' value={sort}>
+                <select className='parametr sort' placeholder="Сортировать" onChange={onSortsChange} type='text' name='sort' value={sort}>
+                    
                     <option value='-data_updated'>Сначала новые</option>
                     <option value='data_updated'>Сначала старые</option>
                 </select>
-                <input className='parametr' placeholder="Зарплата от" onChange={onSortsChange} type='number' name='salary' value={salary}></input>
-                <input className='parametr' placeholder="Опыт работы от" onChange={onSortsChange} type='number' name='exp_work' value={exp_work}></input>
-                <select className='parametr last' placeholder="Департамент" onChange={onSortsChange} name='dep' value={dep}>
-                    <option value=''></option>
+                <div>
+                    
+                </div>
+                <input className='parametr salary' placeholder="Зарплата от" onChange={onSortsChange} type='number' name='salary' value={salary}></input>
+                <input className='parametr exp' placeholder="Опыт работы от" onChange={onSortsChange} type='number' name='exp_work' value={exp_work}></input>
+                <select className='parametr last dep' placeholder="Департамент" onChange={onSortsChange} name='dep' value={dep}>
+                    <option value=''>Департамент</option>
                     {departments.map(department =>
                         <option value={department.id}>{department.name}</option>
                     )}

@@ -90,7 +90,7 @@ const AddVacansie = (props) => {
     return (
         <div className="container">
             <h3>Создание вакансии</h3>
-            <NavLink to="/vacansies" className="back">Назад</NavLink>
+            <NavLink to="/vacansies" className="back">&#x2190; Назад</NavLink>
             <div className="form form_vacansie">
                 <form>
                         <div className="form_item">

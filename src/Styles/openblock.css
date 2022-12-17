@@ -1,0 +1,65 @@
+.openblock {
+    position: absolute;
+    border: 1px solid #ffffff;
+    margin: 5px 0 0 auto;
+    border-radius: 10px;
+    z-index: 10;
+    background: #FFFFFF;
+    right: 15px;
+    
+    }
+    
+    .headblock {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 5px 10px;
+    gap: 10px;
+    width: 292px;
+    height: 68px;
+    border-radius: 12px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    }
+    
+    .logout {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px;
+    gap: 10px;
+    width: 98px;
+    height: 44px;
+    border-radius: 12px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    }
+    
+    .avatar {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    }
+    
+    .inright {
+    position: absolute;
+    left: 37.5%;
+    right: 12.5%;
+    top: 75%;
+    bottom: 0%;
+    
+    border: 2px solid #5E6366;
+    transform: rotate(-90deg);
+    }
+    
+    .fullname {
+    color: #242220;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    }

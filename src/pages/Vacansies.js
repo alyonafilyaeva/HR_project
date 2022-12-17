@@ -30,7 +30,6 @@ function Vacansies() {
             </div>
             <div className="vacansies-list" value={vacancies}>
                 {vacancies}
-
             </div>
         </div>
     )

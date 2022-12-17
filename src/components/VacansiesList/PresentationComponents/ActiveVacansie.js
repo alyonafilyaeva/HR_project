@@ -49,6 +49,22 @@ const ActiveVacansie = (props) => {
                 }
             })
     }
+    let sendRequest = () => {
+        let data = {
+            title: location.state.title,
+            status: '1',
+            destination: location.state.user.id
+        }
+        axios({
+            method: "post",
+            url: `http://127.0.0.1:8000/api/requests/`,
+            headers: {
+                Authorization: `Bearer ${String(authToken.access)}`,
+            },
+            data: data
+        })
+            .then(response => console.log(response.data))
+    }
 
     return (
         <div >
@@ -61,7 +77,7 @@ const ActiveVacansie = (props) => {
                 <p className="active_block_item">Стаж работы: {location.state.exp_work}</p>
                 <section className="active_block_item">{location.state.description}</section>
             </div>
-            {(location.state.user.id !== user.id) && <button>Отправить заявку</button>}
+            {(location.state.user.id !== user.id) && <button onClick={sendRequest} className="btn orange">Отправить заявку</button>}
             {(location.state.user.id === user.id && location.state.status !== 'Y_P') && <button className="btn orange" onClick={publish}>Опубликовать</button>}
             {(location.state.user.id === user.id && location.state.status === 'Y_P') && <button className="btn orange" onClick={notPublish}>Снять с публикации</button>}
         </div>

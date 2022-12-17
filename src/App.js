@@ -35,8 +35,9 @@ const App = () => {
             <div>
               <AuthPage />
               <Routes>
-                <Route path='/auth/login' exact element={<LoginPage />} />
-                <Route path='/auth/register' element={<RegisterPage />} />
+              <Route path='/auth' exact element={<AuthPage />} />
+                {/* <Route path='/auth/login' exact element={<LoginPage />} />
+                <Route path='/auth/register' element={<RegisterPage />} /> */}
                 <Route element={<PrivateRoute />}>
                   <Route path="/vacansies" element={<Vacansies />} />
                   <Route path="/vacansies/all" element={<VacansiesListAllContainer />} />

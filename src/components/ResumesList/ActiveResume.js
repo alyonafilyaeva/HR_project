@@ -1,17 +1,35 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
 import { NavLink, useLocation } from "react-router-dom";
+import axios from "axios";
 
 const ActiveResume = (props) => {
-    let { user } = useContext(AuthContext)
+    let { authToken, user } = useContext(AuthContext)
     const location = useLocation();
     let path = `/resume/edit/${location.state.id}`
+
+    let sendRequest = () => {
+        let data = {
+            status: '2',
+            destination: location.state.user.id
+        }
+        axios({
+            method: "post",
+            url: `http://127.0.0.1:8000/api/requests/`,
+            headers: {
+                Authorization: `Bearer ${String(authToken.access)}`,
+            },
+            data: data
+        })
+            .then(response => console.log(response.data))
+    }
+
     return (
-        <div  >
+        <div >
             <NavLink to="/resumes" className='back'>Назад</NavLink>
             {location.state.user.id == user.id && <NavLink to={path} state={location.state} className='grey edit'>Редактировать</NavLink>}
             <div >
-                
+
                 <div className="active_block resume">
                     <div>
                         <h2 className="active_block_item">{location.state.user.full_name}</h2>
@@ -26,10 +44,9 @@ const ActiveResume = (props) => {
                     </div>
                 </div>
             </div>
-            {location.state.user.id !== user.id && <button>Отправить заявку</button>}
+            {location.state.user.id !== user.id && <button onClick={sendRequest} className="btn orange">Отправить заявку</button>}
         </div>
     )
-
 
 }
 

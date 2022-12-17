@@ -4,7 +4,7 @@
 }
 
 .app {
-    background-color: #F5F5F5;
+    background-color: FDFCFC;
     /* padding-left: 70px; */
     padding-bottom: 50px;
     font-family: 'Inter', sans-serif;
@@ -48,4 +48,6 @@ a {
 @import url(./addresume.css);
 @import url(./sidebar.css);
 @import url(./header.css);
-@import url(./profile.css)
+@import url(./profile.css);
+@import url(./auth.css);
+@import url(./openblock.css)

@@ -98,7 +98,7 @@ const EditResume = (props) => {
     return (
         <div className="container">
             <h3>Редактирование резюме</h3>
-            <NavLink to={`/resumes`} className='back'>Назад</NavLink>
+            <NavLink to={`/resumes`} className='back'>&#x2190; Назад</NavLink>
             <div>
             <form onSubmit={onEditRes}>
                 <div className="form form_resume">

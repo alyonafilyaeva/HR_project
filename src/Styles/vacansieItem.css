@@ -1,15 +1,16 @@
 .vacansie-item {
-    background: linear-gradient(106.55deg, #ffd0a638 2.94%, rgba(255, 208, 166, 0) 76.52%), linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
+    background:  linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
     border: 1px solid #ffcda24f;
     margin-top: 20px;
     padding: 20px;
     width:60%;
     border-radius: 10px;
     margin-right: 50px;
+    backdrop-filter: blur(40px);
 }
 
 .resume-item {
-    background: linear-gradient(106.55deg, #ffd0a638 2.94%, rgba(255, 208, 166, 0) 76.52%), linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
+    background:  linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
     border: 1px solid #ffcda24f;
     margin-top: 20px;
     padding: 20px;
@@ -34,7 +35,7 @@
 }
 
 .vacansie-right {
-    background: linear-gradient(106.55deg, #ffd0a638 2.94%, rgba(255, 208, 166, 0) 76.52%), linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
+    background:  linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
     border: 1px solid #ffcda24f;
     margin-top: 20px;
     padding: 20px;

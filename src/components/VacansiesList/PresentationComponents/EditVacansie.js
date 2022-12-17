@@ -80,7 +80,7 @@ const EditVacansie = (props) => {
     return (
         <div className="container">
             <h3>Редактирование вакансии</h3>
-            <NavLink to={path} state={location.state} className="back">Назад</NavLink>
+            <NavLink to={path} state={location.state} className="back">&#x2190; Назад</NavLink>
             <div className="form form_vacansie">
                 <form>
                     <div className="form_item">

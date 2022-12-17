@@ -46,7 +46,7 @@ const AddResume = (props) => {
     return (
         <div>
             <h3>Создание резюме</h3>
-            <NavLink to="/resumes" className='back'>Назад</NavLink>
+            <NavLink to="/resumes" className='back'>&#x2190; Назад</NavLink>
             <form>
                 <div className="form form_resume">
                     <div className="field_input">

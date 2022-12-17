@@ -12,11 +12,7 @@ function VacansiesListAll(props) {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${String(authToken.access)}`
             }
-
         })
-
-
-
             .then(response => {
                 props.setVacansies(response.data)
             })

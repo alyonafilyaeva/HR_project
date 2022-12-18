@@ -1,0 +1,78 @@
+input[type=email]{
+    padding: 10px 5px;
+    height: 10px;
+    width: 360px;
+    border: 1px solid #CFD3D5;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+input[type=tel]{
+    padding: 10px 5px;
+    height: 10px;
+    width: 360px;
+    border: 1px solid #CFD3D5;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.edit_form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 3px;
+    gap: 10px;
+}
+
+.edit_data{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 50px;
+    width: 25vw;
+    height: 25vh;
+    border: 1px solid #ffcda24f;
+    backdrop-filter: blur(40px);
+    border-radius: 20px;
+}
+
+.photo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 30px;
+    border: 1px solid #ffcda24f;
+}
+
+.form_photo{
+    display: flex;
+    width: 48vw;
+    height: 250px;
+    justify-content: space-between;
+}
+
+.save_btn{
+    margin-top: 8%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 180px;
+    height: 45px;
+    background: #E68025;
+    border: 1px solid #E58025;
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.save_btn:hover{
+    background: #FFFFFF;
+    color: #E58025;
+    box-shadow: 0px 4px 24px rgb(204 100 6 / 30%);
+}

@@ -1,0 +1,113 @@
+h3 {
+    color:  #E58025;
+    margin-bottom: 20px;
+}
+
+.name_user{
+    font-weight: 500;
+    font-size: 20px;
+    color: #53545C;
+    line-height: 30px;
+    padding-top: 20px;
+}
+
+.name_role{
+    font-weight: 400;
+    font-size: 18px;
+    color: #ABAFB1;
+    line-height: 30px;
+}
+
+.cart {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 43px 43px;
+    width: 50vw;
+    height: 55vh;
+    background: linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
+    backdrop-filter: blur(75px);;
+    border: 1px solid #ffcda24f;
+    border-radius: 20px;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 30px;
+    gap: 50px;
+    width: 25vw;
+    height: 15vh;
+    border: 1px solid #ffcda24f;
+    backdrop-filter: blur(40px);
+    border-radius: 20px;
+}
+
+.buttons_profile{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8%;
+    width: 27vw;
+
+}
+
+.edit_data_btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    width: 180px;
+    height: 45px;
+    background: #E68025;
+    border: 1px solid #E58025;
+    border-radius: 12px;
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.edit_data_btn:hover{
+    background: #FFFFFF;
+    box-shadow: 0px 4px 24px rgb(204 100 6 / 30%);
+}
+
+.change_password{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 24px;
+    gap: 16px;
+    width: 180px;
+    height: 45px;
+    color: #E58025;
+    border: 1px solid #E58025;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.change_password:hover{
+    background: #E58025 ;
+    color: #FFFFFF;
+    box-shadow: 0px 4px 24px rgb(204 100 6 / 30%);
+}
+
+.photo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    gap: 30px;
+    border: 1px solid #ffcda24f;
+}
+
+.form_photo{
+    display: flex;
+    width: 48vw;
+    height: 250px;
+    justify-content: space-between;
+}

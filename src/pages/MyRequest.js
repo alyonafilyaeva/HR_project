@@ -4,16 +4,12 @@ import "../Styles/app.css"
 import { NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import axios from "axios"
-
-import SortsVacansiesContainer from '../components/VacansiesList/ContainerComponents/SortsVacansiesContainer'
-import VacansiesListMyContainer from '../components/VacansiesList/ContainerComponents/VacansiesListMyContainer'
 import VacansiesListContainer from "../components/RequestsList/VacansiesListContainer";
 import ResumesListContainer from "../components/RequestsList/ResumesListContainer";
 
 function MyRequest() {
     const [status, setStatus] = useState('vacansies')
     let { user, authToken } = useContext(AuthContext)
-    let [vacancies, setVac] = useState(<VacansiesListAllContainer />)
 
     useLayoutEffect(() => {
         axios({
@@ -42,7 +38,7 @@ function MyRequest() {
                         </div>}
                 </div>
             </div>
-            <div className="vacansies-list" value={vacancies}>
+            <div className="vacansies-list">
             {status == 'vacansies' ? <VacansiesListContainer /> : <ResumesListContainer />}
             </div>
         </div>

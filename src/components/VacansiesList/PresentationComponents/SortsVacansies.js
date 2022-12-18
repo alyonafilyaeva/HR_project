@@ -79,7 +79,7 @@ const SortsVacansies = (props) => {
             .catch(error => console.log(error.response))
     }
     return (
-        <div>
+        <div className='sort_block'>
             <div className='search text-field__icon text-field__icon_search'>
                 <input onChange={onSortsChange} name='search' value={search} type="text" placeholder="Поиск по вакансии" className='search'></input>
                 <div className='sorts_btns'>

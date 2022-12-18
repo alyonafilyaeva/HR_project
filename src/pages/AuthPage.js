@@ -20,7 +20,7 @@ const AuthPage = () => {
                     <NavLink to="/auth/register" className="">Зарегистрироваться </NavLink> */}
                     <img src={logo} className='logo' />
                     <div className='auth_form'>
-                        <div className='list'>
+                        <div className='list_auth'>
                             <h2 onClick={() => setStatus(0)} className={`${status === 0 && 'clicked'}`}>Вход</h2>
                             <h2 onClick={() => setStatus(1)} className={`${status === 1 && 'clicked'}`}>Регистрация</h2>
                         </div>

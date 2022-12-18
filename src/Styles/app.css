@@ -21,7 +21,12 @@
     padding-left: 70px;
     width: 10%;
     padding-right: 60px;
-    
+    /* background: linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
+    height: 100vh; */
+    /* position:absolute; */
+    top:0;
+    left: 0
+
 }
 
 .header {
@@ -35,11 +40,16 @@
 
 .container {
     width: 90%;
+    padding-left: 50px;
 }
 
 a {
     text-decoration: none;
     color: #000
+}
+
+a:hover {
+    color: #E58025
 }
 
 @import url(./vacansies.css);
@@ -50,4 +60,5 @@ a {
 @import url(./header.css);
 @import url(./profile.css);
 @import url(./auth.css);
-@import url(./openblock.css)
+@import url(./openblock.css);
+@import url(./requests.css)

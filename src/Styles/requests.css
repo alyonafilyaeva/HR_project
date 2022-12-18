@@ -1,0 +1,9 @@
+.request-item {
+    background:  linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
+    border: 1px solid #ffcda24f;
+    margin-top: 20px;
+    padding: 20px 50px;
+    width: 700px;
+    border-radius: 10px;
+    margin-right: 50px;
+}

@@ -52,6 +52,7 @@ const App = () => {
                   <Route path="/resumes/create_resume" element={<AddResumeContainer />} />
                   <Route path="/profile" element={<ProfileContainer />} />
                   <Route path="/profile/edit" element={<EditProfileContainer />} />
+                  
                 </Route>
                 <Route path="*" element={<NotFound />} />
               </Routes>

@@ -68,7 +68,7 @@ const ActiveVacansie = (props) => {
 
     return (
         <div >
-            <NavLink to="/vacansies" className='back'>Назад</NavLink>
+            <NavLink to="/vacansies" className='back'>&#x2190; Назад</NavLink>
             {(location.state.user.id == user.id && location.state.status !== 'Y_P') && <NavLink to={path} state={location.state} className="grey edit">Редактировать</NavLink>}
             <div className="active_block">
                 <h2 className="active_block_item">{location.state.title}</h2>

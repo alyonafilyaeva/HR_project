@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 
 const Resume = (props) => {
+    console.log(props)
     let path = `/resume/${props.resume.id}`
         return(
             <NavLink to={path} state={props.resume} >

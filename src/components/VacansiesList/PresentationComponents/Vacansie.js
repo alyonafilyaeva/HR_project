@@ -20,7 +20,7 @@ const Vacansie = (props) => {
                 <p className="blur">{props.vacansie.department}</p>
                 <p>Глава департамента</p>
                 <p className="blur">{props.vacansie.user.full_name}</p>
-                <p className="blur">{props.vacansie.status}</p>
+                <p className="blur">{props.vacansie.status == 'N_P' && 'Не опубликовано'}</p>
             </div>
         </div>
         </NavLink>

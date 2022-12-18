@@ -120,7 +120,7 @@ const EditResume = (props) => {
                         <input onChange={onResChange} type="file" name="file" accept="application/*" required />
                     </div>
                 </div>
-                <button type="submit" className="orange ">Сохранить изменения</button>
+                <button type="submit" className="orange save">Сохранить изменения</button>
             </form>
             </div>
             

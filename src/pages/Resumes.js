@@ -26,7 +26,7 @@ function Resumes(props) {
                 </div>
 
                 <div>
-                    <NavLink to="/resumes/create_resume" className="orange">Создать резюме </NavLink>
+                    <NavLink to="/resumes/create_resume" className="orange ">Создать резюме </NavLink>
                 </div>
             </div>
             <div className="vacansies-list">

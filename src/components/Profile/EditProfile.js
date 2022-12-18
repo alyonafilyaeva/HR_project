@@ -12,7 +12,7 @@ const EditProfile = (props) => {
     let image = React.createRef()
     let file = React.createRef()
 
-    
+
 
     const nav = useNavigate()
     let { authToken, user, updateUser, logoutUser, setUser } = useContext(AuthContext)
@@ -38,7 +38,7 @@ const EditProfile = (props) => {
                 {
                     "email": email.current.value,
                     "full_name": name.current.value,
-                    // "image": 'https://s10.stc.yc.kpcdn.net/share/i/12/11065821/wr-960.webp'
+                     "image": 'https://s10.stc.yc.kpcdn.net/share/i/12/11065821/wr-960.webp'
                     /* "file": file.current.value,
                     "image": file.current.value, */
 
@@ -67,29 +67,34 @@ const EditProfile = (props) => {
 
     return (
         <div>
-            <p>Профиль</p>
+            <h3>Редактировать профиль</h3>
+            <NavLink to={`/profile`} className='back'>&#x2190; Назад</NavLink>
             <div className="cart">
                 <div >
-                    <p>{user.full_name}</p>
-                    <p>{user.is_header_dep ? 'Глава департамента' : 'Сотрудник'}</p>
-                    <div className="data">
-                        <form>
-                            <p>Фамилия Имя Отчество</p>
-                            <input onChange={onProfileChange} type="text" ref={name} value={props.profilePage.newName}></input>
-                            <p>E-mail: </p>
-                            <input onChange={onProfileChange} typy="email" ref={email} value={props.profilePage.newEmail}></input>
-                            <p>Телефон: </p>
-                            <input type="tel"></input>
-                        </form>
+                    <p className="name_user">{user.full_name}</p>
+                    <p className="name_role">{user.is_header_dep ? 'Глава департамента' : 'Сотрудник'}</p>
+                    <div className="form_photo">
+                        <div className="edit_data">
+                            <form className="edit_form">
+                                <p>Фамилия Имя Отчество</p>
+                                <input onChange={onProfileChange} type="text" ref={name} value={props.profilePage.newName}></input>
+                                <p>E-mail: </p>
+                                <input onChange={onProfileChange} type="email" ref={email} value={props.profilePage.newEmail}></input>
+                                <p>Телефон: </p>
+                                <input type="tel"></input>
+                            </form>
+                        </div>
+                        <div className="photo">
+                            <img src={user.image}/>
+                            
+                        </div>
+                    </div>
 
-                    </div>
                     <div>
-                        <button onClick={onEditProfile}>Сохранить</button>
+                        <button onClick={onEditProfile} className='orange save_profile'>Сохранить</button>
                     </div>
                 </div>
-                <div>
-                    {user.image}
-                </div>
+
             </div>
         </div>
     )

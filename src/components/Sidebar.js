@@ -12,7 +12,7 @@ const Sidebar = (props) => {
         user ?
             <div className="sidebar">
                 <ul>
-                    <li><NavLink to="/vacansies">Вакансии </NavLink></li>
+                    <li><NavLink to="/vacansies" className='sidebar_btn'>Вакансии </NavLink></li>
                     <li><NavLink to="/resumes">Резюме </NavLink></li>
                     <li><NavLink to="/request">Мои заявки </NavLink></li>
                 </ul>

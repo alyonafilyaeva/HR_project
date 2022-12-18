@@ -88,12 +88,12 @@ setDep(e.target.value)
                 </div>
             </div>
             <div className="sorts">
-                <select placeholder="Сортировать" onChange={onSortsChange} type='text' name='sort' value={sort}>
+                <select placeholder="Сортировать" className='parametr sort' onChange={onSortsChange} type='text' name='sort' value={sort}>
                     <option value='-data_updated'>Сначала новые</option>
                     <option value='data_updated'>Сначала старые</option>
                 </select>
-                <input placeholder="Зарплата" onChange={onSortsChange} type='number' name='salary' value={salary}></input>
-                <input placeholder="Опыт работы" onChange={onSortsChange} type='number' name='exp_work' value={exp_work}></input>
+                <input placeholder="Зарплата" className='parametr salary' onChange={onSortsChange} type='number' name='salary' value={salary}></input>
+                <input placeholder="Опыт работы" className='parametr exp' onChange={onSortsChange} type='number' name='exp_work' value={exp_work}></input>
                 {/* <select placeholder="Департамент" onChange={onSortsChange} name='dep' value={dep}>
 <option value=''></option>
 {departments.map(department =>

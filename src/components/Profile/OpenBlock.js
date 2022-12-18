@@ -8,12 +8,20 @@ const OpenBlock = () => {
     return (
         <div className="openblock">
             <div className="headblock">
-                <img className="avatar" src={user.image}></img>
-                <NavLink to="/profile" className="fullname">{user.full_name}</NavLink>
-                <img src="../imgs/down.png"></img>
+                {/* <img className="avatar" src={user.image}></img> */}
+                {/* <NavLink to="/profile" className="fullname">{user.full_name}</NavLink> */}
+                {/* <img src="../imgs/down.png"></img> */}
+                
             </div>
-            <NavLink className='logout' onClick={logoutUser} to="/auth/login">Выйти</NavLink>
-            {user.is_admin && <a href="http://127.0.0.1:8000/admin/" target="_blank">Админка</a>}
+            <div className="linkblock">
+                
+            <NavLink to="/profile" className="fullname">Профиль</NavLink>
+                {user.is_admin && <a href="http://127.0.0.1:8000/admin/" target="_blank">Админка</a>}
+                
+                <NavLink className='' onClick={logoutUser} to="/auth/login">Выйти</NavLink>
+                
+            </div>
+            
         </div>
     )
 }

@@ -1,12 +1,53 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/AuthContext";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const ActiveResume = (props) => {
     let { authToken, user } = useContext(AuthContext)
     const location = useLocation();
     let path = `/resume/edit/${location.state.id}`
+    let nav = useNavigate()
+
+    let notPublish = () => {
+        let data = location.state
+        data.status = 'N_P'
+        axios({
+            method: "put",
+            url: `http://127.0.0.1:8000/api/resumes/${location.state.id}/`,
+            headers: {
+                Authorization: `Bearer ${String(authToken.access)}`,
+            },
+            params: {
+                status: 'my'
+            },
+            data: data
+        })
+            .then(response => {
+                console.log(response.data)
+            })
+    }
+    let publish = () => {
+        let data = location.state
+        data.status = 'Y_P'
+        axios({
+            method: "put",
+            url: `http://127.0.0.1:8000/api/resumes/${location.state.id}/`,
+            headers: {
+                Authorization: `Bearer ${String(authToken.access)}`,
+            },
+            params: {
+                status: 'my'
+            },
+            data: data
+        })
+            .then(response => {
+                if (response.status === 200) {
+                    console.log(response.data)
+                    nav('/resumes')
+                }
+            })
+    }
 
     let sendRequest = () => {
         let data = {
@@ -36,6 +77,7 @@ const ActiveResume = (props) => {
                         <p className="active_block_item">Желаемая зарплата: {location.state.salary} руб</p>
                         <p className="active_block_item">Опыт работы: {location.state.exp_work}</p>
                         <section>{location.state.about_me}</section>
+                        
                     </div>
                     <div className="active_files">
                         <img className='photo' src={location.state.image} />
@@ -44,6 +86,8 @@ const ActiveResume = (props) => {
                 </div>
             </div>
             {location.state.user.id !== user.id && <button onClick={sendRequest} className="btn orange">Отправить заявку</button>}
+            {(location.state.user.id === user.id && location.state.status !== 'Y_P') && <button className="btn orange" onClick={publish}>Опубликовать</button>}
+            {(location.state.user.id === user.id && location.state.status === 'Y_P') && <button className="btn orange" onClick={notPublish}>Снять с публикации</button>}
         </div>
     )
 

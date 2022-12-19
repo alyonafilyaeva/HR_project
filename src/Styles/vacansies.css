@@ -141,6 +141,7 @@ input[type=text], textarea {
     font-size: 14px;
     color: #E58025;
     cursor: pointer;
+    background-color: #FDFCFC;
 }
 
 .edit {

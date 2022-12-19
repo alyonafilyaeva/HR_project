@@ -88,3 +88,18 @@ form {
     
     
 }
+
+.password {
+    /* padding-right: 180px; */
+    background-image: url('/src/imgs/lock.png');
+    background-repeat: no-repeat;
+    background-position: 2% 50% ;
+    text-align: start;
+    padding-left: 30px;
+} 
+
+.log {
+    text-align: start;
+    padding-left: 30px;
+}
+

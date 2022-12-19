@@ -61,14 +61,6 @@ const EditResume = (props) => {
             },
             data: formData
         })
-        /* axios
-            .put(`http://127.0.0.1:8000/api/resumes/${location.state.id}/`,
-                formData,
-                {
-                    'headers': {
-                        'Authorization': `Bearer ${String(authToken.access)}`
-                    }
-                }) */
             .then(response => {
                 if (response.status == 200) {
                     nav(`/resume/${location.state.id}`,{

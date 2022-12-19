@@ -3,13 +3,14 @@ import "../../Styles/app.css";
 import axios from "axios";
 import AuthContext from "../../context/AuthContext";
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const AddResume = (props) => {
     let about = React.createRef()
     let salary = React.createRef()
     let exp = React.createRef()
     let { authToken, user } = useContext(AuthContext)
+    const nav = useNavigate()
 
     let onAddRes = (e) => {
         e.preventDefault()
@@ -23,7 +24,7 @@ const AddResume = (props) => {
                     "file": null,
                     "image": null,
                     "salary": salary.current.value,
-                    "status": "T_W",
+                    "status": "N_P",
                     "user": props.user
                 },
                 {
@@ -32,7 +33,15 @@ const AddResume = (props) => {
                         'Authorization': `Bearer ${String(authToken.access)}`
                     }
                 })
-            .then(response => console.log(response.data))
+            .then(response => 
+                {console.log(response.data)
+                    if (response.status === 201) {
+                        nav(`/resume/${response.data.id}`, {
+                            state: response.data
+                        })
+                    }
+                }
+                )
             .catch(error => console.log(error.response))
     }
 

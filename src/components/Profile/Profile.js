@@ -14,10 +14,13 @@ function Profile(props) {
                 'Authorization': `Bearer ${String(authToken.access)}`
             }
         }).then(response => {
+            console.log(response.data.user)
             props.setUser(response.data.user)
         })
     }, [])
+    
     let { user } = useContext(AuthContext)
+    console.log(user)
     return (
         <div>
             <h3>Профиль</h3>

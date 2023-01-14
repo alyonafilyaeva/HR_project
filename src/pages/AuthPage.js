@@ -21,8 +21,8 @@ const AuthPage = () => {
                     <img src={logo} className='logo' />
                     <div className='auth_form'>
                         <div className='list_auth'>
-                            <h2 onClick={() => setStatus(0)} className={`${status === 0 && 'clicked'}`}>Вход</h2>
-                            <h2 onClick={() => setStatus(1)} className={`${status === 1 && 'clicked'}`}>Регистрация</h2>
+                            <h2 onClick={() => setStatus(0)} className={`${status === 0 && 'clicked '} auth_item`}>Вход</h2>
+                            <h2 onClick={() => setStatus(1)} className={`${status === 1 && 'clicked '} auth_item`}>Регистрация</h2>
                         </div>
                         {status == 0 ? <LoginPage /> : <RegisterPage />}
                     </div>

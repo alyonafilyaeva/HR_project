@@ -79,9 +79,9 @@ setDep(e.target.value)
             .catch(error => console.log(error.response))
     }
     return (
-        <div>
-            <div className='search text-field__icon text-field__icon_search'>
-                <input type="text" placeholder="Поиск по резюме"></input>
+        <div className='sort_block'>
+            <div className='search'>
+                <input type="text" placeholder="Поиск по резюме" className='search_input'></input>
                 <div className='sorts_btns'>
                     <button onClick={onDeleteSort} className="sorts-top_btn grey">Очистить</button>
                     <button onClick={onAddSort} className="sorts-top_btn orange">Применить</button>
@@ -93,7 +93,7 @@ setDep(e.target.value)
                     <option value='data_updated'>Сначала старые</option>
                 </select>
                 <input placeholder="Зарплата" className='parametr salary' onChange={onSortsChange} type='number' name='salary' value={salary}></input>
-                <input placeholder="Опыт работы" className='parametr exp' onChange={onSortsChange} type='number' name='exp_work' value={exp_work}></input>
+                <input placeholder="Опыт работы" className='parametr exp last' onChange={onSortsChange} type='number' name='exp_work' value={exp_work}></input>
                 {/* <select placeholder="Департамент" onChange={onSortsChange} name='dep' value={dep}>
 <option value=''></option>
 {departments.map(department =>

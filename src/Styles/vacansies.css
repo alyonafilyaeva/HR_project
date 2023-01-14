@@ -1,76 +1,7 @@
-.search{
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    width: 90%;
-    font-size: 12px;
-}
-
-input[type=text], textarea {
-    padding: 10px 0 10px 35px;
-    width: 360px;
-    height: 25px;
-    border: 1px solid #CFD3D5;
-    border-radius: 8px;
-    font-size: 14px;
-}
-
-.sorts-top__btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    width: 200px;
-    height: 25px;
-    background: #E58025;
-    border-radius: 12px;
-    color: #fff;
-    font-size: 14px;
-    margin-right: 12%;
-    cursor: pointer;
-}
-.sort_block {
-    z-index: -5;
-}
-.sorts {
-    display: flex;
-    justify-content: space-between;
-    z-index: -10;
-    padding: 20px 0;
-    margin-top: 10px;
-    width: 15%;
-}
-
-.sorts_btns {
-    margin-left: 10%;
-    display: flex;
-    justify-content: space-between;
-    cursor: pointer;
-    /* z-index: -5; */
-}
-
-.parametr{
-    width: 210px;
-    /* height: 35px; */
-    padding: 10px 0;
-    border: 1px solid #CFD3D5;
-    border-radius: 8px;
-    text-align: center;
-    
-    font-size: 14px;
-    margin-right: 40%;
-    color:#ABAFB1
-
-}
-
-.last {
-    margin-right: 0
-}
-
 .vacansies-top {
     display: flex;
     justify-content: space-between;
-    width: 90%;
+    width: 89%;
 }
 
 .vacansies_name_list {
@@ -109,45 +40,10 @@ input[type=text], textarea {
     color: #ABAFB1;
     font-size: 14px;
 }
-.btn_sorts{
-    width: 20%;
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    /* gap: 30px; */
-}
-
-/*  .apply{
-    width: 60%;
-    padding: 11px 36px;
-    background: #E68025;
-    border: 1px solid #E58025;
-    box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.3);
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #FFFFFF;
-    cursor: pointer;
-} */
 
 
-.grey{
-    padding: 10px 20px;
-    width: 100%;
-    margin-right: 10%;
-    border: 1px solid #E58025;
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #E58025;
-    cursor: pointer;
-    background-color: #FDFCFC;
-}
 
-.edit {
-    margin-left: 20px;
-    margin-bottom: 20px;
-}
+
 
 .text-field__icon {
     position: relative;
@@ -177,60 +73,44 @@ input[type=text], textarea {
     
 }
 
-.sort {
-    padding-right: 50px;
-    background-image: url('/src/imgs/sort.png');
-    background-repeat: no-repeat;
-    background-position: 5% 50%;
-}
 
-.salary{
-    background-image: url('/src/imgs/salary.png');
-    background-repeat: no-repeat;
-    background-position: 5% 50% ;
-} 
-
-.exp{
-    background-image: url('/src/imgs/exp.png');
-    background-repeat: no-repeat;
-    background-position: 5% 50% ;
-} 
-
-.dep{
-    padding-right: 50px;
-    background-image: url('/src/imgs/dep.png');
-    background-repeat: no-repeat;
-    background-position: 5% 50% ;
-} 
-
-option {
-    /* margin-left: 55px; */
-    position: end;
-    /* text-align: right; */
-    padding: 7px ;
-    border: 1px solid #CFD3D5;
-    border-radius: 8px;
-    font-size: 14px;
-}
-
-select {
-    text-indent: 35px;
-    font-size: 18px;
-}
-
-.orange:hover{
-    background: #FFFFFF;
-    color: #E58025;
-    box-shadow: 0px 4px 24px rgb(204 100 6 / 30%);
-    }
-    
-.grey:hover {
-    background: #E58025 ;
-    color: #FFFFFF;
-    box-shadow: 0px 4px 24px rgb(204 100 6 / 30%);
-}
     
 .parametr:focus {
     border-color:  #E58025;
 }
 
+input:focus {
+    box-shadow: #E58025;
+}
+
+/* .vacansie:hover .vacansie-item {
+    background: rgba(36, 34, 32, 0.04);
+    border: 0.5155px solid rgba(245, 239, 235, 0.16);
+
+}
+
+.vacansie:hover .vacansie-right {
+    background: rgba(36, 34, 32, 0.04);
+    border: 0.5155px solid rgba(245, 239, 235, 0.16);
+
+} */
+
+.bar_1 {
+    width: 600px;
+    height: 50px;
+    background-image: url('/src/imgs/bar1.png');
+    background-repeat: no-repeat;
+}
+
+.bar_2 {
+    width: 600px;
+    height: 50px;
+    background-image: url('/src/imgs/bar2.png');
+    background-repeat: no-repeat;
+}
+.bar_3 {
+    width: 600px;
+    height: 50px;
+    background-image: url('/src/imgs/bar3.png');
+    background-repeat: no-repeat;
+}

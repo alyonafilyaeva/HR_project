@@ -66,28 +66,46 @@ const ActiveResume = (props) => {
     }
 
     return (
-        <div >
-            <NavLink to="/resumes" className='back'>&#x2190; Назад</NavLink>
-            {location.state.user.id == user.id && <NavLink to={path} state={location.state} className='grey edit'>Редактировать</NavLink>}
+        <div className="container">
+            {(location.state.user.id == user.id && location.state.status !== 'Y_P') &&
+                <div>
+                    <div className="steps">
+                        <h3>Черновик резюме</h3>
+                        <p><span>Шаг 2</span> из 3</p>
+                    </div>
+                    <div className="bar_2"></div>
+                </div>
+            }
+            {(location.state.user.id == user.id && location.state.status === 'Y_P') &&
+                <div>
+                    <div className="steps">
+                        <h3>Резюме опубликовано</h3>
+                        <p><span>Шаг 3</span> из 3</p>
+                    </div>
+                    <div className="bar_3"></div>
+                </div>
+            }
+            <NavLink to="/resumes" className='back'>Назад</NavLink>
+            {location.state.user.id == user.id && <NavLink to={path} state={location.state} className='grey edit_resume'>Редактировать</NavLink>}
             <div className="active_resume">
-                <div className="active_block resume">
+                <div className="active_block_resume ">
                     <div className="active_info">
                         <h2 className="active_block_item">{location.state.user.full_name}</h2>
                         <p className="active_block_item">Email: {location.state.user.email}</p>
                         <p className="active_block_item">Желаемая зарплата: {location.state.salary} руб</p>
                         <p className="active_block_item">Опыт работы: {location.state.exp_work}</p>
-                        <section>{location.state.about_me}</section>
+                        <p>{location.state.about_me}</p>
                         
                     </div>
                     <div className="active_files">
                         <img className='photo' src={location.state.image} />
-                        <a href={location.state.file} download target='_blank' className="grey see">Смотреть резюме</a>
+                        <a href={location.state.file} download target='_blank' className="see grey">Смотреть резюме</a>
                     </div>
                 </div>
             </div>
-            {location.state.user.id !== user.id && <button onClick={sendRequest} className="btn orange">Отправить заявку</button>}
-            {(location.state.user.id === user.id && location.state.status !== 'Y_P') && <button className="btn orange" onClick={publish}>Опубликовать</button>}
-            {(location.state.user.id === user.id && location.state.status === 'Y_P') && <button className="btn orange" onClick={notPublish}>Снять с публикации</button>}
+            {location.state.user.id !== user.id && <button onClick={sendRequest} className="btn_resume orange ">Отправить заявку</button>}
+            {(location.state.user.id === user.id && location.state.status !== 'Y_P') && <button className="btn_resume orange " onClick={publish}>Опубликовать</button>}
+            {(location.state.user.id === user.id && location.state.status === 'Y_P') && <button className="btn_resume orange " onClick={notPublish}>Снять с публикации</button>}
         </div>
     )
 

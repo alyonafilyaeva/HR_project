@@ -66,9 +66,9 @@ const EditProfile = (props) => {
     }
 
     return (
-        <div>
+        <div className="container">
             <h3>Редактировать профиль</h3>
-            <NavLink to={`/profile`} className='back'>&#x2190; Назад</NavLink>
+            <NavLink to={`/profile`} className='back'>Назад</NavLink>
             <div className="cart">
                 <div >
                     <p className="name_user">{user.full_name}</p>

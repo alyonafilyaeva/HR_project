@@ -89,31 +89,35 @@ const AddVacansie = (props) => {
     let path = `/vacansie/edit/${props.editedVacansie.id}`
     return (
         <div className="container">
-            <h3>Создание вакансии</h3>
-            <NavLink to="/vacansies" className="back">&#x2190; Назад</NavLink>
+            <div className="steps">
+                <h3>Создание вакансии</h3>
+                <p><span>Шаг 1</span> из 3</p>
+            </div>
+            <div className="bar_1"></div>
+            <NavLink to="/vacansies" className="back">Назад</NavLink>
             <div className="form form_vacansie">
                 <form>
                         <div className="form_item">
-                            <p>Название вакансии:</p>
-                            <input onChange={onVacChange} type='text' name='title' ref={title} value={props.newVacTitle} />
+                            <p>Название вакансии: </p>
+                            <input onChange={onVacChange} className="input_title_vac" type='text' name='title' ref={title} value={props.newVacTitle} />
                         </div>
                         <div className="form_item">
-                            
-                            <p>Департамент: {user.department}</p>
+                            <p>Департамент:</p>
+                            <p className="input_dep_vac">{user.department}</p>
                         </div>
                         <div className="form_item">
-                            <p>Минимальная зарплата:</p>
-                            <input onChange={onVacChange} type='number' name='salary' ref={salary} value={props.newVacSalery} />
+                            <p>Минимальная зарплата: </p>
+                            <input onChange={onVacChange} className="input_salary_vac" type='number' name='salary' ref={salary} value={props.newVacSalery} />
                         </div>
                         <div className="form_item">
-                            <p>Стаж работы:</p>
-                            <input onChange={onVacChange} type='number' name='salary' ref={exp} value={props.newVacExp} />
+                            <p>Стаж работы: </p>
+                            <input onChange={onVacChange} className="input_exp_vac" type='number' name='salary' ref={exp} value={props.newVacExp} />
                         </div>
                         <div className="form_item">
-                            <p>Описание вакансии</p>
-                            <textarea onChange={onVacChange} type='text' name="text" ref={text} value={props.newVacText} />
+                            <p>Описание вакансии: </p>
+                            <textarea onChange={onVacChange} className="input_text_vac" type='text' name="text" ref={text} value={props.newVacText} />
                         </div>
-                        <button onClick={onAddVac} className="btn orange create_vacancy">Создать вакансию</button>
+                        <button onClick={onAddVac} className=" orange create_vacancy">Создать вакансию</button>
                 </form>
             </div>
         </div>

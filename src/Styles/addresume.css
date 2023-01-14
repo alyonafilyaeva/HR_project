@@ -2,10 +2,10 @@
     /* column-count: 2; */
     display: flex;
     line-height: 30px;
-    width: 80%;
+    /* width: 100%; */
     position: relative;
     flex-direction: row;
-    padding: 40px 40px;
+    padding: 40px ;
 }
 
 .form_resume input[type=text]  {
@@ -37,23 +37,9 @@ input[accept]{
 }
 
 .create_resume{
-    position: absolute;
-
-    left: 75%;
-    top: 75%
+    margin-left: 85%;
 }
-/* .create_resume {
-    width: 15%;
-    padding: 11px 20px;
-    background: #E68025;
-    border: 1px solid #E58025;
-    box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.3);
-    border-radius: 12px;
-    font-weight: 600;
-    font-size: 14px;
-    color: #FFFFFF;
-    cursor: pointer;
-} */
+
 
 .download_fields {
     padding-top: 10% 0 0 10% ;
@@ -64,16 +50,60 @@ input[accept]{
     height: 250px;
 }
 
-.resume {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
 .create_res {
     margin-top: 50px;
 }
 
-.see {
-    margin-top: 150px;
+.field_input {
+    width: 100%;
+    margin-right: 10%;
+}
+
+.input_mail_res {
+    width: 100px;
+    margin-left: 75px;
+}
+
+.input_mail_res_edit {
+    width: 40%;
+    margin-left: 115px;
+}
+
+.input_dep_res {
+    margin-left: 25px;
+}
+
+.input_dep_res_edit {
+    margin-left: 65px;
+}
+
+.input_salary_res {
+    margin-left: 5px;
+    display: block;
+}
+
+.input_salary_res_edit {
+    margin-left: 5px;
+    display: block;
+}
+
+.input_exp_res {
+    margin-left: 45px;
+}
+
+.input_exp_res_edit {
+    margin-left: 60px;
+}
+
+.input_text_res {
+    width: 80%;
+    margin-left: 80px;
+    height: 200px;
+}
+
+.input_text_res_edit {
+    width: 60%;
+    margin-left: 105px;
+    height: 200px;
 }

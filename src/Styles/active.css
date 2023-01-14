@@ -1,0 +1,24 @@
+.active_block_item {
+    margin: 15px 0;
+}
+
+.active_block_vacansie {
+    width: 60%;
+    margin: 20px 0 0 70px;
+}
+
+.active_block_resume {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin: 20px 0 0 70px;
+}
+
+.active_files {
+    margin-left: 0%;
+}
+
+.active_info {
+    margin-right: 10%;
+}

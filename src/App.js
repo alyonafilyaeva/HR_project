@@ -23,15 +23,17 @@ import ActiveVacansie from './components/VacansiesList/PresentationComponents/Ac
 import AddVacansieContainer from './components/VacansiesList/ContainerComponents/AddVacansieContainer';
 import EditVacansieContainer from './components/VacansiesList/ContainerComponents/EditVacansieContainer';
 import ActiveVacansieContainer from './components/VacansiesList/ContainerComponents/ActiveVacansieContainer';
+import HeaderContainer from './components/HeaderContainer';
+import SidebarContainer from './components/SidebarContainer';
 
 const App = () => {
   return (
     <div className="app">
       <Router>
         <AuthProvider>
-          <Header />
+          <HeaderContainer />
           <div className='app_container'>
-            <Sidebar />
+            <SidebarContainer />
             <div>
               <AuthPage />
               <Routes>
@@ -54,11 +56,12 @@ const App = () => {
                   <Route path="/profile/edit" element={<EditProfileContainer />} />
                   
                 </Route>
-                <Route path="*" element={<NotFound />} />
+                
               </Routes>
             </div>
           </div>
         </AuthProvider>
+        {/* <Route path="*" element={<NotFound />} /> */}
       </Router>
     </div>
   )

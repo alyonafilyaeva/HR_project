@@ -51,32 +51,43 @@ const AddResume = (props) => {
         let expRes = exp.current.value;
         props.ChangeResume(salaryRes, expRes, aboutRes)
     }
-
+    console.log(user)
     return (
-        <div>
-            <h3>Создание резюме</h3>
-            <NavLink to="/resumes" className='back'>&#x2190; Назад</NavLink>
+        <div className="container">
+            <div className="steps">
+                <h3>Создание резюме</h3>
+                <p><span>Шаг 1</span> из 3</p>
+            </div>
+            <div className="bar_1"></div>
+            <NavLink to="/resumes" className='back'>Назад</NavLink>
             <form>
                 <div className="form form_resume">
                     <div className="field_input">
-                        <p>Почта: {user.email}</p>
-                        <p>Департамент: {user.department}</p>
+                        <h2>{user.full_name}</h2>
                         <div className="form_item">
-                            <p>Желаемая зарплата</p>
-                            <input onChange={onResChange} type='text' name='salary' ref={salary} value={props.newResSalery} required />
+                            <p>Почта:</p>
+                            <p className="input_mail_res">{user.email}</p>
                         </div>
                         <div className="form_item">
-                            <p>Стаж работы</p>
-                            <input onChange={onResChange} type='text' name='salary' ref={exp} value={props.newResExp} required />
+                            <p>Департамент:</p>
+                            <p className="input_dep_res">{user.department}</p>
                         </div>
                         <div className="form_item">
-                            <p>О себе</p>
-                            <textarea onChange={onResChange} type='text' name="about" ref={about} value={props.newResAbout} required />
+                            <p>Желаемая зарплата:</p>
+                            <input onChange={onResChange} className="input_salary_res" type='text' name='salary' ref={salary} value={props.newResSalery} required />
+                        </div>
+                        <div className="form_item">
+                            <p>Стаж работы:</p>
+                            <input onChange={onResChange} className="input_exp_res" type='text' name='salary' ref={exp} value={props.newResExp} required />
+                        </div>
+                        <div className="form_item">
+                            <p>О себе:</p>
+                            <textarea onChange={onResChange} className="input_text_res" type='text' name="about" ref={about} value={props.newResAbout} required />
                         </div>
                     </div>
                     <div className="download_fields">
                         <div className="form_item">
-                            <p>Загрузите изображние</p>
+                            <p>Загрузите изображение</p>
                             <input type="file" name="photo" accept="image/*" />
                         </div>
                         <div className="form_item">
@@ -86,8 +97,9 @@ const AddResume = (props) => {
 
                     </div>
                 </div>
-                <button onClick={onAddRes} className="orange create_resume">Создать резюме</button>
+                
             </form>
+            <button onClick={onAddRes} className="orange create_resume">Создать резюме</button>
         </div>
     )
 }

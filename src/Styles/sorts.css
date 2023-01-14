@@ -1,0 +1,114 @@
+.search{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 90%;
+    font-size: 12px;
+}
+
+input[type=text], textarea {
+    /* padding: 10px 0 10px 35px; */
+    /* width: 25%; */
+    height: 20px;
+    border: 1px solid #CFD3D5;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.search_input {
+    width: 40%;
+}
+
+.sort_block {
+    z-index: -5;
+    width: 97%;
+}
+.sorts {
+    display: flex;
+    justify-content: space-between;
+    z-index: -10;
+    padding: 20px 0;
+    margin-top: 10px;
+    width: 92%;
+}
+
+.sorts_btns {
+    margin-left: 10%;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    /* z-index: -5; */
+}
+
+.parametr{
+    width: 350px;
+    /* height: 35px; */
+    padding: 10px 0;
+    border: 1px solid #CFD3D5;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 10%;
+    color:#ABAFB1
+
+}
+
+.last {
+    margin-right: 0
+}
+
+.btn_sorts{
+    width: 20%;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    /* gap: 30px; */
+}
+
+.sort {
+    padding-right: 50px;
+    background-image: url('/src/imgs/sort.png');
+    background-repeat: no-repeat;
+    background-position: 5% 50%;
+}
+
+.salary{
+    background-image: url('/src/imgs/salary.png');
+    background-repeat: no-repeat;
+    background-position: 5% 50% ;
+} 
+
+.exp{
+    background-image: url('/src/imgs/exp.png');
+    background-repeat: no-repeat;
+    background-position: 5% 50% ;
+} 
+
+.dep{
+    padding-right: 50px;
+    background-image: url('/src/imgs/dep.png');
+    background-repeat: no-repeat;
+    background-position: 5% 50% ;
+} 
+
+.search_input {
+    /* padding-right: 50px; */
+    background-image: url('/src/imgs/search.png');
+    background-repeat: no-repeat;
+    background-position: 1% 50% ;
+}
+
+option {
+    /* margin-left: 55px; */
+    position: end;
+    /* text-align: right; */
+    padding: 7px ;
+    border: 1px solid #CFD3D5;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+select {
+    text-indent: 35px;
+    font-size: 18px;
+}

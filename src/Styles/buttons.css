@@ -1,0 +1,183 @@
+.orange {
+    /* width: 40%; */
+    padding: 9px 15px;
+    box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.3);
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFFFFF;
+    cursor: pointer;
+    background: #E58025;
+    border: 1px solid #E58025;
+    
+}
+
+.create {
+    padding-left: 30px;
+    background-image: url('/src/imgs/plus.png');
+    background-repeat: no-repeat;
+    background-position: 5% 50% ;
+}
+
+.back {
+    margin: 100px 0;
+    color: #F3C49A;
+    padding-left: 20px;
+    background-image: url('/src/imgs/back.png');
+    background-repeat: no-repeat;
+    background-position: 5% 50% ;
+}
+
+.create_vacancy{
+    justify-content: center;
+    align-items: center;
+    /* padding: ; */
+    position: absolute;
+    width: 140px;
+    height: 42px;
+    left: 110%;
+    top: 100%;
+    /* background: #E58025;
+    border: 1px solid #E58025; */
+    border-radius: 12px;
+    color: white;
+    font-size: 14px;
+}
+
+.create_vacancy {
+    width: 25%;
+    padding: 11px 15px;
+    
+    box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.3);
+    border-radius: 12px;
+    
+    font-size: 14px;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.save_res {
+    /* position: absolute;
+    top: 70%;
+    left: 65% */
+    margin-left: 110%;
+}
+
+.save_vac {
+    /* position: absolute;
+    top: 70%;
+    left: 65% */
+    margin-left: 130%;
+}
+
+.grey{
+    padding: 10px 20px;
+    width: 100%;
+    margin-right: 10%;
+    border: 1px solid #E58025;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #E58025;
+    cursor: pointer;
+    background-color: #FDFCFC;
+}
+
+.orange:hover{
+    background: linear-gradient(96.81deg, #FED132 0%, #FF6641 100%);
+    
+    box-shadow: 0px 4px 24px rgb(204 100 6 / 30%);
+}
+
+.create:hover {
+    /* background-image: url('/src/imgs/vector.png'); */
+    background-color: linear-gradient(96.81deg, #FED132 0%, #FF6641 100%) ;
+    padding-left: 30px;
+    background-repeat: no-repeat;
+    background-position: 5% 50% ;
+}
+    
+.grey:hover {
+    border: 1px solid #AE601B;
+    color: #AE601B;
+    box-shadow: 0px 4px 24px rgb(204 100 6 / 30%);
+}
+
+
+.edit_vacansie {
+    margin-left: 60%;
+    margin-bottom: 20px;
+}
+
+.edit_resume {
+    margin-left: 82%;
+    margin-bottom: 20px;
+}
+
+.btn_vacansie {
+    margin-top: 10px;
+    margin-left: 65%;
+}
+
+.see {
+    margin-top: 20%;
+    margin-left: 10%;
+}
+
+.btn_resume {
+    margin-left: 85%;
+    
+}
+
+.edit_data_btn{
+    margin-right: 7%;
+
+}
+
+.change_password{
+    width: 25%;
+}
+
+.btn_auth {
+    background: #A6A8B1;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    border: 1px solid #A6A8B1;
+    width: 42%;
+    position: center;
+    margin: 20px 40%;
+    cursor: pointer;
+}
+
+.btn_reg {
+    background: #A6A8B1;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 0;
+    color: #fff;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    border: 1px solid #A6A8B1;
+    width: 55%;
+    position: center;
+    margin: 20px 30%;
+    cursor: pointer;
+}
+
+.btn_auth:hover {
+    background: #E58025;
+    border: 1px solid #E58025;
+}
+
+.btn_reg:hover {
+    background: #E58025;
+    border: 1px solid #E58025;
+}

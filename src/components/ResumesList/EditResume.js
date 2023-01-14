@@ -89,30 +89,52 @@ const EditResume = (props) => {
 
     return (
         <div className="container">
-            <h3>Редактирование резюме</h3>
-            <NavLink to={`/resumes`} className='back'>&#x2190; Назад</NavLink>
+            <div className="steps">
+                <h3>Черновик резюме</h3>
+                <p><span>Шаг 2</span> из 3</p>
+            </div>
+            <div className="bar_2"></div>
+            <NavLink to={`/resumes`} className='back'>Назад</NavLink>
             <div>
             <form onSubmit={onEditRes}>
                 <div className="form form_resume">
-                    <div>
+                    <div className="field_input">
                         <h2>{user.full_name}</h2>
-                        <p>Email: {user.email}</p>
-                        <p>Департамент: {props.user.department}</p>
-                        <p>Желаемая зарплата</p>
-                        <input onChange={onResChange} type='number' name='salary' value={salary} required />
-                        <p>Стаж работы</p>
-                        <input onChange={onResChange} type='number' name='exp_work' value={exp_work} required />
-                        <p>О себе</p>
-                        <textarea onChange={onResChange} type='text' name="about_me" value={about_me} required />
+                        <div className="form_item">
+                            <p>Почта:</p>
+                            <p className="input_mail_res_edit">{user.email}</p>
+                        </div>
+                        <div className="form_item">
+                            <p>Департамент:</p>
+                            <p className="input_dep_res_edit">{props.user.department}</p>
+                        </div>
+                        <div className="form_item">
+                            <p>Желаемая зарплата:</p>
+                            <input onChange={onResChange} className="input_salary_res_edit" type='number' name='salary' value={salary} required />
+                        </div>
+                        <div className="form_item">
+                            <p>Стаж работы:</p>
+                            <input onChange={onResChange} className="input_exp_res_edit" type='number' name='exp_work' value={exp_work} required />
+                        </div>
+                        <div className="form_item">
+                            <p>О себе:</p>
+                            <textarea onChange={onResChange} className="input_text_res_edit" type='text' name="about_me" value={about_me} required />
+                        </div>
+                        
                     </div>
-                    <div>
-                        <p>Загрузите изображние</p>
-                        <input onChange={onResChange} type="file" name="image" accept="image/*" required />
-                        <p>Загрузите свое резюме</p>
-                        <input onChange={onResChange} type="file" name="file" accept="application/*" required />
+                    <div className="download_fields">
+                    <div className="form_item">
+                            <p>Загрузите изображение</p>
+                            <input onChange={onResChange} type="file" name="image" accept="image/*" required />
+                        </div>
+                        <div className="form_item">
+                            <p>Загрузите свое резюме</p>
+                            <input onChange={onResChange} type="file" name="file" accept="application/*" required />
+                        </div>
+                        
                     </div>
                 </div>
-                <button type="submit" className="orange save">Сохранить изменения</button>
+                <button type="submit" className="orange save_res">Сохранить</button>
             </form>
             </div>
             

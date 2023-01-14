@@ -22,8 +22,9 @@ function Profile(props) {
     let { user } = useContext(AuthContext)
     console.log(user)
     return (
-        <div>
+        <div className="container">
             <h3>Профиль</h3>
+            <NavLink to="/vacansies" className='back'>Назад</NavLink>
             <div className="cart">
                 <div >
                     <p className="name_user">{user.full_name}</p>

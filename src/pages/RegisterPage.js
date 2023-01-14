@@ -8,10 +8,10 @@ const RegisterPage = () => {
         <div className='register'>
             <div className=''>
             <form onSubmit={registerUser}>
-                <input type='text' name='email' placeholder='Email' className='input_auth'/>
-                <input type='password' name='password' placeholder='Придумайте пароль' className='input_auth password'/>
-                <input type='password' name='password2' placeholder='Повторите пароль' className='input_auth password'/>
-                <button type='submit' className='btn_auth'>Зарегистрироваться</button>
+                <input type='text' name='email' placeholder='Email' className='input_reg'/>
+                <input type='password' name='password' placeholder='Придумайте пароль' className='input_reg password'/>
+                <input type='password' name='password2' placeholder='Повторите пароль' className='input_reg password'/>
+                <button type='submit' className='btn_reg'>Зарегистрироваться</button>
             </form>
             </div>
             

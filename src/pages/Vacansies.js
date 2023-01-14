@@ -25,7 +25,7 @@ function Vacansies() {
                         </div>}
                 </div>
                 {user.is_header_dep && <div>
-                    <NavLink to="/vacansies/create_vacansie/" className="orange">Создать вакансию </NavLink>
+                    <NavLink to="/vacansies/create_vacansie/" className="create orange">Создать вакансию </NavLink>
                 </div>}
             </div>
             <div className="vacansies-list" value={vacancies}>

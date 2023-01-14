@@ -1,21 +1,43 @@
-import React, { Component, useContext } from "react";
+import React, { Component, useContext, useLayoutEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from "react-router-dom";
 import "../Styles/app.css"
+import logo from '../imgs/logo.png'
 import AuthContext from "../context/AuthContext";
 
 const Sidebar = (props) => {
     const disNone = {
         display: 'none'
     }
+    
     let { user } = useContext(AuthContext)
+
+    let sidebarHandler = () => {
+        props.ChangeSidebar(false)
+    } 
+
+    let open = props.isOpen
+    
     return (
-        user ?
+        user && open ?
             <div className="sidebar">
+                <div onClick={sidebarHandler} className="menu_open"></div>
+                <p className="role">{user.is_header_dep ? 'ГЛАВА ДЕПАРТАМЕНТА' : 'СОТРУДНИК'}</p>
+                <p>{user.full_name}</p>
                 <ul>
-                    <li><NavLink to="/vacansies" className='sidebar_btn'>Вакансии </NavLink></li>
-                    <li><NavLink to="/resumes">Резюме </NavLink></li>
-                    <li><NavLink to="/request">Мои заявки </NavLink></li>
+                    <div className="sidebar_link">
+                        <div className='vacansies_icon'></div>
+                        <li><NavLink to="/vacansies" onClick={sidebarHandler} >Вакансии </NavLink></li>
+                    </div>
+                    <div className="sidebar_link">
+                        <div className='resumes_icon'></div>
+                        <li><NavLink to="/resumes" onClick={sidebarHandler} >Резюме </NavLink></li>
+                    </div>
+                    <div className="sidebar_link">
+                        <div className='requests_icon'></div>
+                        <li><NavLink to="/request" onClick={sidebarHandler} >Мои заявки </NavLink></li>
+                    </div>
                 </ul>
+                <img src={logo} className='logo_sidebar' />
             </div>
             : <div style={disNone}></div>
 

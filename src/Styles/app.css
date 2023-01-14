@@ -4,34 +4,19 @@
 }
 
 .app {
-    background-color: FDFCFC;
-    /* padding-left: 70px; */
+    background-color: #FDFCFC;
     padding-bottom: 50px;
     font-family: 'Inter', sans-serif;
-    padding-bottom: 20%;
+    padding-bottom: 10%;
+    overflow-x: hidden;
+    
 }
 
-.is-active {
-    font-size: 20px;
-    background-color: blue;
-}
-
-.sidebar {
-    text-decoration: none;
-    padding-left: 70px;
-    width: 10%;
-    padding-right: 60px;
-    /* background: linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
-    height: 100vh; */
-    /* position:absolute; */
-    top:0;
-    left: 0
-
-}
-
-.header {
-    padding: 10px 0;
-    font-size: 20px;
+textarea {
+    font-family: 'Inter', sans-serif;
+    line-height: 22px;
+    display: block;
+    padding: 5px ;
 }
 
 .app_container {
@@ -39,18 +24,21 @@
 }
 
 .container {
-    width: 90%;
-    padding-left: 50px;
+    width: 95%;
+    padding-left: 100px;
 }
 
+p {
+    line-height: 28px;
+}
 a {
     text-decoration: none;
     color: #000
 }
 
-a:hover {
+/* a:hover {
     color: #E58025
-}
+} */
 
 @import url(./vacansies.css);
 @import url(./vacansieItem.css);
@@ -61,4 +49,7 @@ a:hover {
 @import url(./profile.css);
 @import url(./auth.css);
 @import url(./openblock.css);
-@import url(./requests.css)
+@import url(./requests.css);
+@import url(./sorts.css);
+@import url(./buttons.css);
+@import url(./active.css)

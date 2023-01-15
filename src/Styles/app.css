@@ -21,11 +21,18 @@ textarea {
 
 .app_container {
     display: flex;
+    
+}
+
+.main_container {
+    padding-top: 100px;
 }
 
 .container {
     width: 95%;
     padding-left: 100px;
+    padding-bottom: 15%;
+    padding-top: 100px;
 }
 
 p {

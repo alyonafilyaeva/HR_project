@@ -181,3 +181,12 @@
     background: #E58025;
     border: 1px solid #E58025;
 }
+
+.activate {
+    margin: 10px 30%;
+}
+
+.btns_recover {
+    display: flex;
+    padding: 0 10%;
+}

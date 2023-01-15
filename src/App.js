@@ -38,9 +38,7 @@ const App = () => {
               <AuthPage />
               <Routes>
               <Route path='/auth' exact element={<AuthPage />} />
-                {/* <Route path='/auth/login' exact element={<LoginPage />} />
-                <Route path='/auth/register' element={<RegisterPage />} /> */}
-                <Route element={<PrivateRoute />}>
+                <Route element={<PrivateRoute />} >
                   <Route path="/vacansies" element={<Vacansies />} />
                   <Route path="/vacansies/all" element={<VacansiesListAllContainer />} />
                   <Route path="/vacansies/my" element={<VacansiesListMyContainer />} />

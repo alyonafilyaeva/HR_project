@@ -42,8 +42,9 @@ const ActiveResume = (props) => {
             data: data
         })
             .then(response => {
+                console.log(response.data)
                 if (response.status === 200) {
-                    console.log(response.data)
+                    
                     nav('/resumes')
                 }
             })
@@ -62,7 +63,12 @@ const ActiveResume = (props) => {
             },
             data: data
         })
-            .then(response => console.log(response.data))
+        .then(response => {
+            if (response.status === 200) {
+                console.log(response.data)
+                alert('Ваша заявка отправлена')
+            }
+        })
     }
 
     return (
@@ -103,7 +109,13 @@ const ActiveResume = (props) => {
                     </div>
                 </div>
             </div>
-            {location.state.user.id !== user.id && <button onClick={sendRequest} className="btn_resume orange ">Отправить заявку</button>}
+            {location.state.user.id !== user.id && 
+            <div className="send_request_resume">
+                <button onClick={sendRequest} className="btn_resume orange ">Отправить заявку</button>
+                <p className="send_alert_resume">На почту сотрудника будет отправлено письмо <br></br>о том, что вы заинтересовались его резюме.</p>
+            </div>
+            
+            }
             {(location.state.user.id === user.id && location.state.status !== 'Y_P') && <button className="btn_resume orange " onClick={publish}>Опубликовать</button>}
             {(location.state.user.id === user.id && location.state.status === 'Y_P') && <button className="btn_resume orange " onClick={notPublish}>Снять с публикации</button>}
         </div>

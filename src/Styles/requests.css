@@ -7,3 +7,38 @@
     border-radius: 10px;
     margin-right: 50px;
 }
+
+.send_alert {
+    display: none;
+}
+
+.send_request_resume:hover .send_alert_resume {
+    display: block;
+}
+
+.send_request_vacansie:hover .send_alert_vacansie {
+    display: block;
+}
+
+.send_alert_vacansie {
+    margin-top: 10px;
+    margin-left: 58%;
+    display: none;
+    border: 2px dashed #CFD3D5;
+    border-radius: 8px;
+    padding: 7px;
+    width: 360px;
+    /* background-image: url('/src/imgs/send_request.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50% ; */
+}
+
+.send_alert_resume {
+    margin-top: 10px;
+    margin-left: 78%;
+    display: none;
+    border: 2px dashed #CFD3D5;
+    border-radius: 8px;
+    padding: 7px;
+    width: 360px;
+}

@@ -5,6 +5,9 @@ import main from '../imgs/main.png'
 import logo from '../imgs/logo.png'
 import LoginPage from './LoginPage'
 import RegisterPage from './RegisterPage'
+import Activate from './Activate'
+import Recover from './Recover'
+import New_register from './New_register'
 
 const AuthPage = () => {
     let { user } = useContext(AuthContext)
@@ -25,8 +28,11 @@ const AuthPage = () => {
                             <h2 onClick={() => setStatus(1)} className={`${status === 1 && 'clicked '} auth_item`}>Регистрация</h2>
                         </div>
                         {status == 0 ? <LoginPage /> : <RegisterPage />}
+                        
                     </div>
-
+                    {/* <New_register />
+                    <Activate />
+                    <Recover /> */}
                 </div>
                 <div className='plitka'>
                 <img src={main} />    

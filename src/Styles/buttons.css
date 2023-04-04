@@ -173,8 +173,8 @@
 }
 
 .btn_auth:hover {
-    background: #E58025;
-    border: 1px solid #E58025;
+    background: linear-gradient(96.81deg, #FED132 0%, #FF6641 100%);
+    /* border: 1px solid #E58025; */
 }
 
 .btn_reg:hover {

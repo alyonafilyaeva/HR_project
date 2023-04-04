@@ -78,7 +78,7 @@ const EditVacansie = (props) => {
     }
 
     return (
-        <div className="container">
+        <div className="container container-add-vacancie">
             <div className="steps">
                 <h3>Черновик вакансии</h3>
                 <p><span>Шаг 2</span> из 3</p>
@@ -88,23 +88,35 @@ const EditVacansie = (props) => {
             <div className="form form_vacansie">
                 <form>
                     <div className="form_item">
-                        <p>Название вакансии:</p>
+                        <p className="name-form">Название вакансии:</p>
                         <input onChange={onVacChange} className="input_title_vac" type='text' name='title' value={title} />
                     </div>
                     <div className="form_item">
-                        <p>Департамент:</p>
+                        <p className="name-form">Департамент:</p>
                         <p className="input_dep_vac">{location.state.department}</p>
                     </div>
                     <div className="form_item">
-                        <p>Минимальная зарплата:</p>
-                        <input onChange={onVacChange} className="input_salary_vac" type='number' name='salary' value={salary} />
+                        <p className="name-form">Минимальная зарплата:</p>
+                        
+                        <div className="salary-block">
+                                <p>От:</p>
+                                <div className="salary-placeholder">
+                                    <input onChange={onVacChange} className="input_salary_vac" type='number' name='salary' value={salary} placeholder="0"/>
+                                    <p>Минимальная зарплата</p>
+                                </div>
+                                <p>До:</p>
+                                <div className="salary-placeholder">
+                                    <input onChange={onVacChange} className="input_salary_vac" type='number' name='salary' value={salary} placeholder="0"/>
+                                    <p>Максимальная зарплата</p>
+                                </div>
+                            </div>
                     </div>
                     <div className="form_item">
-                        <p>Стаж работы:</p>
+                        <p className="name-form">Стаж работы:</p>
                         <input onChange={onVacChange} className="input_exp_vac" type='number' name='exp' value={exp} />
                     </div>
                     <div className="form_item">
-                        <p>Описание вакансии:</p>
+                        <p className="name-form">Описание вакансии:</p>
                         <textarea onChange={onVacChange} className="input_text_vac" type='text' name="text" value={text} rows='10'/>
                     </div>
                 </form>

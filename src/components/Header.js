@@ -16,11 +16,14 @@ const Header = (props) => {
 
     return (
         user ?
+        <div className="header-container">
             <div className="header">
                 <div className="menu_close" onClick={sidebarHandler}></div>
-                {/* <NavLink to="/profile" >О себе</NavLink> */}
-                <ProfileHeaderContainer />
+                <div className="profile-header"><ProfileHeaderContainer /></div>
+                
             </div>
+        </div>
+            
             : <div style={disNone}></div>
     )
 }

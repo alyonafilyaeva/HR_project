@@ -1,16 +1,27 @@
+.container-add-vacancie {
+    margin-left: 8%;
+}
+
 .form{
-    padding: 20px 40px;
-    margin: 20px 0;
-    width: 110%;
+    padding: 40px;
+    margin: 25px 0;
+    width: 115%;
     /* height: 400px; */
     line-height: 28px;
-    /* margin-right: 250px; */
+    /* margin-left: 250px; */
     border-radius: 20px;
     background: linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
     backdrop-filter: blur(75px);
     border: 1px solid #ffcda24f;
     position: relative;
-    margin-right: 60%;
+    /* margin-right: 60%; */
+}
+
+.name-form {
+    width: 24%;
+    color: #53545C;
+    font-size: 16px;
+    margin-left: 9%;
 }
 
 h3 {
@@ -20,53 +31,56 @@ h3 {
 
 input[type=text] , textarea  {
     /* width: 100%; */
-    padding:  7px;
+    padding:  14px;
     /* height: 10px; */
     border: 1px solid #CFD3D5;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 16px;
 }
  .search input{
     padding-left: 30px;
 }
 input[type=number] {
-    padding: 7px;
+    padding: 13px;
     border: 1px solid #CFD3D5;
     border-radius: 8px;
-    font-size: 14px;
+    font-size: 16px;
     /* width: 100%; */
 }
 
 .form_item {
     display: flex;
     flex-direction: row;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     /* justify-content: space-between; */
 }
 
 .input_title_vac {
     width: 40%;
-    margin-left: 35px;
+    /* margin-left: 35px; */
 }
 
 .input_dep_vac {
     
-    margin-left: 85px;
+    /* margin-left: 85px; */
 }
 
 .input_salary_vac {
-    width: 40%;
-    margin-left: 5px;
+    width: 70%;
+    /* margin: 0 15px ; */
+    background-image: url('/src/imgs/edit.png');
+    background-repeat: no-repeat;
+    background-position: 90% 50%;
 }
 
 .input_exp_vac {
     width: 40%;
-    margin-left: 85px;
+    /* margin-left: 85px; */
 }
 
 .input_text_vac {
     width: 70%;
-    margin-left: 35px;
+    /* margin-left: 35px; */
     height: 200px;
 }
 
@@ -78,4 +92,15 @@ input[type=number] {
 
 span {
     color: #E58025;
+}
+
+.salary-block {
+    display: flex;
+}
+
+.salary-placeholder {
+    margin-left:  15px ;
+    font-size: 14px;
+    color: #53545C;
+    width: 40%;
 }

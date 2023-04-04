@@ -5,9 +5,9 @@
 
 .app {
     background-color: #FDFCFC;
-    padding-bottom: 50px;
+    /* padding-bottom: 50px; */
     font-family: 'Inter', sans-serif;
-    padding-bottom: 10%;
+    /* padding-bottom: 10%; */
     overflow-x: hidden;
     
 }
@@ -29,10 +29,11 @@ textarea {
 }
 
 .container {
-    width: 95%;
-    padding-left: 100px;
-    padding-bottom: 15%;
+    width: 90%;
+    padding-left: 10%;
+    /* padding-bottom: 10%; */
     padding-top: 100px;
+    height: 100vh;
 }
 
 p {

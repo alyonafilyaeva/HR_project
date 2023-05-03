@@ -11,10 +11,13 @@ const EditVacansie = (props) => {
     let [text, setText] = useState('')
     let [salary, setSalary] = useState('')
     let [exp, setExp] = useState('')
+    let [skills, setSkills] = useState([])
     let { authToken } = useContext(AuthContext)
     let path = `/vacansie/${location.state.id}`
     let nav = useNavigate()
-
+    /* let newSkills = []
+    newSkills.push(skills.current.value) */
+    console.log(skills)
     useLayoutEffect(() => {
         axios({
             method: "get",
@@ -27,10 +30,12 @@ const EditVacansie = (props) => {
             }
         })
             .then(response => {
+                console.log(response.data)
                 setExp(response.data.exp_work)
                 setTitle(response.data.title)
                 setText(response.data.description)
                 setSalary(response.data.salary)
+                setSkills(response.data.skills)
             })
     }, [])
 
@@ -50,7 +55,8 @@ const EditVacansie = (props) => {
                 "description": text,
                 "exp_work": exp,
                 "salary": salary,
-                "status": 'N_P'
+                /* "skills": skills, */
+                "status": 0
             }
         })
             .then(response => {
@@ -74,6 +80,9 @@ const EditVacansie = (props) => {
         }
         else if (e.target.name === 'text') {
             setText(e.target.value)
+        }
+        else if (e.target.name === 'skills') {
+            setSkills(skills => skills.push(e.target.value))
         }
     }
 
@@ -114,6 +123,15 @@ const EditVacansie = (props) => {
                     <div className="form_item">
                         <p className="name-form">Стаж работы:</p>
                         <input onChange={onVacChange} className="input_exp_vac" type='number' name='exp' value={exp} />
+                    </div>
+                    <div className="form_item">
+                        <p className="name-form">Компетенции: </p>
+                        <select className='parametr ' placeholder="Компетенции" name='skills' value={skills} onChange={onVacChange}>
+                            <option value=''></option>
+                            {props.skills.skills.map(skill =>
+                                <option value={skill.id}>{skill.name}</option>
+                            )}
+                        </select>
                     </div>
                     <div className="form_item">
                         <p className="name-form">Описание вакансии:</p>

@@ -35,7 +35,7 @@ function ResumesListMy(props) {
     }
     else {
         return <div>
-            <NavLink to="/resumes/create_resume" className="vacansies-top__btn">Создать резюме</NavLink>
+            <NavLink to="/resumes/create_resume" className="grey create_res">Создать резюме</NavLink>
         </div>
     }
 }

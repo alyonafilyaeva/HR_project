@@ -4,9 +4,13 @@
     margin-top: 20px;
     padding: 20px;
     width:55%;
-    border-radius: 10px;
+    border-radius: 20px;
     margin-right: 50px;
     backdrop-filter: blur(40px);
+}
+
+.vacansie-item p {
+    padding: 2px 0;
 }
 
 .resume-item {
@@ -28,10 +32,11 @@
 .vacansie {
     display: flex;
     line-height: 25px;
+    color: #45464E
 }
 
 .blur {
-    opacity: .7;
+    color: #656565;
     padding-top: 2px;
 }
 
@@ -43,5 +48,7 @@
     width: 24%;
     border-radius: 10px;
 }
+
+
 
 

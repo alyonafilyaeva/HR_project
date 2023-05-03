@@ -48,7 +48,7 @@ const EditResume = (props) => {
         formData.append("exp_work", exp_work)
         formData.append("salary", salary)
         formData.append("image", image ? image : state.image)
-        formData.append("status", 'N_P')
+        formData.append("status", 0)
         formData.append("file", file ? file : state.file)
         axios({
             method: "put",

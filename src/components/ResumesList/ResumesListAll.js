@@ -6,7 +6,20 @@ import { NavLink } from "react-router-dom";
 
 function ResumesListAll(props) {
     let { authToken } = useContext(AuthContext)
+    useLayoutEffect(() => {
+        axios.get("http://127.0.0.1:8000/api/skills/", {
+            'headers': {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${String(authToken.access)}`
+            }
+        })
+            .then(response => {
+                props.setSkills(response.data.skills)
+                
+                console.log(response)
+            })
 
+    }, [])
     useLayoutEffect(() => {
         axios.get("http://127.0.0.1:8000/api/resumes/", {
             'headers': {
@@ -14,10 +27,6 @@ function ResumesListAll(props) {
                 'Authorization': `Bearer ${String(authToken.access)}`
             }
         })
-
-
-
-
             .then(response => {
                 props.setResumes(response.data)
             })

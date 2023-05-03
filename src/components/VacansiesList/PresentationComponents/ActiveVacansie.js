@@ -2,17 +2,25 @@ import axios from "axios";
 import React, { useContext, useLayoutEffect, useState } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import AuthContext from "../../../context/AuthContext";
+import SkillsContainer from "../../skills/SkillsContainer";
+import SuccessAlert from "../../Alerts/SuccessAlert";
+import WarningAlert from "../../Alerts/WarningAlert";
+import InfoAlert from "../../Alerts/InfoAlert";
 
 const ActiveVacansie = (props) => {
     const location = useLocation();
     let { user, authToken } = useContext(AuthContext)
     let nav = useNavigate()
-
+    let skillsOfVacansie = location.state.skills
     let path = `/vacansie/edit/${location.state.id}`
+    let [response, setResponse] = useState(0)
+    setTimeout(() => {
+        setResponse(0);
+      }, 5000);
 
     let notPublish = () => {
         let data = location.state
-        data.status = 'N_P'
+        data.status = 0
         axios({
             method: "put",
             url: `http://127.0.0.1:8000/api/vacancies/${location.state.id}/`,
@@ -33,7 +41,7 @@ const ActiveVacansie = (props) => {
     }
     let publish = () => {
         let data = location.state
-        data.status = 'Y_P'
+        data.status = 1
         axios({
             method: "put",
             url: `http://127.0.0.1:8000/api/vacancies/${location.state.id}/`,
@@ -46,13 +54,16 @@ const ActiveVacansie = (props) => {
             data: data
         })
             .then(response => {
+
                 if (response.status === 200) {
                     console.log(response.data)
                     nav('/vacansies')
                 }
             })
+
     }
     let sendRequest = () => {
+        setResponse('info')
         let data = {
             title: location.state.title,
             status: '1',
@@ -66,17 +77,26 @@ const ActiveVacansie = (props) => {
             },
             data: data
         })
-        .then(response => {
-            if (response.status === 200) {
-                console.log(response.data)
-                alert('Ваша заявка отправлена')
-            }
-        })
+            .then(response => {
+                setResponse(response.status)
+                console.log(response)
+                if (response.status === 200) {
+                    console.log(response.data)
+
+                }
+                if (response.data.err) {
+                    setResponse('err')
+                }
+            })
+            .catch(error => {
+                setResponse(response.status)
+                console.log(error.response)
+            })
     }
 
     return (
         <div className="container">
-            {(location.state.user.id == user.id && location.state.status !== 'Y_P') &&
+            {(location.state.user.id == user.id && location.state.status !== 1) &&
                 <div>
                     <div className="steps">
                         <h3>Черновик вакансии</h3>
@@ -85,7 +105,7 @@ const ActiveVacansie = (props) => {
                     <div className="bar_2"></div>
                 </div>
             }
-            {(location.state.user.id == user.id && location.state.status === 'Y_P') &&
+            {(location.state.user.id == user.id && location.state.status === 1) &&
                 <div>
                     <div className="steps">
                         <h3>Вакансия опубликована</h3>
@@ -95,22 +115,48 @@ const ActiveVacansie = (props) => {
                 </div>
             }
             <NavLink to="/vacansies" className='back'>Назад</NavLink>
-            {(location.state.user.id == user.id && location.state.status !== 'Y_P') && <NavLink to={path} state={location.state} className="grey edit_vacansie">Редактировать</NavLink>}
+            {response == 200 && <SuccessAlert />}
+            {response == 'err' && <WarningAlert />}
+            {response == 'info' && <InfoAlert />}
+            {(location.state.user.id == user.id && location.state.status !== 1) && <NavLink to={path} state={location.state} className="grey edit_vacansie">Редактировать</NavLink>}
             <div className="active_block_vacansie">
                 <h2 className="active_block_item">{location.state.title}</h2>
-                <p className="active_block_item">Департамент: {location.state.department}</p>
-                <p className="active_block_item">Минимальная зарплата: {location.state.salary} руб.</p>
-                <p className="active_block_item">Стаж работы: {location.state.exp_work}</p>
-                <p className="active_block_item">{location.state.description}</p>
+                <div className="active_block_item">
+                    <p className="item_title">Департамент: </p>
+                    <p>{location.state.department}</p>
+                </div>
+                <div className="active_block_item">
+                    <p className="item_title">Зарплата: </p>
+                    <p>{location.state.salary} - {location.state.salary} руб.</p>
+                </div>
+                <div className="active_block_item">
+                    <p className="item_title">Стаж работы: </p>
+                    <p>{location.state.exp_work}</p>
+                </div>
+                <div className="active_block_item">
+                    <p className="item_title">Компетенции:</p>
+                    <p><SkillsContainer realskills={skillsOfVacansie} /></p>
+                </div>
+                <div className="active_block_item">
+                    <p className="item_title">График работы: </p>
+                    <p>{location.state.title}</p>
+                </div>
+                <div className="active_block_item">
+                    <p className="item_title">Занятость:</p>
+                    <p>{location.state.title}</p>
+                </div>
+                <div>
+                    <p className="active_block_item">{location.state.description}</p>
+                </div>
             </div>
-            {(location.state.user.id !== user.id) && 
-            <div className="send_request_vacansie">
-                <button onClick={sendRequest} className="btn_vacansie orange">Отправить заявку</button>
-                <p className="send_alert_vacansie">На почту сотрудника будет отправлено письмо<br></br> о том, что вы заинтересовались его вакансией.</p>
-            </div>
+            {(location.state.user.id !== user.id) &&
+                <div className="send_request_vacansie">
+                    <button onClick={sendRequest} className="btn_vacansie orange">Отправить заявку</button>
+                    <p className="send_alert_vacansie">Сотруднику будет отправлено письмо, что вы заинтересовались его вакансией. </p>
+                </div>
             }
-            {(location.state.user.id === user.id && location.state.status !== 'Y_P') && <button className="btn_vacansie orange" onClick={publish}>Опубликовать вакансию</button>}
-            {(location.state.user.id === user.id && location.state.status === 'Y_P') && <button className="btn_vacansie orange" onClick={notPublish}>Снять с публикации</button>}
+            {(location.state.user.id === user.id && location.state.status !== 1) && <button className="btn_vacansie orange" onClick={publish}>Опубликовать вакансию</button>}
+            {(location.state.user.id === user.id && location.state.status === 1) && <button className="btn_vacansie orange" onClick={notPublish}>Снять с публикации</button>}
         </div>
     )
 

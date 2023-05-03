@@ -12,6 +12,7 @@ let mapStateToProps = (state) => {
         newVacExp: state.vacansiesPage.newVacExp,
         newVacText: state.vacansiesPage.newVacText,
         editedVacansie: state.vacansiesPage.editedVacansie,
+        skills: state.skills
     }
 }
 

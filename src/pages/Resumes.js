@@ -1,15 +1,32 @@
-import { useContext, useState } from "react";
+import { useContext, useLayoutEffect, useState } from "react";
 import ResumesListAllContainer from "../components/ResumesList/ResumesListAllContainer";
 import "../Styles/app.css"
 import { NavLink } from "react-router-dom";
 import AuthContext from "../context/AuthContext";
 import SortsResumesContainer from "../components/ResumesList/SortsResumesContainer";
 import ResumesListMyContainer from '../components/ResumesList/ResumesListMyContainer'
+import axios from "axios";
 
 function Resumes(props) {
+    console.log(props)
     const [status, setStatus] = useState('all')
     let { user } = useContext(AuthContext)
+    let { authToken } = useContext(AuthContext)
     let [resumes, setRes] = useState(<ResumesListAllContainer />)
+    useLayoutEffect(() => {
+        axios.get("http://127.0.0.1:8000/api/skills/", {
+            'headers': {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${String(authToken.access)}`
+            }
+        })
+            .then(response => {
+                props.setSkills(response.data.skills)
+                
+                console.log(response)
+            })
+
+    }, [])
     return (
         <div className="container">
             {user.is_header_dep && <SortsResumesContainer />}

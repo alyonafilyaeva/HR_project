@@ -7,6 +7,7 @@ import SortsVacansies from "../PresentationComponents/SortsVacansies";
 let mapStateToProps = (state) => {
     return {
         vacansiesPage: state.vacansiesPage,
+        skills: state.skills
     }
 }
 

@@ -4,7 +4,8 @@ import ActiveResume from "./ActiveResume";
 let mapStateToProps = (state) => {
     return {
         user: state.profilePage.user,
-        resumes: state.resumesPage.resumes
+        resumes: state.resumesPage.resumes,
+        skills: state.skills
     }
 }
 

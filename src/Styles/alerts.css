@@ -1,0 +1,64 @@
+.error{
+    background-color: #FDEBE0;
+    background-image: url(/src/imgs/alert_error.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: 2% 50%;
+    width: 479px !important;
+    position: 50% 90% !important;
+}
+
+.success {
+    width: 479px !important;
+}
+
+.info {
+    width: 479px !important;
+}
+
+.warning {
+    background-image: url(/src/imgs/alert_error.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: 2% 50%;
+    margin-left: 70px !important;
+    margin-top: 10px !important;
+    width: 479px !important;
+    display: flex !important;
+    justify-content: end !important;
+}
+.css-1vooibu-MuiSvgIcon-root {
+    display: none !important;
+}
+
+.css-1pxa9xg-MuiAlert-message {
+    padding-left: 40px !important;
+    
+}
+
+.info-circle {
+    padding-left: 100px;
+    align-items: center;
+}
+
+.send_alert_vacansie {
+    margin-top: 10px;
+    margin-left: 58%;
+    display: none;
+    border-radius: 8px;
+    padding: 7px;
+    width: 360px;
+    font-size: 14px;
+    background-color: #FFFBEB;
+    /* background-image: url('/src/imgs/send_request.png');
+    background-repeat: no-repeat;
+    background-position: 50% 50% ; */
+}
+
+.send_alert_resume {
+    margin-top: 10px;
+    margin-left: 78%;
+    display: none;
+    border: 2px dashed #CFD3D5;
+    border-radius: 8px;
+    padding: 7px;
+    width: 360px;
+}

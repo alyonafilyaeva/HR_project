@@ -5,7 +5,21 @@ import AuthContext from "../../../context/AuthContext";
 
 function VacansiesListAll(props) {
     let { authToken } = useContext(AuthContext)
-    
+    useLayoutEffect(() => {
+        axios.get("http://127.0.0.1:8000/api/skills/", {
+            'headers': {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${String(authToken.access)}`
+            }
+        })
+            .then(response => {
+                props.setSkills(response.data.skills)
+                
+                console.log(response)
+            })
+
+    }, [])
+
     useLayoutEffect(() => {
         axios.get("http://127.0.0.1:8000/api/vacancies/", {
             'headers': {
@@ -15,8 +29,12 @@ function VacansiesListAll(props) {
         })
             .then(response => {
                 props.setVacansies(response.data)
+                console.log(response)
             })
+
     }, [])
+
+    
 
     const vacansieElements = props.vacansiesPage.vacansies.map(vacansie =>
         <Vacansie vacansie={vacansie} />

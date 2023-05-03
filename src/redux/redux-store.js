@@ -5,6 +5,7 @@ import profileReducer from './profile-reducer';
 import requestsReducer from './requests-reducer';
 import vacansiesSortsReducer from './vacansies-sorts-reducer';
 import sidebarReducer from './sidebar-reducer';
+import skillsReducer from './skills-reducer';
 
 let reducers = combineReducers({
     vacansiesPage: vacansiesReducer,
@@ -12,7 +13,8 @@ let reducers = combineReducers({
     profilePage: profileReducer,
     requestsPage: requestsReducer,
     vacansiesSorts: vacansiesSortsReducer,
-    sidebar: sidebarReducer
+    sidebar: sidebarReducer,
+    skills: skillsReducer
 });
 let store = legacy_createStore(reducers);
 

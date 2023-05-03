@@ -14,6 +14,7 @@ let initialState = {
             'id': 11,
             'image': null,
             'salary': 75000,
+            "skills": [2, 3],
             'status': "Y_P",
             'user': 
                 {   id: 27, 

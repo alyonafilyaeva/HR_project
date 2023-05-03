@@ -36,6 +36,10 @@ const Sidebar = (props) => {
                         <div className='requests_icon'></div>
                         <li><NavLink to="/request" onClick={sidebarHandler} >Мои заявки </NavLink></li>
                     </div>
+                    <div className="sidebar_link">
+                        <div className='resumes_icon'></div>
+                        <li><NavLink to="/support" onClick={sidebarHandler} >Поддержка </NavLink></li>
+                    </div>
                 </ul>
                 <img src={logo} className='logo_sidebar' />
             </div>

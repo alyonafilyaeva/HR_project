@@ -6,6 +6,7 @@ const EDIT_VACANSIE = 'EDIT-VACANSIE'
 const EDITED_VACANSIE = 'EDITED-VACANSIE'
 const GET_ID = 'GET-ID'
 const CHANGE_SORT = 'CHANGE-SORT'
+const SET_SKILLS = 'SET-SKILLS'
 
 let initialState = {
     vacansies: [
@@ -17,34 +18,11 @@ let initialState = {
             "description": "Enim in duis ea consequat sunt Lorem aute. Est elit sunt quis officia reprehenderit do elit commodo eiusmod esse voluptate. Sit ipsum commodo sint voluptate culpa labore elit magna ullamco nostrud. Laboris magna magna anim labore mollit irure voluptate. Aute non magna aliqua aliqua sunt.",
             "exp_work": 2,
             "salary": 10000,
+            "skills": [2, 3],
             "status": "published",
             "data_updated": "2022-10-29T22:48:07.747404+03:00"
-        },
-        {
-            "id": 13,
-            "user": "11",
-            "department": "front",
-            "title": "Python dev",
-            "description": "Enim in duis ea consequat sunt Lorem aute. Est elit sunt quis officia reprehenderit do elit commodo eiusmod esse voluptate. Sit ipsum commodo sint voluptate culpa labore elit magna ullamco nostrud. Laboris magna magna anim labore mollit irure voluptate. Aute non magna aliqua aliqua sunt.",
-            "exp_work": 5,
-            "salary": 10000,
-            "status": "T_W",
-            "data_updated": "2022-10-29T22:45:53.753629+03:00"
-        },
-
-        {
-            "id": 5,
-            "user": "11",
-            "date": "06.09.2021",
-            "title": "Тимлид",
-            "salary": "200K",
-            "exp_work": "6",
-            "department": "Департамент 5",
-            "headDepartment": "Иван Иванович Иванов",
-            "description": "Ex sunt sunt aliqua reprehenderit aliqua occaecat. Minim anim commodo officia veniam proident aute cillum eu sunt aute nostrud. Laboris fugiat velit ut pariatur occaecat adipisicing pariatur occaecat. Duis sint enim et consectetur quis pariatur laborum excepteur. Ipsum aliquip qui laborum commodo consectetur do velit veniam occaecat. Ad nisi dolor cillum elit magna dolor voluptate ea. Enim in duis ea consequat sunt Lorem aute.\n\nEst elit sunt quis officia reprehenderit do elit commodo eiusmod esse voluptate. Sit ipsum commodo sint voluptate culpa labore elit magna ullamco nostrud. Laboris magna magna anim labore mollit irure voluptate. Aute non magna aliqua aliqua sunt. Velit mollit consectetur aliqua id tempor ut. Tempor cupidatat aliquip excepteur occaecat incididunt nulla Lorem sint.\n\nNon commodo anim deserunt in et aliquip incididunt ut consectetur sunt esse commodo deserunt et. Tempor fugiat laboris cillum laboris labore. Deserunt quis ad do labore amet culpa officia. Esse et officia nostrud tempor occaecat officia anim incididunt amet sunt excepteur Lorem. Aute occaecat magna velit nisi sit anim consequat velit qui pariatur. Esse incididunt id officia aliqua anim ut et.",
-            "status": "T_W",
-            "data_updated": "2022-10-29T22:45:53.753629+03:00"
-        },
+        }
+        
 
     ],
     /* newVacansie: [
@@ -64,7 +42,8 @@ let initialState = {
     salary: '',
     exp: '',
     dep: '',
-    editedVacansie: {}
+    editedVacansie: {},
+    skills: [{id: 1, name: 'JS1', status: 1}, {id: 2, name: 'JS2', status: 1}, {id: 3, name: 'JS3', status: 1}]
 }
 const vacansiesReducer = (state = initialState, action) => {
     switch (action.type) {
@@ -135,6 +114,11 @@ const vacansiesReducer = (state = initialState, action) => {
                 ...state,
                 editedVacansie: action.vacansie
             }
+        case SET_SKILLS:
+            return {
+                ...state,
+                skills: action.skills
+            }
         default:
             return state
     }
@@ -166,6 +150,10 @@ export const ChangeSortActionCreator = (sortValue, salaryValue, expValue, depVal
 
 export const EditedVacansiesActionCreator = (vacansie) => {
     return { type: EDITED_VACANSIE, vacansie: vacansie }
+}
+
+export const SetSkillsActionCreator = (skills) => {
+    return { type: SET_SKILLS, skills: skills }
 }
 
 export default vacansiesReducer;

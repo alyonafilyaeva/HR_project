@@ -107,3 +107,13 @@ input[accept]{
     margin-left: 105px;
     height: 200px;
 }
+
+.checkbox-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-block .checkbox-item {
+    margin-left: 170px;
+    margin-top: -5px;
+}

@@ -25,6 +25,8 @@ import EditVacansieContainer from './components/VacansiesList/ContainerComponent
 import ActiveVacansieContainer from './components/VacansiesList/ContainerComponents/ActiveVacansieContainer';
 import HeaderContainer from './components/HeaderContainer';
 import SidebarContainer from './components/SidebarContainer';
+import VacansiesContainer from './pages/VacansiesContainer';
+import Support from './pages/Support';
 
 const App = () => {
   return (
@@ -44,6 +46,7 @@ const App = () => {
                   <Route path="/vacansies/my" element={<VacansiesListMyContainer />} />
                   <Route path="/resumes" element={<Resumes />} />
                   <Route path="/request" element={<MyRequest />} />
+                  <Route path="/support" element={<Support />}/>
                   <Route path="/vacansies/create_vacansie" element={<AddVacansieContainer />} />
                   <Route path="/vacansie/edit/:id" element={<EditVacansieContainer />} />
                   <Route path="/vacansie/:id" element={<ActiveVacansieContainer />} />

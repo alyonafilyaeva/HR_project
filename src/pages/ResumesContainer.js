@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import ResumesListAll from "./ResumesListAll"
-import { SetResumesActionCreator } from "../../redux/resumes-reducer";
-import { SetSkillsActionCreator } from "../../redux/skills-reducer";
+import Resumes from "./Resumes"
+import { SetVacansiesActionCreator } from "../redux/vacansies-reducer";
+import { SetSkillsActionCreator } from "../redux/vacansies-reducer";
+import { SetResumesActionCreator } from "../redux/resumes-reducer";
 
 let mapStateToProps = (state) => {
     return {
@@ -23,6 +24,6 @@ let mapDispatchToProps = (dispatch) => {
     }
 }
 
-let ResumesListAllContainer = connect(mapStateToProps, mapDispatchToProps) (ResumesListAll);
+let ResumesContainer = connect(mapStateToProps, mapDispatchToProps) (Resumes);
 
-export default ResumesListAllContainer;
+export default ResumesContainer;

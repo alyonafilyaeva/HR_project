@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import LinesEllipsis from 'react-lines-ellipsis';
+import SkillsContainer from "../skills/SkillsContainer";
 
 const Resume = (props) => {
     console.log(props)
     let path = `/resume/${props.resume.id}`
+    let skillsOfVacansie = props.resume.skills
         return(
             <NavLink to={path} state={props.resume} >
             <div className="vacansie">
@@ -14,7 +17,8 @@ const Resume = (props) => {
                     </div>
                     <p className="blur">{props.resume.salary} руб</p>
                     <p className="blur">Опыт работы: {props.resume.exp_work}</p>
-                    <section>{props.resume.about_me}</section>
+                    <p><SkillsContainer realskills={skillsOfVacansie} /></p>
+                    <LinesEllipsis text={props.resume.about_me} maxLine={3}/>
                 </div>
                 {/* <div className="vacansie-right">
                     <p>Департамент</p>

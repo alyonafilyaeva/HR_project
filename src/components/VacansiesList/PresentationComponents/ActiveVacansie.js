@@ -12,8 +12,19 @@ const ActiveVacansie = (props) => {
     let { user, authToken } = useContext(AuthContext)
     let nav = useNavigate()
     let skillsOfVacansie = location.state.skills
+    let employmentList = props.employment
+    let scheduleList = []
+    for (let i = 0; i < props.schedule.length; i++) {
+        for (let j = 0; j < location.state.schedule.length; j++) {
+            if (props.schedule[i].value == location.state.schedule[j]) {
+                scheduleList.push(props.schedule[i].label)
+            }
+        }
+    }
+console.log(props)
     let path = `/vacansie/edit/${location.state.id}`
     let [response, setResponse] = useState(0)
+    console.log(props)
     setTimeout(() => {
         setResponse(0);
       }, 5000);
@@ -127,7 +138,7 @@ const ActiveVacansie = (props) => {
                 </div>
                 <div className="active_block_item">
                     <p className="item_title">Зарплата: </p>
-                    <p>{location.state.salary} - {location.state.salary} руб.</p>
+                    <p>{location.state.salary_from} - {location.state.salary_to} руб.</p>
                 </div>
                 <div className="active_block_item">
                     <p className="item_title">Стаж работы: </p>
@@ -139,11 +150,11 @@ const ActiveVacansie = (props) => {
                 </div>
                 <div className="active_block_item">
                     <p className="item_title">График работы: </p>
-                    <p>{location.state.title}</p>
+                    <p>{scheduleList}</p>
                 </div>
                 <div className="active_block_item">
                     <p className="item_title">Занятость:</p>
-                    <p>{location.state.title}</p>
+                    <p>{employmentList[location.state.employment].label }</p>
                 </div>
                 <div>
                     <p className="active_block_item">{location.state.description}</p>

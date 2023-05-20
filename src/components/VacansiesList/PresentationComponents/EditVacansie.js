@@ -4,19 +4,63 @@ import "../../../Styles/app.css"
 import axios from "axios"
 import AuthContext from "../../../context/AuthContext";
 import { useContext } from "react";
+import Select from "react-select";
 
 const EditVacansie = (props) => {
     const location = useLocation();
     let [title, setTitle] = useState('')
     let [text, setText] = useState('')
-    let [salary, setSalary] = useState('')
+    let [salaryFrom, setSalaryFrom] = useState('')
+    let [salaryTo, setSalaryTo] = useState('')
     let [exp, setExp] = useState('')
     let [skills, setSkills] = useState([])
     let { authToken } = useContext(AuthContext)
     let path = `/vacansie/${location.state.id}`
     let nav = useNavigate()
-    /* let newSkills = []
-    newSkills.push(skills.current.value) */
+    let [schedule0, setSchedule0] = React.useState(false)
+    let [schedule1, setSchedule1] = React.useState(false)
+    let [schedule2, setSchedule2] = React.useState(false)
+    let [schedule3, setSchedule3] = React.useState(false)
+    let [employment0, setEmployment0] = React.useState(false)
+    let [employment1, setEmployment1] = React.useState(false)
+    let [employment2, setEmployment2] = React.useState(false)
+    let [employment3, setEmployment3] = React.useState(false)
+    let newSchedule = []
+    let optionList = props.skills.skills
+    for (var i = 0; i < optionList.length; i++) {
+        optionList[i].value = optionList[i]['id'];
+        optionList[i].label = optionList[i]['name'];
+        /* delete optionList[i].name;  */
+    }
+    console.log(optionList)
+    let [nameSkill, setNameSkill] = useState('gfg')
+    let [newSkills, setNewSkills] = React.useState([])
+    /* newSkills = [] */
+    let [skill, setSkill] = useState('')
+    useLayoutEffect(() => {
+        for (let i = 0; i < skills.length; i++) {
+            for (let j = 0; j < optionList.length; j++) {
+                if(skills[i] == optionList[j].id) {
+                    setNewSkills(newSkills => [...newSkills, optionList[j]])
+                    console.log(skills[i])
+                    console.log(optionList[j])
+                }
+            }
+        }
+    }, [])
+    console.log(optionList)
+    console.log(skills)
+    console.log(newSkills)
+    function skillsChange(data) {
+        setNameSkill(data)
+        setSkill(data.value)
+        for (let i = 0; i < optionList.length; i++) {
+            console.log(data[i].value)
+            data[i].value =! undefined && setNewSkills(newSkills => [...newSkills, data[i].value])
+            
+        }
+        console.log(data)
+    }
     console.log(skills)
     useLayoutEffect(() => {
         axios({
@@ -34,13 +78,77 @@ const EditVacansie = (props) => {
                 setExp(response.data.exp_work)
                 setTitle(response.data.title)
                 setText(response.data.description)
-                setSalary(response.data.salary)
+                setSalaryFrom(response.data.salary_from)
+                setSalaryTo(response.data.salary_to)
                 setSkills(response.data.skills)
             })
     }, [])
 
+    useLayoutEffect(() => {
+        for (let i = 0; i < location.state.schedule.length; i++) {
+            switch (i) {
+                case 0:
+                    setSchedule0(true)
+                    break;
+                case 1:
+                    setSchedule1(true)
+                    break;
+                case 2:
+                    setSchedule2(true)
+                    break;
+                case 3:
+                    setSchedule3(true)
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        switch (location.state.employment) {
+            case 0:
+                setEmployment0(true)
+                break;
+            case 1:
+                setEmployment1(true)
+                break;
+            case 2:
+                setEmployment2(true)
+                break;
+            case 3:
+                setEmployment3(true)
+                break;
+            default:
+                break;
+        }
+    })
+
     let onEditVac = (e) => {
         e.preventDefault()
+        let newEmployment
+        if (schedule0) {
+            newSchedule.push(0)
+        }
+        if (schedule1) {
+            newSchedule.push(1)
+        }
+        if (schedule2) {
+            newSchedule.push(2)
+        }
+        if (schedule3) {
+            newSchedule.push(3)
+        }
+        if (employment0) {
+            newEmployment = 0
+        }
+        if (employment1) {
+            newEmployment = 1
+        }
+        if (employment2) {
+            newEmployment = 2
+        }
+        if (employment3) {
+            newEmployment = 3
+        }
         axios({
             method: "put",
             url: `http://127.0.0.1:8000/api/vacancies/${location.state.id}/`,
@@ -54,9 +162,12 @@ const EditVacansie = (props) => {
                 "title": title,
                 "description": text,
                 "exp_work": exp,
-                "salary": salary,
-                /* "skills": skills, */
-                "status": 0
+                "salary_from": salaryFrom,
+                "salary_to": salaryTo,
+                "skills": newSkills,
+                "status": 0,
+                "schedule": newSchedule,
+                "employment": newEmployment
             }
         })
             .then(response => {
@@ -71,8 +182,10 @@ const EditVacansie = (props) => {
     }
 
     let onVacChange = (e) => {
-        if (e.target.name === 'salary') {
-            setSalary(Number(e.target.value))
+        if (e.target.name === 'salary_from') {
+            setSalaryFrom(Number(e.target.value))
+        } else if (e.target.name === 'salary_to') {
+            setSalaryTo(Number(e.target.value))
         } else if (e.target.name === 'exp') {
             setExp(Number(e.target.value))
         } else if (e.target.name === 'title') {
@@ -106,19 +219,19 @@ const EditVacansie = (props) => {
                     </div>
                     <div className="form_item">
                         <p className="name-form">Минимальная зарплата:</p>
-                        
+
                         <div className="salary-block">
-                                <p>От:</p>
-                                <div className="salary-placeholder">
-                                    <input onChange={onVacChange} className="input_salary_vac" type='number' name='salary' value={salary} placeholder="0"/>
-                                    <p>Минимальная зарплата</p>
-                                </div>
-                                <p>До:</p>
-                                <div className="salary-placeholder">
-                                    <input onChange={onVacChange} className="input_salary_vac" type='number' name='salary' value={salary} placeholder="0"/>
-                                    <p>Максимальная зарплата</p>
-                                </div>
+                            <p>От:</p>
+                            <div className="salary-placeholder">
+                                <input onChange={onVacChange} className="input_salary_vac" type='number' name='salary_from' value={salaryFrom} placeholder="0" />
+                                <p>Минимальная зарплата</p>
                             </div>
+                            <p>До:</p>
+                            <div className="salary-placeholder">
+                                <input onChange={onVacChange} className="input_salary_vac" type='number' name='salary_to' value={salaryTo} placeholder="0" />
+                                <p>Максимальная зарплата</p>
+                            </div>
+                        </div>
                     </div>
                     <div className="form_item">
                         <p className="name-form">Стаж работы:</p>
@@ -132,13 +245,67 @@ const EditVacansie = (props) => {
                                 <option value={skill.id}>{skill.name}</option>
                             )}
                         </select>
+                        <Select
+                            name='skills'
+                            closeMenuOnSelect={false}
+                            isMulti
+                            options={optionList}
+                            ref={skills}
+                            placeholder="Найти компетенцию"
+                            value={newSkills}
+                            onChange={skillsChange}
+                            isSearchable={true} />
+                    </div>
+                    <div className="form_item">
+                        <p className="name-form">График работы:</p>
+                        <div className="filter-item" /* onChange={onChangeSchedule} */>
+                            <div className='checkbox-item'>
+                                <input type='checkbox' value={0} onClick={() => setSchedule0(!schedule0)} name="schedule-0" checked={schedule0}></input>
+                                <label>Гибкий график</label>
+                            </div>
+                            <div className='checkbox-item'>
+                                <input type='checkbox' value={1} onClick={() => setSchedule1(!schedule1)} name="schedule-1" checked={schedule1}></input>
+                                <label>Удаленная работа</label>
+                            </div>
+                            <div className='checkbox-item'>
+                                <input type='checkbox' value={2} onClick={() => setSchedule2(!schedule2)} name="schedule-2" checked={schedule2}></input>
+                                <label>Сменный график</label>
+                            </div>
+                            <div className='checkbox-item'>
+                                <input type='checkbox' value={3} onClick={() => setSchedule3(!schedule3)} name="schedule-3" checked={schedule3}></input>
+                                <label>Полный день</label>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div className="form_item">
+                        <p className="name-form">Занятость:</p>
+                        <div className="filter-item">
+                            <div className='checkbox-item'>
+                                <input type='checkbox' onClick={() => setEmployment0(!employment0)} checked={employment0}></input>
+                                <label>Проектная работа</label>
+                            </div>
+                            <div className='checkbox-item'>
+                                <input type='checkbox' onClick={() => setEmployment1(!employment1)} checked={employment1}></input>
+                                <label>Стажировка</label>
+                            </div>
+                            <div className='checkbox-item'>
+                                <input type='checkbox' onClick={() => setEmployment2(!employment2)} checked={employment2}></input>
+                                <label>Частичная занятость</label>
+                            </div>
+                            <div className='checkbox-item'>
+                                <input type='checkbox' onClick={() => setEmployment3(!employment3)} checked={employment3}></input>
+                                <label>Полная занятость</label>
+                            </div>
+                        </div>
+
                     </div>
                     <div className="form_item">
                         <p className="name-form">Описание вакансии:</p>
-                        <textarea onChange={onVacChange} className="input_text_vac" type='text' name="text" value={text} rows='10'/>
+                        <textarea onChange={onVacChange} className="input_text_vac" type='text' name="text" value={text} rows='10' />
                     </div>
                 </form>
-                
+
             </div>
             <NavLink to={path} state={location.state} onClick={onEditVac} className="orange save_vac">Сохранить </NavLink>
         </div>

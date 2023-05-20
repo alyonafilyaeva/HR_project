@@ -17,8 +17,6 @@ let mapStateToProps = (state) => {
         newVacSalery: state.vacansiesPage.newVacSalery,
         newVacExp: state.vacansiesPage.newVacExp,
         newVacText: state.vacansiesPage.newVacText,
-        employment: state.vacansiesPage.employment,
-        schedule: state.vacansiesPage.schedule
     }
 }
 

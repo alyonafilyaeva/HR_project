@@ -8,7 +8,7 @@ import favourite from '../../../imgs/favourite.png'
 const Vacansie = (props) => {
     let path = `/vacansie/${props.vacansie.id}`
     let skillsOfVacansie = props.vacansie.skills
-    
+    de
     return (
         <NavLink  to={path} state={props.vacansie} >
         <div className="vacansie row">
@@ -17,7 +17,7 @@ const Vacansie = (props) => {
                     <h2>{props.vacansie.title}</h2>
                     <p className="blur">{props.vacansie.data_updated}</p>
                 </div>
-                <p>{props.vacansie.salary_from} - {props.vacansie.salary_to} руб</p>
+                <p>{props.vacansie.salary} - {props.vacansie.salary} руб</p>
                 <p>Опыт работы: {props.vacansie.exp_work}</p>
                 <p><SkillsContainer realskills={skillsOfVacansie} /></p>
                 <LinesEllipsis text={props.vacansie.description} maxLine={3} className="blur"/>

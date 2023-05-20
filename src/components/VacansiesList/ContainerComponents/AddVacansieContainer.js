@@ -8,14 +8,11 @@ let mapStateToProps = (state) => {
         ID: state.vacansiesPage.ID,
         vacansies: state.vacansiesPage.vacansies,
         newVacTitle: state.vacansiesPage.newVacTitle,
-        newVacSaleryFrom: state.vacansiesPage.newVacSaleryFrom,
-        newVacSaleryTo: state.vacansiesPage.newVacSaleryTo,
+        newVacSalery: state.vacansiesPage.newVacSalery,
         newVacExp: state.vacansiesPage.newVacExp,
         newVacText: state.vacansiesPage.newVacText,
         editedVacansie: state.vacansiesPage.editedVacansie,
-        skills: state.skills,
-        employment: state.vacansiesPage.employment,
-        schedule: state.vacansiesPage.schedule
+        skills: state.skills
     }
 }
 
@@ -24,8 +21,8 @@ let mapDispatchToProps = (dispatch) => {
         AddVacansie: (user) => {
             dispatch(AddVacansieActionCreator(user))
         },
-        ChangeVacansie: (titleVac, salaryFromVac, salaryToVac, expVac, textVac) => {
-            dispatch(ChangeVacansieActionCreator(titleVac, salaryFromVac, salaryToVac, expVac, textVac))
+        ChangeVacansie: (titleVac, salaryVac, expVac, textVac) => {
+            dispatch(ChangeVacansieActionCreator(titleVac, salaryVac, expVac, textVac))
         },
         GetID: (ID) => {
             dispatch(GetIDVacansieActionCreator(ID))

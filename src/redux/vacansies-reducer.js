@@ -17,34 +17,29 @@ let initialState = {
             "title": "C# разработчик",
             "description": "Enim in duis ea consequat sunt Lorem aute. Est elit sunt quis officia reprehenderit do elit commodo eiusmod esse voluptate. Sit ipsum commodo sint voluptate culpa labore elit magna ullamco nostrud. Laboris magna magna anim labore mollit irure voluptate. Aute non magna aliqua aliqua sunt.",
             "exp_work": 2,
-            "salary_from": 10000,
-            "salary_to": 500000,
+            "salary": 10000,
             "skills": [2, 3],
             "status": "published",
             "data_updated": "2022-10-29T22:48:07.747404+03:00"
-        },
+        }
+        
+
     ],
-    employment:[
-        {value: 0, label: 'Проектная работа'},
-        {value: 1, label: 'Стажировка'},
-        {value: 2, label: 'Частичная занятость'},
-        {value: 3, label: 'Полная занятость'},
-    ],
-    schedule: [
-        {value: 0, label: 'Гибкий график'},
-        {value: 1, label: 'Удаленная работа'},
-        {value: 2, label: 'Сменный график'},
-        {value: 3, label: 'Полный день'},
-    ],
+    /* newVacansie: [
+        {
+            newVacTitle: '',
+            newVacSalery: '',
+            newVacExp: '',
+            newVacText: ''
+        }
+    ], */
     newVacTitle: '',
-    newVacSaleryFrom: '',
-    newVacSaleryTo: '',
+    newVacSalery: '',
     newVacExp: '',
     newVacText: '',
     ID: '',
     sort: '',
-    salaryFrom: '',
-    salaryTo: '',
+    salary: '',
     exp: '',
     dep: '',
     editedVacansie: {},
@@ -55,8 +50,7 @@ const vacansiesReducer = (state = initialState, action) => {
         case ADD_VACANSIE: {
             let newVac = {
                 title: state.newVacTitle,
-                salary_from: state.newVacSaleryFrom,
-                salary_to: state.newVacSaleryTo,
+                salary: state.newVacSalery,
                 exp_work: state.newVacExp,
                 description: state.newVacText,
                 user: action.user,
@@ -66,8 +60,7 @@ const vacansiesReducer = (state = initialState, action) => {
                 ...state,
                 vacansies: [...state.vacansies, newVac],
                 newVacTitle: "",
-                newVacSaleryFrom: "",
-                newVacSaleryTo: "",
+                newVacSalery: "",
                 newVacExp: "",
                 newVacText: "",
             }
@@ -76,8 +69,7 @@ const vacansiesReducer = (state = initialState, action) => {
             return {
                 ...state,
                 newVacTitle: action.newTitle,
-                newVacSaleryFrom: action.newSaleryFrom,
-                newVacSaleryTo: action.newSaleryTo,
+                newVacSalery: action.newSalery,
                 newVacExp: action.newExp,
                 newVacText: action.newText,
             }
@@ -136,8 +128,8 @@ export const AddVacansieActionCreator = (user) => {
     return { type: ADD_VACANSIE, user: user }
 }
 
-export const ChangeVacansieActionCreator = (titleVac, salaryFromVac, salaryToVac, expVac, textVac) => {
-    return { type: CHANGE_VACANSIE, newTitle: titleVac, newSaleryFrom: salaryFromVac, newSaleryTo: salaryToVac, newExp: expVac, newText: textVac }
+export const ChangeVacansieActionCreator = (titleVac, salaryVac, expVac, textVac) => {
+    return { type: CHANGE_VACANSIE, newTitle: titleVac, newSalery: salaryVac, newExp: expVac, newText: textVac }
 }
 
 export const EditVacansieActionCreator = (vacansie) => {

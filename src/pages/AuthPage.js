@@ -33,6 +33,7 @@ const AuthPage = () => {
                     {/* <New_register />
                     <Activate />
                     <Recover /> */}
+                    <Recover />
                 </div>
                 <div className='plitka'>
                 <img src={main} />    

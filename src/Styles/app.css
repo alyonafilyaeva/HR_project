@@ -31,6 +31,10 @@ textarea {
     padding-top: 100px;
 }
 
+.header-container {
+    width: 90%;
+}
+
 .container {
     width: 90%;
     padding-left: 10%;
@@ -61,7 +65,14 @@ a {
     right: 100px
 }
 
+.skill-filter {
+    width: 310px;
+    border-radius: 20px
+}
 
+.favourite {
+    cursor: pointer;
+}
 
 @import url(./vacansies.css);
 @import url(./vacansieItem.css);

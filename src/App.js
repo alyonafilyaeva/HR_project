@@ -27,6 +27,9 @@ import HeaderContainer from './components/HeaderContainer';
 import SidebarContainer from './components/SidebarContainer';
 import VacansiesContainer from './pages/VacansiesContainer';
 import Support from './pages/Support';
+import Favourite from './pages/Favourite';
+import Company from './pages/Company';
+
 
 const App = () => {
   return (
@@ -47,6 +50,8 @@ const App = () => {
                   <Route path="/resumes" element={<Resumes />} />
                   <Route path="/request" element={<MyRequest />} />
                   <Route path="/support" element={<Support />}/>
+                  <Route path="/favourite" element={<Favourite />}/>
+                  <Route path="/company" element={<Company />}/>
                   <Route path="/vacansies/create_vacansie" element={<AddVacansieContainer />} />
                   <Route path="/vacansie/edit/:id" element={<EditVacansieContainer />} />
                   <Route path="/vacansie/:id" element={<ActiveVacansieContainer />} />

@@ -8,20 +8,20 @@
     position: fixed;
     display: flex;
     justify-content: space-between;
+    width: 90%;
     background-color: #fff;
     padding: 10px 0;
     font-size: 20px;
     margin-bottom: 20px;
     width: 100vw;
-    /* background-color: #E68025; */
     box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.3);
     opacity: .8;
-    /* position:static; */
     z-index: 500;
 }
 
 .profile-header {
-    padding-right: 10%
+    /* padding-right: 10% */
+    width: 21%;
 }
 
 .info {

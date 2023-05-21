@@ -41,9 +41,6 @@ function Resumes(props) {
                         </h2>
                     </div>
                 </div>
-                <div className="create_res">
-                    {/* <NavLink to="/resumes/create_resume" className="orange ">Создать резюме </NavLink> */}
-                </div>
             </div>
             <div className="vacansies-list">
                 {status === 'all' ? <ResumesListAllContainer /> : <ResumesListMyContainer />}

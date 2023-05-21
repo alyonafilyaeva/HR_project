@@ -1,9 +1,7 @@
 .sidebar li{
-
     padding: 10px;
-    
     border-radius: 12px;
-    width: 100px;
+    width: 120px;
     list-style-type: none;
     font-size: 16px;
     /* margin-bottom: 5px; */
@@ -69,6 +67,27 @@
 .requests_icon {
     width: 40px;
     background-image: url('/src/imgs/requests.png');
+    background-repeat: no-repeat;
+    background-position: 5% 50% ;
+}
+
+.favourite_icon {
+    width: 40px;
+    background-image: url('/src/imgs/heart.png');
+    background-repeat: no-repeat;
+    background-position: 5% 50% ;
+}
+
+.company_icon {
+    width: 40px;
+    background-image: url('/src/imgs/company.png');
+    background-repeat: no-repeat;
+    background-position: 5% 50% ;
+}
+
+.support_icon {
+    width: 40px;
+    background-image: url('/src/imgs/support.png');
     background-repeat: no-repeat;
     background-position: 5% 50% ;
 }

@@ -1,7 +1,7 @@
 const SET_SKILLS = 'SET-SKILLS'
 
 let initialState = {
-    skills: [{id: 1, name: 'JS1', status: 1}, {id: 2, name: 'JS2', status: 1}, {id: 3, name: 'JS3', status: 1}]
+    skills: [{id: 1, name: 'JS', status: 1}, {id: 2, name: 'React', status: 1}, {id: 3, name: 'Работа в команде', status: 1}, {id: 4, name: 'Python', status: 1}]
 }
 
 const skillsReducer = (state = initialState, action) => {

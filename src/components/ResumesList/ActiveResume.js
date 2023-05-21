@@ -16,7 +16,7 @@ const ActiveResume = (props) => {
     let [response, setResponse] = useState(0)
     setTimeout(() => {
         setResponse(0);
-      }, 5000);
+      }, 6000);
 
     let notPublish = () => {
         let data = location.state
@@ -122,13 +122,7 @@ const ActiveResume = (props) => {
                     <p className="item_title">Компетенции:</p>
                     <p><SkillsContainer realskills={skillsOfVacansie} /></p>
                     <div className="active_block_item">
-                    {/* <p className="item_title">График работы: </p>
-                    <p>{location.state.user.full_name}</p> */}
                 </div>
-                {/* <div className="active_block_item">
-                    <p className="item_title">Занятость:</p>
-                    <p>{location.state.user.full_name}</p>
-                </div> */}
                 </div>
                         <p>{location.state.about_me}</p>
                         

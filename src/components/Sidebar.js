@@ -37,8 +37,16 @@ const Sidebar = (props) => {
                         <li><NavLink to="/request" onClick={sidebarHandler} >Мои заявки </NavLink></li>
                     </div>
                     <div className="sidebar_link">
-                        <div className='resumes_icon'></div>
-                        <li><NavLink to="/support" onClick={sidebarHandler} >Поддержка </NavLink></li>
+                        <div className='favourite_icon'></div>
+                        <li><NavLink to="/favourite" onClick={sidebarHandler} >Избранное </NavLink></li>
+                    </div>
+                    <div className="sidebar_link">
+                        <div className='company_icon'></div>
+                        <li><NavLink to="/company" onClick={sidebarHandler} >Компания </NavLink></li>
+                    </div>
+                    <div className="sidebar_link">
+                        <div className='support_icon'></div>
+                        <li><NavLink to="/support" onClick={sidebarHandler} >Техподдержка </NavLink></li>
                     </div>
                 </ul>
                 <img src={logo} className='logo_sidebar' />

@@ -30,6 +30,7 @@ function Favourite() {
     if (favouriteElements.length > 0) {
         return (
             <div className="container">
+                <h2 className='clicked'>Вакансии</h2>
                 <ul className="vacansiesList">
                     {favouriteElements}
                 </ul>

@@ -35,9 +35,8 @@ const EditVacansie = (props) => {
     console.log(optionList)
     let [nameSkill, setNameSkill] = useState('gfg')
     let [newSkills, setNewSkills] = React.useState([])
-    /* newSkills = [] */
     let [skill, setSkill] = useState('')
-    useLayoutEffect(() => {
+    /* useLayoutEffect(() => {
         for (let i = 0; i < skills.length; i++) {
             for (let j = 0; j < optionList.length; j++) {
                 if(skills[i] == optionList[j].id) {
@@ -47,17 +46,17 @@ const EditVacansie = (props) => {
                 }
             }
         }
-    }, [])
+    }, []) */
     console.log(optionList)
-    console.log(skills)
     console.log(newSkills)
+    console.log(nameSkill)
     function skillsChange(data) {
         setNameSkill(data)
         setSkill(data.value)
         for (let i = 0; i < optionList.length; i++) {
-            console.log(data[i].value)
-            data[i].value =! undefined && setNewSkills(newSkills => [...newSkills, data[i].value])
-            
+            if (data[i] != undefined) {
+                setNewSkills(newSkills => [...newSkills, data[i].value])
+            }
         }
         console.log(data)
     }
@@ -252,7 +251,7 @@ const EditVacansie = (props) => {
                             options={optionList}
                             ref={skills}
                             placeholder="Найти компетенцию"
-                            value={newSkills}
+                            value={nameSkill}
                             onChange={skillsChange}
                             isSearchable={true} />
                     </div>

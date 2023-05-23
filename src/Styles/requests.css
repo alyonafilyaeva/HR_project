@@ -20,3 +20,24 @@
     display: block;
 }
 
+.no-requests {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    text-align: center;
+}
+
+.no-requests p {
+    font-size: 14px;
+    color: #8B8D97;
+    margin-bottom: 10px;
+}
+
+.no-requests h3 {
+    font-size: 20px;
+    color: #000;
+}
+
+.no-requests .orange {
+    align-items: center;
+}

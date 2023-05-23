@@ -37,7 +37,7 @@ textarea {
 
 .container {
     width: 90%;
-    padding-left: 10%;
+    padding-left: 150px;
     padding-bottom: 10%;
     padding-top: 100px;
     height: 100vh;
@@ -65,10 +65,7 @@ a {
     right: 100px
 }
 
-.skill-filter {
-    width: 310px;
-    border-radius: 20px
-}
+
 
 .favourite {
     cursor: pointer;

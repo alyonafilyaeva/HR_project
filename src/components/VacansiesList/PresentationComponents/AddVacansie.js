@@ -168,7 +168,7 @@ const AddVacansie = (props) => {
     } */
     let path = `/vacansie/edit/${props.editedVacansie.id}`
     return (
-        <div className="container container-add-vacancie">
+        <div className="container ">
             <div className="steps">
                 <h3>Создание вакансии</h3>
                 <p><span>Шаг 1</span> из 3</p>

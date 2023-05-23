@@ -23,6 +23,8 @@ const SortsVacansies = (props) => {
     let [employment1, setEmployment1] = React.useState(false)
     let [employment2, setEmployment2] = React.useState(false)
     let [employment3, setEmployment3] = React.useState(false)
+    let [expFrom, setExpFrom] = useState('')
+    let [expTo, setExpTo] = useState('')
     /* const optionList = [
         {value: 1, label: 'JS'},
         {value: 2, label: 'React'},
@@ -64,7 +66,7 @@ const SortsVacansies = (props) => {
         if (employment3) {
             employmentFilter += '&employment=3'
         }
-        let path = `http://127.0.0.1:8000/api/vacancies/?search=${search}&exp_work=${exp_work}&salary=${salary}&department=${dep}&ordering=${sort}${skillsFilter}${scheduleFilter}${employmentFilter}`
+        let path = `http://127.0.0.1:8000/api/vacancies/?search=${search}&exp_work__gt=${expFrom}&exp_work__lt=${expTo}&salary=${salary}&department=${dep}&ordering=${sort}${skillsFilter}${scheduleFilter}${employmentFilter}`
         e.preventDefault()
         axios
             .get(path,
@@ -99,7 +101,29 @@ const SortsVacansies = (props) => {
         if (e.target.name === 'salary') {
             setSalary(Number(e.target.value))
         } else if (e.target.name === 'exp_work') {
-            setExp_Work(Number(e.target.value))
+            debugger
+            switch (e.target.value) {
+                case "0":
+                    setExpFrom('')
+                    setExpTo('')
+                    break;
+                case "1":
+                    setExpFrom(0)
+                    break;
+                case "2":
+                    setExpFrom(1)
+                    setExpTo(3)
+                    break;
+                case "3":
+                    setExpFrom(3)
+                    setExpTo(6)
+                    break;
+                case "4":
+                    setExpFrom(6)
+                    break;
+                default:
+                    break;
+            }
         } else if (e.target.name === 'dep') {
             setDep(e.target.value)
         }
@@ -119,9 +143,10 @@ const SortsVacansies = (props) => {
     }
     let [skillsFilter, setSkillsFilter] = React.useState('')
     function skillsChange(data) {
+        debugger
         setSkill(data)
         console.log(data)
-        for (let i = 0; i < optionList.length; i++) {
+        for (let i = 0; i < data.length; i++) {
             console.log(data[i].value)
             data[i].value = !undefined && setSkillsFilter(skillsFilter => skillsFilter + `&skills=${data[i].value}`)
             console.log(skillsFilter)
@@ -187,20 +212,17 @@ const SortsVacansies = (props) => {
                     </div>
                     <div className='filter-item'>
                         <p>Зарплата</p>
-                        <div className='salary-block'>
                             <input className='parametr salary' placeholder="От" onChange={onSortsChange} type='number' name='salary' value={salary}></input>
-                            <input className='parametr salary' placeholder="До" onChange={onSortsChange} type='number' name='salary' value={salary}></input>
-                        </div>
 
                     </div>
                     <div className='filter-item'>
                         <p>Опыт работы</p>
                         <select className='parametr exp' placeholder="Опыт работы" onChange={onSortsChange} name='exp_work' value={exp_work}>
-                            <option value=''>Не имеет значения</option>
-                            <option value=''>Нет опыта</option>
-                            <option value=''>От 1 года до 3 лет</option>
-                            <option value=''>От 3 лет до 6 лет</option>
-                            <option value=''>От 6 лет</option>
+                            <option value='0'>Не имеет значения</option>
+                            <option value='1'>Нет опыта</option>
+                            <option value='2'>От 1 года до 3 лет</option>
+                            <option value='3'>От 3 лет до 6 лет</option>
+                            <option value='4'>От 6 лет</option>
                         </select>
                     </div>
 
@@ -223,6 +245,7 @@ const SortsVacansies = (props) => {
                         <Select
                             closeMenuOnSelect={false}
                             isMulti
+                            maxMenuHeight={120}
                             name='skills'
                             options={optionList1}
                             placeholder="Найти компетенцию"

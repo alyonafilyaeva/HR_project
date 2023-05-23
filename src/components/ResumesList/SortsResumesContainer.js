@@ -7,6 +7,7 @@ import SortsResumes from "./SortsResumes";
 let mapStateToProps = (state) => {
     return {
         resumesPage: state.resumesPage,
+        skills: state.skills
     }
 }
 

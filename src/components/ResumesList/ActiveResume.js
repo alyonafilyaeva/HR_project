@@ -63,7 +63,8 @@ const ActiveResume = (props) => {
         setResponse('info')
         let data = {
             status: '2',
-            destination: location.state.user.id
+            destination: location.state.user.id,
+            id: location.state.id
         }
         axios({
             method: "post",

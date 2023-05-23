@@ -78,7 +78,8 @@ console.log(props)
         let data = {
             title: location.state.title,
             status: '1',
-            destination: location.state.user.id
+            destination: location.state.user.id,
+            id: location.state.id
         }
         axios({
             method: "post",

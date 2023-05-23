@@ -2,7 +2,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    width: 90%;
+    /* width: 90%; */
     font-size: 12px;
 }
 
@@ -30,11 +30,19 @@ input[type=text], textarea {
     z-index: -10;
     padding: 20px 0;
     margin-top: 10px;
-    width: 92%;
+    /* width: 92%; */
 }
 
 .sorts_btns {
-    margin-left: 10%;
+    margin-left: 15%;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    /* z-index: -5; */
+}
+
+.sorts_btns_resume {
+    margin-right: 9%;
     display: flex;
     justify-content: space-between;
     cursor: pointer;
@@ -42,14 +50,14 @@ input[type=text], textarea {
 }
 
 .parametr{
-    width: 245px;
+    width: 256px;
     /* height: 35px; */
     padding: 10px 0;
     border: 1px solid #CFD3D5;
     border-radius: 8px;
     text-align: center;
     font-size: 14px;
-    margin-right: 10%;
+    /* margin-right: 10%; */
     color:#ABAFB1
 
 }
@@ -75,13 +83,9 @@ input[type=text], textarea {
 
 .salary{
     text-align: left;
-    width: 112px;
-} 
+    width: 256px;
+}  
 
-.salary-block {
-    display: flex;
-    flex-direction: row;
-}
 
 .exp{
     background-image: url('/src/imgs/exp.png');
@@ -95,6 +99,7 @@ input[type=text], textarea {
     background-image: url('/src/imgs/dep.png');
     background-repeat: no-repeat;
     background-position: 5% 50% ;
+    width: 256px;
 } 
 
 .search_input {
@@ -109,6 +114,15 @@ input[type=text], textarea {
     background-image: url('/src/imgs/search.png');
     background-repeat: no-repeat;
     background-position: 1% 50% ;
+    width: 256px;
+}
+
+.skill-filter {
+    width: 286px;
+    border-radius: 20px
+}
+
+.skill-filter-resume {
     width: 256px;
 }
 
@@ -149,7 +163,8 @@ select {
 }
 
 .filter-item {
-    margin-right: 76px;
+    margin-right: 50px;
+    /* width: 270px; */
 }
 
 label {

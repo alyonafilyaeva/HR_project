@@ -3,8 +3,10 @@ import Resume from "./Resume";
 import axios from "axios"
 import "../../Styles/app.css"
 import { NavLink } from "react-router-dom";
+import iconContainer from '../../imgs/iconContainer.png'
 
 import AuthContext from "../../context/AuthContext";
+import { Button } from "@mui/material";
 
 function ResumesListMy(props) {
     let { authToken } = useContext(AuthContext)
@@ -35,7 +37,20 @@ function ResumesListMy(props) {
     }
     else {
         return <div>
-            <NavLink to="/resumes/create_resume" className="grey create_res">Создать резюме</NavLink>
+            <div className="no-requests">
+                <img src={iconContainer} />
+                <h3>Еще нет резюме.</h3>
+                <p>Заполните информацию и опубликуйте резюме.</p>
+                <NavLink to="/resumes/create_resume" className="orange">Создать резюме</NavLink>
+            </div>
+            <div className="survey">
+                <h3>Почему вы меняете работу?</h3>
+                <p>Ваш ответ поможет нам улучшить условия работы и удержать талантливых сотрудников в нашей IT-компании. <br></br>
+                    Мы хотим понять, почему сотрудники решают покинуть нашу компанию. Мы признаем, что текучесть кадров является 
+                    проблемой, и хотим узнать, какие факторы влияют на ваше решение о смене места работы. <br></br>
+                    Пройдите опрос, который не займет у вас более 5 минут. Спасибо за вашу помощь!</p>
+                <NavLink className="grey">Пройти опрос</NavLink>
+            </div>
         </div>
     }
 }

@@ -25,6 +25,7 @@ const EditVacansie = (props) => {
     let [employment1, setEmployment1] = React.useState(false)
     let [employment2, setEmployment2] = React.useState(false)
     let [employment3, setEmployment3] = React.useState(false)
+    let [support, setSupport] = useState(false)
     let newSchedule = []
     let optionList = props.skills.skills
     for (var i = 0; i < optionList.length; i++) {
@@ -199,7 +200,7 @@ const EditVacansie = (props) => {
     }
 
     return (
-        <div className="container container-add-vacancie">
+        <div className="container ">
             <div className="steps">
                 <h3>Черновик вакансии</h3>
                 <p><span>Шаг 2</span> из 3</p>
@@ -238,12 +239,13 @@ const EditVacansie = (props) => {
                     </div>
                     <div className="form_item">
                         <p className="name-form">Компетенции: </p>
-                        <select className='parametr ' placeholder="Компетенции" name='skills' value={skills} onChange={onVacChange}>
+                        {/* <select className='parametr ' placeholder="Компетенции" name='skills' value={skills} onChange={onVacChange}>
                             <option value=''></option>
                             {props.skills.skills.map(skill =>
                                 <option value={skill.id}>{skill.name}</option>
                             )}
-                        </select>
+                        </select> */}
+                        <div>
                         <Select
                             name='skills'
                             closeMenuOnSelect={false}
@@ -253,7 +255,11 @@ const EditVacansie = (props) => {
                             placeholder="Найти компетенцию"
                             value={nameSkill}
                             onChange={skillsChange}
+                            className='input_skills'
                             isSearchable={true} />
+                        <p className="no-skill" onClick={() => setSupport(!support)}>Нет подходящей компетенции</p>
+                        {support && <p className="to-support">Для добавления нового тега в компетенции обратитесь в <NavLink to='/support'>Техподдержку</NavLink></p>}
+                        </div>
                     </div>
                     <div className="form_item">
                         <p className="name-form">График работы:</p>

@@ -9,7 +9,7 @@ import { NavLink } from 'react-router-dom';
 const InfoAlert = () => {
     return (
       <div>
-        <Alert severity="info" className="info">
+        <Alert severity="inform" className="info">
           <AlertTitle><strong>Отправляется.</strong></AlertTitle>
           Через несколько секунд заявка будет отправлена.
           {/* <img src={infocircle} className='info-circle'></img> */}

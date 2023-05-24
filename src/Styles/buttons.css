@@ -35,8 +35,8 @@
     position: absolute;
     width: 140px;
     height: 42px;
-    left: 110%;
-    top: 100%;
+    left: 90%;
+    top: 105%;
     /* background: #E58025;
     border: 1px solid #E58025; */
     border-radius: 12px;
@@ -45,7 +45,7 @@
 }
 
 .create_vacancy {
-    width: 25%;
+    width: 20%;
     padding: 11px 15px;
     
     box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.3);

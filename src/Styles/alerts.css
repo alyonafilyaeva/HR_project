@@ -8,15 +8,21 @@
 }
 
 .success {
+    background-image: url(/src/imgs/alert_success.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: 2% 50%;
     width: 479px !important;
 }
 
-.info {
+.inform {
+    background-image: url(/src/imgs/alert_info.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: 2% 50%;
     width: 479px !important;
 }
 
 .warning {
-    background-image: url(/src/imgs/alert_error.png) !important;
+    background-image: url(/src/imgs/alert_warning.png) !important;
     background-repeat: no-repeat !important;
     background-position: 2% 50%;
     margin-left: 70px !important;
@@ -62,4 +68,22 @@
     width: 360px;
     font-size: 14px;
     background-color: #FFFBEB;
+}
+
+.to-support {
+    border-radius: 8px;
+    padding: 10px;
+    width: 396px;
+    font-size: 14px;
+    background-color: #FFFBEB;
+}
+
+.to-support a {
+    color: #E58025;
+}
+.no-skill {
+    font-size: 14px;
+    color: #E58025;
+    text-align: end;
+    cursor: pointer;
 }

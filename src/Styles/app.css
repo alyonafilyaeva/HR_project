@@ -10,7 +10,7 @@
     background-color: #FDFCFC;
     /* padding-bottom: 50px; */
     font-family: 'Inter', sans-serif;
-    /* padding-bottom: 10%; */
+    /* padding-bottom: 100px; */
     overflow-x: hidden;
     
 }
@@ -38,7 +38,7 @@ textarea {
 .container {
     width: 90%;
     padding-left: 150px;
-    padding-bottom: 10%;
+    /* padding-bottom: 500px; */
     padding-top: 100px;
     height: 100vh;
 }
@@ -85,3 +85,4 @@ a {
 @import url(./buttons.css);
 @import url(./active.css);
 @import url(./alerts.css);
+@import url(./company.css);

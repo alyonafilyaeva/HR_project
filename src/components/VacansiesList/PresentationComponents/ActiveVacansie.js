@@ -127,9 +127,9 @@ console.log(props)
                 </div>
             }
             <NavLink to="/vacansies" className='back'>Назад</NavLink>
-            {response == 200 && <SuccessAlert />}
+            {/* {response == 200 && <SuccessAlert />}
             {response == 'err' && <WarningAlert />}
-            {response == 'info' && <InfoAlert />}
+            {response == 'info' && <InfoAlert />} */}
             {(location.state.user.id == user.id && location.state.status !== 1) && <NavLink to={path} state={location.state} className="grey edit_vacansie">Редактировать</NavLink>}
             <div className="active_block_vacansie">
                 <h2 className="active_block_item">{location.state.title}</h2>

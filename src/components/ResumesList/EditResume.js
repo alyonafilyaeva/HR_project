@@ -18,6 +18,7 @@ const EditResume = (props) => {
     let { authToken, user } = useContext(AuthContext)
     let [nameSkill, setNameSkill] = useState('gfg')
     let [newSkills, setNewSkills] = React.useState([])
+    let [support, setSupport] = useState(false)
     let [skill, setSkill] = useState('')
     let optionList = props.skills.skills
     for (var i = 0; i < optionList.length; i++) {
@@ -140,6 +141,7 @@ console.log(newSkills)
                             </div>
                             <div className="form_item">
                                 <p className="name-form">Компетенции: </p>
+                                <div>
                                 <Select
                                     name='skills'
                                     closeMenuOnSelect={false}
@@ -149,7 +151,11 @@ console.log(newSkills)
                                     placeholder="Найти компетенцию"
                                     value={nameSkill}
                                     onChange={skillsChange}
+                                    className='input_skills'
                                     isSearchable={true} />
+                                <p className="no-skill" onClick={() => setSupport(!support)}>Нет подходящей компетенции</p>
+                                {support && <p className="to-support">Для добавления нового тега в компетенции обратитесь в <NavLink to='/support'>Техподдержку</NavLink></p>}
+                            </div>
                             </div>
                             <div className="form_item">
                                 <p>Стаж работы:</p>

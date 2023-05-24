@@ -26,12 +26,13 @@ const AddVacansie = (props) => {
     let exp = React.createRef()
     let skills = React.createRef()
     let schedule = React.createRef()
+    let [support, setSupport] = useState(false)
     let { authToken, user } = useContext(AuthContext)
     const nav = useNavigate()
     let [response, setResponse] = useState(200)
-    /* setTimeout(function () {
+    setTimeout(function () {
         document.getElementById('alert').style.display = 'none !important';
-    }, 50); */
+    }, 50);
     const editorState = EditorState.createEmpty();
     const editorStateWithoutUndo = EditorState.set(editorState, {
         allowUndo: false,
@@ -220,6 +221,7 @@ const AddVacansie = (props) => {
                                 <option value={skill.id}>{skill.name}</option>
                             )}
                         </select> */}
+                        <div>
                         <Select
                             name='skills'
                             closeMenuOnSelect={false}
@@ -229,9 +231,12 @@ const AddVacansie = (props) => {
                             placeholder="Найти компетенцию"
                             value={nameSkill}
                             onChange={skillsChange}
+                            className='input_skills'
                             isSearchable={true} />
-                        {/* <p>Нет подходящей компетенции</p>
-                        <p className="">Для добавления нового тега в компетенции обратитесь в <NavLink to='/support'>Техподдержку</NavLink></p> */}
+                        <p className="no-skill" onClick={() => setSupport(!support)}>Нет подходящей компетенции</p>
+                        {support && <p className="to-support">Для добавления нового тега в компетенции обратитесь в <NavLink to='/support'>Техподдержку</NavLink></p>}
+                        </div>
+                        
                     </div>
                     <div className="form_item">
                         <p className="name-form">График работы:</p>

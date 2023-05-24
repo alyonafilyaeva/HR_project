@@ -1,0 +1,60 @@
+.cities {
+    display: flex;
+    flex-direction: row;
+}
+
+.cities h2 {
+    margin-right: 15px;
+}
+
+.departments {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.dep-container {
+    background: linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 40px;
+}
+
+.dep-item {
+    background: linear-gradient(108.58deg, rgba(255, 208, 166, 0.2) 0%, rgba(255, 208, 166, 0) 119.12%);
+    border-radius: 20px;
+    margin-top: 20px;
+    padding: 30px;
+    margin-right: 50px;
+}
+
+.dep-item h3 {
+    color: #000;
+    text-align: center;
+}
+
+.dep-list {
+    display: flex;
+    flex-wrap: wrap;
+    /* grid-template-columns: 30% 30% 30%;
+    column-gap: 10px;
+    row-gap: 10px;
+    max-width: 500px; */
+    max-width: 420px;
+    max-height: 500px;
+    
+}
+
+.dep-list p {
+    background: #FFFFFF;
+    border: 1px solid #E58025;
+    backdrop-filter: blur(40px);
+    /* Note: backdrop-filter has minimal browser support */
+    padding: 20px 36px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+
+}

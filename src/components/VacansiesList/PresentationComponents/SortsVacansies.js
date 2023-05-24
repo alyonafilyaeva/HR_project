@@ -109,6 +109,7 @@ const SortsVacansies = (props) => {
                     break;
                 case "1":
                     setExpFrom(0)
+                    setExpTo(0)
                     break;
                 case "2":
                     setExpFrom(1)
@@ -120,6 +121,7 @@ const SortsVacansies = (props) => {
                     break;
                 case "4":
                     setExpFrom(6)
+                    setExpTo('')
                     break;
                 default:
                     break;

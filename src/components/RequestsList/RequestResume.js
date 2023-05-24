@@ -6,7 +6,7 @@ import LinesEllipsis from "react-lines-ellipsis";
 const RequestResume = (props) => {
     console.log(props)
     let skillsOfVacansie = props.request.item.skills
-    let path = `/vacansie/${props.request.item.id}`
+    let path = `/resume/${props.request.item.id}`
         return(
             <div className="vacansie row">
             <NavLink  to={path} state={props.request.item} >

@@ -60,11 +60,11 @@ input[type=number] {
     /* margin-left: 35px; */
 }
 
-.input_dep_vac {
+/* .input_dep_vac {
     
-    /* margin-left: 85px; */
+    margin-left: 85px;
 }
-
+ */
 .input_salary_vac {
     width: 70%;
     /* margin: 0 15px ; */
@@ -84,6 +84,9 @@ input[type=number] {
     height: 200px;
 }
 
+.input_skills {
+    width: 420px;
+}
 .steps {
     width: 500px;
     display: flex;

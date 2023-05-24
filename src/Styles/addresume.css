@@ -117,3 +117,26 @@ input[accept]{
     margin-left: 170px;
     margin-top: -5px;
 }
+
+.survey {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 359px;
+}
+
+.survey h3 {
+    font-size: 20px;
+    color: #000;
+}
+
+.survey p {
+    font-size: 14px;
+    line-height: 17px;
+    
+}
+
+.survey .grey {
+    margin-top: 20px;
+    width: 110px;
+}

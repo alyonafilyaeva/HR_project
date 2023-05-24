@@ -65,7 +65,15 @@ a {
     right: 100px
 }
 
+.resetpasswordlink {
+    font-size: small;
+    color: gray;
+}
 
+.resetpasswordlink:hover {
+    color: #000;
+    cursor: pointer;
+}
 
 .favourite {
     cursor: pointer;
@@ -86,3 +94,4 @@ a {
 @import url(./active.css);
 @import url(./alerts.css);
 @import url(./company.css);
+@import url(./modal.css);

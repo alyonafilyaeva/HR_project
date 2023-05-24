@@ -29,6 +29,8 @@ import VacansiesContainer from './pages/VacansiesContainer';
 import Support from './pages/Support';
 import Favourite from './pages/Favourite';
 import Company from './pages/Company';
+import Activate from './pages/Activate';
+import New_register from './pages/New_register';
 
 
 const App = () => {
@@ -42,7 +44,9 @@ const App = () => {
             <div>
               <AuthPage />
               <Routes>
-              <Route path='/auth' exact element={<AuthPage />} />
+              <Route path='' exact element={<AuthPage />} />
+                <Route path='/activate/:uid/:token' element={<Activate />} />
+                <Route path='/reset_password/:uid/:token' element={<New_register />} />
                 <Route element={<PrivateRoute />} >
                   <Route path="/vacansies" element={<Vacansies />} />
                   <Route path="/vacansies/all" element={<VacansiesListAllContainer />} />

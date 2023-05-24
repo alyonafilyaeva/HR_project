@@ -18,7 +18,7 @@ function Profile(props) {
             props.setUser(response.data.user)
         })
     }, [])
-    
+
     let { user } = useContext(AuthContext)
     console.log(user)
     return (
@@ -40,7 +40,7 @@ function Profile(props) {
                     </div>
                     <div className="buttons_profile">
                         <NavLink to="/profile/edit" className='edit_data_btn orange'>Изменить данные</NavLink>
-                        {/* <button className="change_password grey">Изменить пароль</button> */}
+                        <button className="change_password grey">Изменить пароль</button>
                     </div>
 
                 </div>

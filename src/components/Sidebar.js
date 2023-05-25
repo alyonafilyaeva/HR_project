@@ -34,7 +34,7 @@ const Sidebar = (props) => {
                     </div>
                     <div className="sidebar_link">
                         <div className='requests_icon'></div>
-                        <li><NavLink to="/request" onClick={sidebarHandler} >Мои заявки </NavLink></li>
+                        <li><NavLink to="/request" onClick={sidebarHandler} >Мои отклики </NavLink></li>
                     </div>
                     <div className="sidebar_link">
                         <div className='favourite_icon'></div>

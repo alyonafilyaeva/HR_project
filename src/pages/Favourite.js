@@ -3,7 +3,7 @@ import React, { useContext, useLayoutEffect, useState } from "react";
 import AuthContext from "../context/AuthContext";
 import Vacansie from "../components/VacansiesList/PresentationComponents/Vacansie";
 import { NavLink } from "react-router-dom";
-import iconContainer from "../imgs/iconContainer.png"
+import iconFavourite from "../imgs/iconFavourite.png"
 
 function Favourite() {
     let { user } = useContext(AuthContext)
@@ -31,13 +31,14 @@ function Favourite() {
 
     return (
         <div className="container">
+            <h3>Избранное</h3>
             <h2 className='clicked'>Вакансии</h2>
             {favouriteElements.length ?
                 <ul className="vacansiesList">
                     {favouriteElements}
                 </ul> :
                 <div className="no-requests">
-                    <img src={iconContainer} />
+                    <img src={iconFavourite} />
                     <h3>Еще нет избранных вакансий?</h3>
                     <NavLink to="/vacansies" className="orange">Открыть вакансии</NavLink>
                 </div>}

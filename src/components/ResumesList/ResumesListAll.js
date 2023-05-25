@@ -3,7 +3,7 @@ import Resume from "./Resume";
 import axios from "axios"
 import AuthContext from "../../context/AuthContext";
 import { NavLink } from "react-router-dom";
-import iconContainer from '../../imgs/iconContainer.png'
+import iconResume from '../../imgs/iconResume.png'
 
 function ResumesListAll(props) {
     let { authToken } = useContext(AuthContext)
@@ -45,7 +45,7 @@ function ResumesListAll(props) {
     else {
         return <div>
         <div className="no-requests">
-            <img src={iconContainer} />
+            <img src={iconResume} />
             <h3>Еще нет резюме.</h3>
             <p>Заполните информацию и опубликуйте резюме.</p>
             <NavLink to="/resumes/create_resume" className="orange">Создать резюме</NavLink>

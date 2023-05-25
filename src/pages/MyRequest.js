@@ -27,7 +27,9 @@ function MyRequest() {
 
     return (
         <div className="container">
+             <h3>Мои отклики</h3>
             <div className="vacansies-top">
+               
                 <div className="vacansies_name_list">
                     <div className="list all">
                         <h2 onClick={() => { setStatus('vacansies') }} className={`${status === 'vacansies' && 'clicked'}`}>Вакансии</h2>

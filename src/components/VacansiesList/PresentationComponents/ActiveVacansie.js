@@ -6,6 +6,8 @@ import SkillsContainer from "../../skills/SkillsContainer";
 import SuccessAlert from "../../Alerts/SuccessAlert";
 import WarningAlert from "../../Alerts/WarningAlert";
 import InfoAlert from "../../Alerts/InfoAlert";
+import favourite from '../../../imgs/favourite.png'
+import favourite2 from '../../../imgs/favourite2.png'
 
 const ActiveVacansie = (props) => {
     const location = useLocation();
@@ -14,6 +16,8 @@ const ActiveVacansie = (props) => {
     let skillsOfVacansie = location.state.skills
     let employmentList = props.employment
     let scheduleList = []
+    let id = location.state.id
+    let [isFavourite, setIsFavourite] = useState(location.state.users != undefined ? location.state.users.includes(user.id) : false)
     for (let i = 0; i < props.schedule.length; i++) {
         for (let j = 0; j < location.state.schedule.length; j++) {
             if (props.schedule[i].value == location.state.schedule[j]) {
@@ -105,7 +109,27 @@ console.log(props)
                 console.log(error.response)
             })
     }
-
+    let toFavourite = () => {
+        console.log('s')
+        axios({
+            method: "put",
+            url: `http://127.0.0.1:8000/api/vacancies/to_favorite/`,
+            headers: {
+                Authorization: `Bearer ${String(authToken.access)}`,
+            },
+            params: {
+                id: id
+            }
+        })
+            .then(response => {
+                if (response.status === 200) {
+                    console.log(response.data)
+                    
+                }
+            })
+            .catch(error => console.log(error.response))
+        setIsFavourite(!isFavourite)
+    }
     return (
         <div className="container">
             {(location.state.user.id == user.id && location.state.status !== 1) &&
@@ -133,6 +157,7 @@ console.log(props)
             {(location.state.user.id == user.id && location.state.status !== 1) && <NavLink to={path} state={location.state} className="grey edit_vacansie">Редактировать</NavLink>}
             <div className="active_block_vacansie">
                 <h2 className="active_block_item">{location.state.title}</h2>
+                {location.state.status == 1 && <img src={isFavourite ? favourite2 : favourite} className="favourite" onClick={ toFavourite}></img>}
                 <div className="active_block_item">
                     <p className="item_title">Департамент: </p>
                     <p>{location.state.department}</p>
@@ -163,7 +188,7 @@ console.log(props)
             </div>
             {(location.state.user.id !== user.id) &&
                 <div className="send_request_vacansie">
-                    <button onClick={sendRequest} className="btn_vacansie orange">Отправить заявку</button>
+                    <button onClick={sendRequest} className="btn_vacansie orange">Откликнуться</button>
                     <p className="send_alert_vacansie">Сотруднику будет отправлено письмо, что вы заинтересовались его вакансией. </p>
                 </div>
             }

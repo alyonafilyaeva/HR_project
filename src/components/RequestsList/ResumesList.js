@@ -35,7 +35,7 @@ function ResumesList(props) {
                 </ul> :
                 <div className="no-requests">
                     <img src={iconContainer} />
-                    <h3>Еще нет заявок на резюме?</h3>
+                    <h3>Еще нет откликов на резюме?</h3>
                     <p>Найдите и откликнитесь на подходящее резюме</p>
                     <NavLink to="/vacansies" className="orange">Открыть резюме</NavLink>
                 </div>}

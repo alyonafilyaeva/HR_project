@@ -42,9 +42,9 @@ const App = () => {
           <div className='app_container'>
             <SidebarContainer />
             <div>
-              <AuthPage />
+              {/* <AuthPage /> */}
               <Routes>
-              <Route path='' exact element={<AuthPage />} />
+                <Route path='' exact element={<AuthPage />} />
                 <Route path='/activate/:uid/:token' element={<Activate />} />
                 <Route path='/reset_password/:uid/:token' element={<New_register />} />
                 <Route element={<PrivateRoute />} >
@@ -53,9 +53,9 @@ const App = () => {
                   <Route path="/vacansies/my" element={<VacansiesListMyContainer />} />
                   <Route path="/resumes" element={<Resumes />} />
                   <Route path="/request" element={<MyRequest />} />
-                  <Route path="/support" element={<Support />}/>
-                  <Route path="/favourite" element={<Favourite />}/>
-                  <Route path="/company" element={<Company />}/>
+                  <Route path="/support" element={<Support />} />
+                  <Route path="/favourite" element={<Favourite />} />
+                  <Route path="/company" element={<Company />} />
                   <Route path="/vacansies/create_vacansie" element={<AddVacansieContainer />} />
                   <Route path="/vacansie/edit/:id" element={<EditVacansieContainer />} />
                   <Route path="/vacansie/:id" element={<ActiveVacansieContainer />} />
@@ -64,9 +64,9 @@ const App = () => {
                   <Route path="/resumes/create_resume" element={<AddResumeContainer />} />
                   <Route path="/profile" element={<ProfileContainer />} />
                   <Route path="/profile/edit" element={<EditProfileContainer />} />
-                  
+
                 </Route>
-                
+
               </Routes>
             </div>
           </div>

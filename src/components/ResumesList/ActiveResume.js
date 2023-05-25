@@ -136,7 +136,7 @@ const ActiveResume = (props) => {
             </div>
             {location.state.user.id !== user.id && 
             <div className="send_request_resume">
-                <button onClick={sendRequest} className="btn_resume orange ">Отправить заявку</button>
+                <button onClick={sendRequest} className="btn_resume orange ">Откликнуться</button>
                 <p className="send_alert_resume">Сотруднику будет отправлено письмо, что вы заинтересовались его резюме. </p>
             </div>
             

@@ -34,7 +34,7 @@ function VacansiesList(props) {
                 </ul> :
                 <div className="no-requests">
                     <img src={iconContainer} />
-                    <h3>Еще нет заявок на вакансии?</h3>
+                    <h3>Еще нет откликов на вакансии?</h3>
                     <p>Найдите и откликнитесь на подходящую вакансию</p>
                     <NavLink to="/vacansies" className="orange">Открыть вакансии</NavLink>
                 </div>}

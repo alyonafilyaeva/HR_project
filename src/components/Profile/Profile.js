@@ -32,7 +32,7 @@ function Profile(props) {
                     <div className="form_photo">
                         <div className="data">
                             <p>E-mail: {user.email}</p>
-                            <p>Телефон: 88005553535</p>
+                            <p>Телефон: {user.phone_number}</p>
                         </div>
                         <div className="photo">
                             <img src={user.image}></img>

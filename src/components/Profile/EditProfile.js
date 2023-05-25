@@ -3,18 +3,18 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AuthContext from "../../context/AuthContext";
 import { useContext } from "react";
+import Formsy from 'formsy-react';
 
 const EditProfile = (props) => {
     console.log(props)
     const location = useLocation()
     let name = React.createRef()
     let email = React.createRef()
+    let tel = React.createRef()
     let image = React.createRef()
     let file = React.createRef()
-
-
-
     const nav = useNavigate()
+    let [telError, setTelError] = useState()
     let { authToken, user, updateUser, logoutUser, setUser } = useContext(AuthContext)
 
     useLayoutEffect(() => {
@@ -38,6 +38,7 @@ const EditProfile = (props) => {
                 {
                     "email": email.current.value,
                     "full_name": name.current.value,
+                    "phone_number": tel.current.value,
                      "image": 'https://s10.stc.yc.kpcdn.net/share/i/12/11065821/wr-960.webp'
                     /* "file": file.current.value,
                     "image": file.current.value, */
@@ -60,9 +61,14 @@ const EditProfile = (props) => {
     }
 
     let onProfileChange = () => {
+        let reTel = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+        /* if (!reTel.test(telProfile)) {
+            setTelError('Неверное значение')
+        } */
         let nameProfile = name.current.value;
         let emailProfile = email.current.value;
-        props.ChangeProfile(nameProfile, emailProfile)
+        let telProfile = tel.current.value
+        props.ChangeProfile(nameProfile, emailProfile, telProfile)
     }
 
     return (
@@ -80,8 +86,9 @@ const EditProfile = (props) => {
                                 <input onChange={onProfileChange} type="text" ref={name} value={props.profilePage.newName}></input>
                                 <p>E-mail: </p>
                                 <input onChange={onProfileChange} type="email" ref={email} value={props.profilePage.newEmail}></input>
+                                {telError}
                                 <p>Телефон: </p>
-                                <input type="tel"></input>
+                                <input onChange={onProfileChange} type="tel" ref={tel} value={props.profilePage.newTel} pattern="[0-9]"></input>
                             </form>
                         </div>
                         <div className="photo">

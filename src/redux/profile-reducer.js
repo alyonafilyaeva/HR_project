@@ -1,3 +1,5 @@
+import { act } from "react-dom/test-utils"
+
 let SET_USER = "SET-USER"
 let CHANGE_PROFILE = "CHANGE-PROFILE"
 
@@ -7,12 +9,14 @@ let initialState = {
         "email": "head@head.head",
         "full_name": "Петр Петрович",
         "id": 11,
+        "phone_number": 88005553535,
         "image": null,
         "is_admin": false,
         "is_header_dep": true
     },
     newName: '',
-    newEmail: ''
+    newEmail: '',
+    newTel: ''
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -22,13 +26,15 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 user: action.user,
                 newName: action.user.full_name,
-                newEmail: action.user.email
+                newEmail: action.user.email,
+                newTel: action.user.phone_number
             }
             case CHANGE_PROFILE: {
                 return {
                     ...state,
                     newName: action.name,
-                    newEmail: action.email
+                    newEmail: action.email,
+                    newTel: action.tel
                 };
             }
         default:
@@ -40,8 +46,8 @@ export const SetProfileActionCreator = (user) => {
     return { type: SET_USER, user: user }
 }
 
-export const ChangeProfileActionCreator = (nameProfile, emailProfile) => {
-    return { type: CHANGE_PROFILE, name: nameProfile, email: emailProfile }
+export const ChangeProfileActionCreator = (nameProfile, emailProfile, telProfile) => {
+    return { type: CHANGE_PROFILE, name: nameProfile, email: emailProfile, tel:  telProfile}
 }
 
 export default profileReducer;

@@ -12,8 +12,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        ChangeProfile: (nameProfile, emailProfile) => {
-            dispatch(ChangeProfileActionCreator(nameProfile, emailProfile))
+        ChangeProfile: (nameProfile, emailProfile, telProfile) => {
+            dispatch(ChangeProfileActionCreator(nameProfile, emailProfile, telProfile))
         }
     }
 }

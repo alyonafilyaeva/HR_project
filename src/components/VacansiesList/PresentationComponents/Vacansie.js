@@ -14,7 +14,13 @@ const Vacansie = (props) => {
     let { authToken, user } = useContext(AuthContext)
     let [isFavourite, setIsFavourite] = useState(props.vacansie.users != undefined ? props.vacansie.users.includes(user.id) : false)
     let id = props.vacansie.id
-    console.log(isFavourite)
+    
+    function plural(number, titles) {  
+        let cases = [2, 0, 1, 1, 1, 2];  
+        return titles[ (number%100>4 && number%100<20)? 2 : cases[(number%10<5)?number%10:5] ];  
+    }
+    
+    var declension = ['год', 'года', 'лет'];
     let toFavourite = () => {
         console.log('s')
         axios({
@@ -46,7 +52,7 @@ const Vacansie = (props) => {
                     <p className="blur">{props.vacansie.data_updated}</p>
                 </div>
                 <p>{props.vacansie.salary_from} - {props.vacansie.salary_to} руб</p>
-                <p>Опыт работы: {props.vacansie.exp_work}</p>
+                <p>Опыт работы: {props.vacansie.exp_work} {plural(props.vacansie.exp_work, declension)}</p>
                 <p><SkillsContainer realskills={skillsOfVacansie} /></p>
                 <LinesEllipsis text={props.vacansie.description} maxLine={3} className="blur"/>
             </div>

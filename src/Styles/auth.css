@@ -135,3 +135,20 @@
     padding-left: 10px;
     width: 60%;
 }
+
+.red {
+    border-color: red ;
+
+}
+
+.green {
+    border-color: green;
+}
+
+.pswd-ad {
+    margin: 0;
+    font-size: 12px;
+    color: #E58025;
+    text-align: end;
+    width: 120%;
+}

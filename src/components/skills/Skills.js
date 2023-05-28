@@ -22,7 +22,7 @@ function Skills(props) {
 
     const skillElements = skillsList.map(skill => <Skill skill={skill}/>)
     return (
-        <div>
+        <div className="skills">
             {skillElements}
         </div>
     )

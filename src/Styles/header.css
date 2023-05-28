@@ -9,19 +9,18 @@
     display: flex;
     justify-content: space-between;
     width: 90%;
-    background-color: #fff;
     padding: 10px 0;
     font-size: 20px;
     margin-bottom: 20px;
     width: 100vw;
-    box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.3);
-    opacity: .8;
-    z-index: 500;
+    box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.1);
+    background: #fff;
+    z-index: 5;
 }
 
 .profile-header {
     /* padding-right: 10% */
-    width: 21%;
+    width: 27%;
 }
 
 .info {

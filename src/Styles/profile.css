@@ -106,3 +106,7 @@ h3 {
     border-radius: 8px;
     font-size: 14px;
 }
+
+.profile-input {
+    width: 300px;
+}

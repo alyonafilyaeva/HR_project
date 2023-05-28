@@ -194,7 +194,7 @@ const AddVacansie = (props) => {
                     </div>
 
                     <div className="form_item">
-                        <p className="name-form">Минимальная зарплата: </p>
+                        <p className="name-form">Зарплата: </p>
                         <div className="salary-block">
                             <p>От:</p>
                             <div className="salary-placeholder">
@@ -227,6 +227,7 @@ const AddVacansie = (props) => {
                             closeMenuOnSelect={false}
                             isMulti
                             options={optionList}
+                            maxMenuHeight={130}
                             ref={skills}
                             placeholder="Найти компетенцию"
                             value={nameSkill}

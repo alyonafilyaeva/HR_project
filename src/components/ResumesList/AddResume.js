@@ -90,19 +90,19 @@ const AddResume = (props) => {
                     <div className="field_input">
                         <h2>{user.full_name}</h2>
                         <div className="form_item">
-                            <p>Почта:</p>
+                            <p className="name-form">Почта:</p>
                             <p className="input_mail_res">{user.email}</p>
                         </div>
                         <div className="form_item">
-                            <p>Департамент:</p>
+                            <p className="name-form">Департамент:</p>
                             <p className="input_dep_res">{user.department}</p>
                         </div>
                         <div className="form_item">
-                            <p>Желаемая зарплата:</p>
+                            <p className="name-form">Зарплата:</p>
                             <input onChange={onResChange} className="input_salary_res" type='number' name='salary' ref={salary} value={props.newResSalery} required />
                         </div>
                         <div className="form_item">
-                            <p>Стаж работы:</p>
+                            <p className="name-form">Стаж работы:</p>
                             <input onChange={onResChange} className="input_exp_res" type='number' name='salary' ref={exp} value={props.newResExp} required />
                         </div>
                         <div className="form_item">
@@ -124,17 +124,17 @@ const AddResume = (props) => {
                             </div>
                         </div>
                         <div className="form_item">
-                            <p>О себе:</p>
+                            <p className="name-form">О себе:</p>
                             <textarea onChange={onResChange} className="input_text_res" type='text' name="about" ref={about} value={props.newResAbout} required />
                         </div>
                     </div>
                     <div className="download_fields">
                         <div className="form_item">
-                            <p>Загрузите изображение</p>
+                            <p className="name-form">Загрузите изображение</p>
                             <input type="file" name="photo" accept="image/*" />
                         </div>
                         <div className="form_item">
-                            <p>Загрузите свое резюме</p>
+                            <p className="name-form">Загрузите свое резюме</p>
                             <input type="file" name="photo" accept="application/pdf" />
                         </div>
 

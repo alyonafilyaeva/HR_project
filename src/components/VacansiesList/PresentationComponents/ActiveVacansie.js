@@ -25,13 +25,20 @@ const ActiveVacansie = (props) => {
             }
         }
     }
-console.log(props)
+    console.log(props)
     let path = `/vacansie/edit/${location.state.id}`
     let [response, setResponse] = useState(0)
     console.log(props)
     setTimeout(() => {
         setResponse(0);
-      }, 5000);
+    }, 6000);
+
+    function plural(number, titles) {  
+        let cases = [2, 0, 1, 1, 1, 2];  
+        return titles[ (number%100>4 && number%100<20)? 2 : cases[(number%10<5)?number%10:5] ];  
+    }
+    
+    var declension = ['год', 'года', 'лет'];
 
     let notPublish = () => {
         let data = location.state
@@ -124,7 +131,7 @@ console.log(props)
             .then(response => {
                 if (response.status === 200) {
                     console.log(response.data)
-                    
+
                 }
             })
             .catch(error => console.log(error.response))
@@ -156,8 +163,10 @@ console.log(props)
             {response == 'info' && <InfoAlert />} */}
             {(location.state.user.id == user.id && location.state.status !== 1) && <NavLink to={path} state={location.state} className="grey edit_vacansie">Редактировать</NavLink>}
             <div className="active_block_vacansie">
-                <h2 className="active_block_item">{location.state.title}</h2>
-                {location.state.status == 1 && <img src={isFavourite ? favourite2 : favourite} className="favourite" onClick={ toFavourite}></img>}
+                <div className="name_vacancie">
+                    <h2 className="active_block_item">{location.state.title}</h2>
+                    {location.state.status == 1 && <img src={isFavourite ? favourite2 : favourite} className="favourite2" onClick={toFavourite}></img>}
+                </div>
                 <div className="active_block_item">
                     <p className="item_title">Департамент: </p>
                     <p>{location.state.department}</p>
@@ -168,7 +177,7 @@ console.log(props)
                 </div>
                 <div className="active_block_item">
                     <p className="item_title">Стаж работы: </p>
-                    <p>{location.state.exp_work}</p>
+                    <p>{location.state.exp_work} {plural(location.state.exp_work, declension)}</p>
                 </div>
                 <div className="active_block_item">
                     <p className="item_title">Компетенции:</p>
@@ -180,7 +189,7 @@ console.log(props)
                 </div>
                 <div className="active_block_item">
                     <p className="item_title">Занятость:</p>
-                    <p>{employmentList[location.state.employment].label }</p>
+                    <p>{employmentList[location.state.employment].label}</p>
                 </div>
                 <div>
                     <p className="active_block_item">{location.state.description}</p>
@@ -188,6 +197,9 @@ console.log(props)
             </div>
             {(location.state.user.id !== user.id) &&
                 <div className="send_request_vacansie">
+                    {response == 200 && <SuccessAlert />}
+                    {response == 'err' && <WarningAlert />}
+                    {response == 'info' && <InfoAlert />}
                     <button onClick={sendRequest} className="btn_vacansie orange">Откликнуться</button>
                     <p className="send_alert_vacansie">Сотруднику будет отправлено письмо, что вы заинтересовались его вакансией. </p>
                 </div>

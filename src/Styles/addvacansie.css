@@ -18,10 +18,11 @@
 }
 
 .name-form {
-    width: 24%;
+    width: 120px;
     color: #53545C;
+    font-weight: 600;
     font-size: 16px;
-    margin-left: 9%;
+    margin-right: 50px;
 }
 
 h3 {
@@ -35,7 +36,7 @@ input[type=text] , textarea  {
     /* height: 10px; */
     border: 1px solid #CFD3D5;
     border-radius: 8px;
-    font-size: 16px;
+    font-size: 14px;
 }
  .search input{
     padding-left: 30px;
@@ -44,8 +45,9 @@ input[type=number] {
     padding: 13px;
     border: 1px solid #CFD3D5;
     border-radius: 8px;
-    font-size: 16px;
-    /* width: 100%; */
+    /* font-size: 14px;
+    width: 56%;
+    color: #ABAFB1; */
 }
 
 .form_item {
@@ -85,7 +87,7 @@ input[type=number] {
 }
 
 .input_skills {
-    width: 420px;
+    width: 410px;
 }
 .steps {
     width: 500px;

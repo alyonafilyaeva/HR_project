@@ -26,6 +26,9 @@ padding-right: 20px;
     margin: 20px 0 0 70px;
 }
 
+.name_vacancie{
+    display: flex;
+}
 .active_block_resume {
     display: flex;
     flex-direction: row;
@@ -40,4 +43,19 @@ padding-right: 20px;
 
 .active_info {
     margin-right: 10%;
+}
+
+.favourite2{
+    width: 50px;
+    height: 50px;
+    padding-left: 20px;
+    cursor: pointer;
+}
+
+.send_request_vacansie {
+    position: relative;
+}
+
+.send_request_resume {
+    position: relative;
 }

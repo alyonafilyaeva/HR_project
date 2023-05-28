@@ -1,12 +1,10 @@
 .openblock {
     position: absolute;
     border: 1px solid #ffffff;
-    margin: 5px 0 0 auto;
+    margin: 5px 0 0 114px;
     border-radius: 10px;
     z-index: 500;
     background: #FFFFFF;
-    right: 15px;
-    top: 50px;
     box-shadow: 0px 4px 24px rgba(204, 100, 6, 0.3);
     }
     

@@ -43,9 +43,10 @@ const resumesReducer = (state = initialState, action) => {
         case ADD_RESUME: {
             let newRes = {
                 id: "8",
-                date: "03.11.2022",
-                name: "Вася Пупкин",
+                data_updated: "03.11.2022",
+                full_name: "Вася Пупкин",
                 salary: state.newResSalery,
+                user: {id: 3, full_name: 'Вася Пупкин', email: 'me@me.me'},
                 exp_work: state.newResExp,
                 about_me: state.newResAbout
             };

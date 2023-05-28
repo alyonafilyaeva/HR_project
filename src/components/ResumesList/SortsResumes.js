@@ -105,6 +105,8 @@ const SortsResumes = (props) => {
         setExp_Work('')
         setSearch('')
         setSort('-data_updated')
+        setSkillsFilter('')
+        setSkill('')
         // setDep('')
         axios
             .get('http://127.0.0.1:8000/api/resumes',

@@ -2,7 +2,7 @@
     /* column-count: 2; */
     display: flex;
     line-height: 30px;
-    /* width: 100%; */
+    width: 87% !important; 
     position: relative;
     flex-direction: row;
     padding: 40px ;
@@ -42,7 +42,7 @@ input[accept]{
 
 
 .download_fields {
-    padding-top: 10% 0 0 10% ;
+    padding-top: 10% 0 0 10% !important;
 }
 
 .photo {
@@ -57,12 +57,11 @@ input[accept]{
 
 .field_input {
     width: 100%;
-    margin-right: 10%;
 }
 
 .input_mail_res {
     width: 100px;
-    margin-left: 75px;
+    /* margin-left: 75px; */
 }
 
 .input_mail_res_edit {
@@ -70,41 +69,41 @@ input[accept]{
     margin-left: 115px;
 }
 
-.input_dep_res {
+/* .input_dep_res {
     margin-left: 25px;
-}
+} */
 
-.input_dep_res_edit {
-    margin-left: 65px;
+/* .input_dep_res_edit {
+    margin-left: 58px;
 }
-
+ */
 .input_salary_res {
-    margin-left: 5px;
+    /* margin-left: 5px; */
     display: block;
 }
 
-.input_salary_res_edit {
+/* .input_salary_res_edit {
     margin-left: 5px;
     display: block;
-}
+} */
 
-.input_exp_res {
+/* .input_exp_res {
     margin-left: 45px;
 }
-
-.input_exp_res_edit {
-    margin-left: 60px;
-}
+ */
+/* .input_exp_res_edit {
+    margin-left: 57px;
+} */
 
 .input_text_res {
-    width: 80%;
-    margin-left: 80px;
+    width: 400px;
+    /* margin-left: 80px; */
     height: 200px;
 }
 
 .input_text_res_edit {
     width: 60%;
-    margin-left: 105px;
+    /* margin-left: 105px; */
     height: 200px;
 }
 
@@ -140,3 +139,18 @@ input[accept]{
     margin-top: 20px;
     width: 110px;
 }
+
+.css-13cymwt-control{
+    width: 85%;
+    border: 1px solid #CFD3D5;
+    border-radius: 8px;
+    text-align:justify;
+    font-size: 14px;
+    color: #ABAFB1;
+    padding-right: 15px !important;
+    /* background-image: url(../imgs/search.png);
+    background-repeat: no-repeat;
+    background-position: 2% 50%; */
+    font-weight: 100 !important;
+}
+

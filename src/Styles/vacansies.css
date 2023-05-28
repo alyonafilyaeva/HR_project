@@ -31,8 +31,11 @@
 }
 
 .clicked {
-    border-bottom: 3px solid #E58025;
-    color: #000
+    border-bottom: 4px solid #E58025;
+    color: #2B2F32;
+    max-width: 160px;
+    text-align: center;
+    /* font-size: 18px; */
 
 }
 .list {

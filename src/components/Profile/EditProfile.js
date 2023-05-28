@@ -83,12 +83,12 @@ const EditProfile = (props) => {
                         <div className="edit_data">
                             <form className="edit_form">
                                 <p>Фамилия Имя Отчество</p>
-                                <input onChange={onProfileChange} type="text" ref={name} value={props.profilePage.newName}></input>
+                                <input onChange={onProfileChange} /* type="text" */ ref={name} value={props.profilePage.newName} className="profile-input"></input>
                                 <p>E-mail: </p>
-                                <input onChange={onProfileChange} type="email" ref={email} value={props.profilePage.newEmail}></input>
+                                <input onChange={onProfileChange} type="email" ref={email} value={props.profilePage.newEmail} className="profile-input"></input>
                                 {telError}
                                 <p>Телефон: </p>
-                                <input onChange={onProfileChange} type="tel" ref={tel} value={props.profilePage.newTel} pattern="[0-9]"></input>
+                                <input onChange={onProfileChange} type="tel" ref={tel} value={props.profilePage.newTel} pattern="[0-9]" className="profile-input"></input>
                             </form>
                         </div>
                         <div className="photo">

@@ -2,7 +2,7 @@ import React, { useContext, useLayoutEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from "axios"
 import main from '../imgs/main.png'
-import logo from '../imgs/logo.png'
+import logo from '../imgs/logo.svg'
 
 const Activate = () => {
     const { uid, token } = useParams()

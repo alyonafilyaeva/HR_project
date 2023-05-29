@@ -69,6 +69,7 @@ const SortsResumes = (props) => {
         if (e.target.name === 'salary') {
             setSalary(Number(e.target.value))
         } else if (e.target.name === 'exp_work') {
+            setExp_Work(e.target.value)
             switch (e.target.value) {
                 case "0":
                     setExpFrom('')

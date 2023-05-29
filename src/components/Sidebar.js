@@ -1,7 +1,7 @@
 import React, { Component, useContext, useLayoutEffect, useState } from "react";
 import { BrowserRouter as Router, Routes, Route, NavLink, Navigate } from "react-router-dom";
 import "../Styles/app.css"
-import logo from '../imgs/logo.png'
+import logo from '../imgs/logo.svg'
 import AuthContext from "../context/AuthContext";
 
 const Sidebar = (props) => {

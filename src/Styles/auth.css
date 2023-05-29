@@ -25,7 +25,7 @@
 
 
 .logo  {
-    width: 270px;
+    /* width: 270px; */
     height: 45px;
 }
 
@@ -137,12 +137,12 @@
 }
 
 .red {
-    border-color: red ;
+    border-color: #CC5F5F;
 
 }
 
 .green {
-    border-color: green;
+    border-color: #519C66;
 }
 
 .pswd-ad {

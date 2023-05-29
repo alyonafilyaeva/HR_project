@@ -1,7 +1,7 @@
 import React, { useContext, useState, useLayoutEffect, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import axios from 'axios'
-import logo from '../imgs/logo.png'
+import logo from '../imgs/logo.svg'
 import AuthContext from '../context/AuthContext'
 import main from '../imgs/main.png'
 

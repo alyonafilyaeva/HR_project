@@ -19,7 +19,7 @@ const EditProfile = (props) => {
 
     useLayoutEffect(() => {
 
-        axios.get(`http://127.0.0.1:8000/api/profile`, {
+        axios.get(`/api/profile`, {
             'headers': {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${String(authToken.access)}`
@@ -34,7 +34,7 @@ const EditProfile = (props) => {
         e.preventDefault()
 
         axios
-            .put(`http://127.0.0.1:8000/api/profile/`,
+            .put(`/api/profile/`,
                 {
                     "email": email.current.value,
                     "full_name": name.current.value,

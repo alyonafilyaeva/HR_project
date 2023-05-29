@@ -15,7 +15,7 @@ const LoginPage = (props) => {
     }
 
     const resetPassword = (e) => {
-        axios.post("http://127.0.0.1:8000/auth/users/reset_password/", {
+        axios.post("/auth/users/reset_password/", {
             email: email
         })
             .then((response) => {

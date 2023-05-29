@@ -3,7 +3,6 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import AuthContext from "../../context/AuthContext";
 import { useContext } from "react";
-import Formsy from 'formsy-react';
 
 const EditProfile = (props) => {
     console.log(props)

@@ -65,7 +65,7 @@ const EditVacansie = (props) => {
     useLayoutEffect(() => {
         axios({
             method: "get",
-            url: `http://127.0.0.1:8000/api/vacancies/${location.state.id}`,
+            url: `/api/vacancies/${location.state.id}`,
             headers: {
                 Authorization: `Bearer ${String(authToken.access)}`,
             },
@@ -151,7 +151,7 @@ const EditVacansie = (props) => {
         }
         axios({
             method: "put",
-            url: `http://127.0.0.1:8000/api/vacancies/${location.state.id}/`,
+            url: `/api/vacancies/${location.state.id}/`,
             headers: {
                 Authorization: `Bearer ${String(authToken.access)}`,
             },

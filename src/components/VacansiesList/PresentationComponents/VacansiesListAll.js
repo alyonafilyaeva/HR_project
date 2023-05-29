@@ -6,7 +6,7 @@ import AuthContext from "../../../context/AuthContext";
 function VacansiesListAll(props) {
     let { authToken } = useContext(AuthContext)
     useLayoutEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/skills/", {
+        axios.get("/api/skills/", {
             'headers': {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${String(authToken.access)}`
@@ -21,7 +21,7 @@ function VacansiesListAll(props) {
     }, [])
 
     useLayoutEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/vacancies/", {
+        axios.get("/api/vacancies/", {
             'headers': {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${String(authToken.access)}`

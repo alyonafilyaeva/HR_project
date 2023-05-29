@@ -11,7 +11,7 @@ function Favourite() {
     let [favouriteVacancies, setFavouriteVacancies] = useState([])
 
     useLayoutEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/vacancies/to_favorite/", {
+        axios.get("/api/vacancies/to_favorite/", {
             'headers': {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${String(authToken.access)}`

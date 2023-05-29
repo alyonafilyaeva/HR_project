@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
     let loginUser = async (e) => {
         e.preventDefault()
 
-        let response = await fetch('http://127.0.0.1:8000/auth/jwt/create/', {
+        let response = await fetch('/auth/jwt/create/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
             body: JSON.stringify({ 'email': e.target.email.value, 'password': e.target.password.value })
         })
         let data = await response.json()
-        let getUser = await fetch('http://127.0.0.1:8000/api/profile/', {
+        let getUser = await fetch('/api/profile/', {
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${data.access}`
@@ -58,7 +58,7 @@ export const AuthProvider = ({ children }) => {
             alert('Пароли не совпадают')
             return
         }
-        let response = await fetch('http://127.0.0.1:8000/auth/users/', {
+        let response = await fetch('/auth/users/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -90,7 +90,7 @@ export const AuthProvider = ({ children }) => {
 
     let updateToken = async () => {
         console.log('Обновилиии')
-        let response = await fetch('http://127.0.0.1:8000/auth/jwt/refresh/', {
+        let response = await fetch('/auth/jwt/refresh/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

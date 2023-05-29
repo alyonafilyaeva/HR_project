@@ -8,7 +8,7 @@ import iconResume from '../../imgs/iconResume.png'
 function ResumesListAll(props) {
     let { authToken } = useContext(AuthContext)
     useLayoutEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/skills/", {
+        axios.get("/api/skills/", {
             'headers': {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${String(authToken.access)}`
@@ -22,7 +22,7 @@ function ResumesListAll(props) {
 
     }, [])
     useLayoutEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/resumes/", {
+        axios.get("/api/resumes/", {
             'headers': {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${String(authToken.access)}`

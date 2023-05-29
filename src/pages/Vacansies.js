@@ -14,7 +14,7 @@ function Vacansies(props) {
     let { user } = useContext(AuthContext)
     let [vacancies, setVac] = useState(<VacansiesListAllContainer />)
     useLayoutEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/skills/", {
+        axios.get("/api/skills/", {
             'headers': {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${String(authToken.access)}`
@@ -29,7 +29,7 @@ function Vacansies(props) {
     }, [])
 
     useLayoutEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/vacancies/", {
+        axios.get("/api/vacancies/", {
             'headers': {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${String(authToken.access)}`

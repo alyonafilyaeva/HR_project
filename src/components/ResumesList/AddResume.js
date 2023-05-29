@@ -41,7 +41,7 @@ const AddResume = (props) => {
         props.AddResume()
         debugger
         axios
-            .post("http://127.0.0.1:8000/api/resumes/",
+            .post("/api/resumes/",
                 {
                     "about_me": about.current.value,
                     "exp_work": exp.current.value,

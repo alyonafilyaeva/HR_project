@@ -34,7 +34,7 @@ const SortsResumes = (props) => {
     }
 
     let onAddSort = (e) => {
-        let path = `http://127.0.0.1:8000/api/resumes/?search=${search}&exp_work__gt=${expFrom}&exp_work__lt=${expTo}&salary=${salary}&ordering=${sort}${skillsFilter}`
+        let path = `/api/resumes/?search=${search}&exp_work__gt=${expFrom}&exp_work__lt=${expTo}&salary=${salary}&ordering=${sort}${skillsFilter}`
         e.preventDefault()
         axios
             .get(path,
@@ -53,7 +53,7 @@ const SortsResumes = (props) => {
 
     useLayoutEffect(() => {
         axios
-            .get("http://127.0.0.1:8000/api/departments",
+            .get("/api/departments",
                 {
                     'headers': {
                         'Content-Type': 'application/json',
@@ -109,7 +109,7 @@ const SortsResumes = (props) => {
         setSkill('')
         // setDep('')
         axios
-            .get('http://127.0.0.1:8000/api/resumes',
+            .get('/api/resumes',
                 {
                     'headers': {
                         'Content-Type': 'application/json',

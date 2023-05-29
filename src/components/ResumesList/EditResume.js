@@ -46,7 +46,7 @@ const EditResume = (props) => {
     useLayoutEffect(() => {
         axios({
             method: "get",
-            url: `http://127.0.0.1:8000/api/resumes/${location.state.id}/`,
+            url: `/api/resumes/${location.state.id}/`,
             headers: {
                 Authorization: `Bearer ${String(authToken.access)}`,
             },
@@ -79,7 +79,7 @@ console.log(newSkills)
         formData.append("file", file ? file : state.file)
         axios({
             method: "put",
-            url: `http://127.0.0.1:8000/api/resumes/${location.state.id}/`,
+            url: `/api/resumes/${location.state.id}/`,
             headers: {
                 Authorization: `Bearer ${String(authToken.access)}`,
             },

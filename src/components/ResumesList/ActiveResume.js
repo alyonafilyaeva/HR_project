@@ -29,7 +29,7 @@ const ActiveResume = (props) => {
         data.status = 0
         axios({
             method: "put",
-            url: `http://127.0.0.1:8000/api/resumes/${location.state.id}/`,
+            url: `/api/resumes/${location.state.id}/`,
             headers: {
                 Authorization: `Bearer ${String(authToken.access)}`,
             },
@@ -47,7 +47,7 @@ const ActiveResume = (props) => {
         data.status = 1
         axios({
             method: "put",
-            url: `http://127.0.0.1:8000/api/resumes/${location.state.id}/`,
+            url: `/api/resumes/${location.state.id}/`,
             headers: {
                 Authorization: `Bearer ${String(authToken.access)}`,
             },
@@ -74,7 +74,7 @@ const ActiveResume = (props) => {
         }
         axios({
             method: "post",
-            url: `http://127.0.0.1:8000/api/requests/`,
+            url: `/api/requests/`,
             headers: {
                 Authorization: `Bearer ${String(authToken.access)}`,
             },

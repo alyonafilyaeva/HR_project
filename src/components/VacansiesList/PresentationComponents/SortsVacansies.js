@@ -66,7 +66,7 @@ const SortsVacansies = (props) => {
         if (employment3) {
             employmentFilter += '&employment=3'
         }
-        let path = `http://127.0.0.1:8000/api/vacancies/?search=${search}&exp_work__gt=${expFrom}&exp_work__lt=${expTo}&salary=${salary}&department=${dep}&ordering=${sort}${skillsFilter}${scheduleFilter}${employmentFilter}`
+        let path = `/api/vacancies/?search=${search}&exp_work__gt=${expFrom}&exp_work__lt=${expTo}&salary=${salary}&department=${dep}&ordering=${sort}${skillsFilter}${scheduleFilter}${employmentFilter}`
         e.preventDefault()
         axios
             .get(path,
@@ -85,7 +85,7 @@ const SortsVacansies = (props) => {
 
     useLayoutEffect(() => {
         axios
-            .get("http://127.0.0.1:8000/api/departments",
+            .get("/api/departments",
                 {
                     'headers': {
                         'Content-Type': 'application/json',

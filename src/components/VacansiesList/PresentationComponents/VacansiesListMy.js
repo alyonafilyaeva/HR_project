@@ -9,7 +9,7 @@ function VacansiesListMy(props) {
     useLayoutEffect(() => {
         axios({
             method: "get",
-            url: 'http://127.0.0.1:8000/api/vacancies/',
+            url: '/api/vacancies/',
             headers: {
                 Authorization: `Bearer ${String(authToken.access)}`,
             },

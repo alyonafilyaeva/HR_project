@@ -8,7 +8,7 @@ function Profile(props) {
     let { authToken } = useContext(AuthContext)
 
     useLayoutEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/profile/", {
+        axios.get("/api/profile/", {
             'headers': {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${String(authToken.access)}`

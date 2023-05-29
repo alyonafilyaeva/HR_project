@@ -15,7 +15,7 @@ const Activate = () => {
     )
 
     let activate = () => {
-        axios.post("http://127.0.0.1:8000/auth/users/activation/", {
+        axios.post("/auth/users/activation/", {
             uid: uid,
             token: token
         })

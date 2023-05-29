@@ -103,7 +103,7 @@ const AddVacansie = (props) => {
         /* newSkills.push(skill) */
         debugger
         axios
-            .post("http://127.0.0.1:8000/api/vacancies/",
+            .post("/api/vacancies/",
                 {
                     "title": title.current.value,
                     "description": text.current.value,

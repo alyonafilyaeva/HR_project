@@ -8,6 +8,7 @@ import WarningAlert from "../../Alerts/WarningAlert";
 import InfoAlert from "../../Alerts/InfoAlert";
 import favourite from '../../../imgs/favourite.png'
 import favourite2 from '../../../imgs/favourite2.png'
+import SimilarVacansie from "./SimilarVacansie";
 
 const ActiveVacansie = (props) => {
     const location = useLocation();
@@ -25,20 +26,42 @@ const ActiveVacansie = (props) => {
             }
         }
     }
-    console.log(props)
     let path = `/vacansie/edit/${location.state.id}`
     let [response, setResponse] = useState(0)
-    console.log(props)
     setTimeout(() => {
         setResponse(0);
     }, 6000);
 
-    function plural(number, titles) {  
-        let cases = [2, 0, 1, 1, 1, 2];  
-        return titles[ (number%100>4 && number%100<20)? 2 : cases[(number%10<5)?number%10:5] ];  
+    function plural(number, titles) {
+        let cases = [2, 0, 1, 1, 1, 2];
+        return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
     }
-    
     var declension = ['год', 'года', 'лет'];
+    let [similarVacansies, setSimilarVacansies] = useState()
+    let similarVacansieElements = []
+    if (similarVacansies) {
+        similarVacansieElements = similarVacansies.map(vacansie =>
+            <SimilarVacansie vacansie={vacansie} />
+        )
+    }
+    console.log(similarVacansies)
+
+    useLayoutEffect(() => {
+        axios.get("http://127.0.0.1:8000/api/vacancies/similar", {
+            'headers': {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${String(authToken.access)}`
+            },
+            params: {
+                id: id
+            }
+        })
+            .then(response => {
+                setSimilarVacansies(response.data.vacancies)
+                console.log(response)
+            })
+
+    }, [])
 
     let notPublish = () => {
         let data = location.state
@@ -158,9 +181,6 @@ const ActiveVacansie = (props) => {
                 </div>
             }
             <NavLink to="/vacansies" className='back'>Назад</NavLink>
-            {/* {response == 200 && <SuccessAlert />}
-            {response == 'err' && <WarningAlert />}
-            {response == 'info' && <InfoAlert />} */}
             {(location.state.user.id == user.id && location.state.status !== 1) && <NavLink to={path} state={location.state} className="grey edit_vacansie">Редактировать</NavLink>}
             <div className="active_block_vacansie">
                 <div className="name_vacancie">
@@ -195,15 +215,25 @@ const ActiveVacansie = (props) => {
                     <p className="active_block_item">{location.state.description}</p>
                 </div>
             </div>
+
             {(location.state.user.id !== user.id) &&
                 <div className="send_request_vacansie">
+                    {similarVacansies && <div className="similar-elements">
+                        {similarVacansies && <h3>Похожие вакансии</h3>}
+                        {similarVacansieElements}
+                    </div>}
+
                     {response == 200 && <SuccessAlert />}
                     {response == 'err' && <WarningAlert />}
                     {response == 'info' && <InfoAlert />}
-                    <button onClick={sendRequest} className="btn_vacansie orange">Откликнуться</button>
-                    <p className="send_alert_vacansie">Сотруднику будет отправлено письмо, что вы заинтересовались его вакансией. </p>
+                    <div className="request-hover">
+                        <button onClick={sendRequest} className="btn_vacansie orange">Откликнуться</button>
+                        <p className="send_alert_vacansie">Сотруднику будет отправлено письмо, что вы заинтересовались его вакансией. </p>
+                    </div>
+
                 </div>
             }
+
             {(location.state.user.id === user.id && location.state.status !== 1) && <button className="btn_vacansie orange" onClick={publish}>Опубликовать вакансию</button>}
             {(location.state.user.id === user.id && location.state.status === 1) && <button className="btn_vacansie orange" onClick={notPublish}>Снять с публикации</button>}
         </div>

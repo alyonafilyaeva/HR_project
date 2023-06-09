@@ -2,7 +2,6 @@ import React from "react";
 import Skill from "./Skill";
 
 function Skills(props) {
-    console.log(props)
     let skills = props.skills.skills
     let realskills = props.realskills
     let skillsList = []
@@ -29,13 +28,3 @@ function Skills(props) {
 }
 
 export default Skills;
-
-/* const vacansieElements = props.vacansiesPage.vacansies.map(vacansie =>
-    <Vacansie vacansie={vacansie} />
-) */
-
-/* return (
-    <ul className="vacansiesList">
-        {vacansieElements}
-    </ul>
-) */

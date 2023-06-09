@@ -49,3 +49,27 @@
     width: 320px;
     border-radius: 10px;
 }
+
+.similar {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    /* margin-left: 75%; */
+    margin-bottom: 7px;
+}
+
+.similar p {
+    /* font-weight: 600; */
+}
+
+.similar-elements {
+    position: absolute;
+    top: -315px;
+    margin-bottom: -15%;
+    margin-left: 75%;
+}
+
+.similar-elements h3 {
+   color: #000;
+}

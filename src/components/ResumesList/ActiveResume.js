@@ -152,8 +152,11 @@ const ActiveResume = (props) => {
                     {response == 200 && <SuccessAlert />}
                     {response == 'err' && <WarningAlert />}
                     {response == 'info' && <InfoAlert />}
+                    <div className="request-hover">
                     <button onClick={sendRequest} className="btn_resume orange ">Откликнуться</button>
                     <p className="send_alert_resume">Сотруднику будет отправлено письмо, что вы заинтересовались его резюме. </p>
+                    </div>
+                    
                 </div>
 
             }

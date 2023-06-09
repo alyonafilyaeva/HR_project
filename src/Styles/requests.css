@@ -12,11 +12,11 @@
     display: none;
 }
 
-.send_request_resume:hover .send_alert_resume {
+.request-hover:hover .send_alert_resume {
     display: block;
 }
 
-.send_request_vacansie:hover .send_alert_vacansie {
+.request-hover:hover .send_alert_vacansie {
     display: block;
 }
 

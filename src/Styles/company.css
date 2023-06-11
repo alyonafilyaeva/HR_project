@@ -58,3 +58,31 @@
     margin-bottom: 10px;
 
 }
+
+.department-item {
+    background: #FFFFFF;
+    border: 1px solid #E58025;
+    backdrop-filter: blur(40px);
+    /* Note: backdrop-filter has minimal browser support */
+    padding: 20px 36px;
+    border-radius: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.vac-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.dep-vacancies {
+    color: #E58025;
+    font-weight: 600;
+    margin-top: 7px;
+}
+
+.dep-vacancies:hover {
+    text-decoration: underline;
+}

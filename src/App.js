@@ -31,6 +31,7 @@ import Favourite from './pages/Favourite';
 import Company from './pages/Company';
 import Activate from './pages/Activate';
 import New_register from './pages/New_register';
+import ActiveDepartment from './components/DepartmentsList/ActiveDepartment';
 
 
 const App = () => {
@@ -56,6 +57,7 @@ const App = () => {
                   <Route path="/support" element={<Support />} />
                   <Route path="/favourite" element={<Favourite />} />
                   <Route path="/company" element={<Company />} />
+                  <Route path="/department/:id" element={<ActiveDepartment />} />
                   <Route path="/vacansies/create_vacansie" element={<AddVacansieContainer />} />
                   <Route path="/vacansie/edit/:id" element={<EditVacansieContainer />} />
                   <Route path="/vacansie/:id" element={<ActiveVacansieContainer />} />
@@ -64,7 +66,6 @@ const App = () => {
                   <Route path="/resumes/create_resume" element={<AddResumeContainer />} />
                   <Route path="/profile" element={<ProfileContainer />} />
                   <Route path="/profile/edit" element={<EditProfileContainer />} />
-
                 </Route>
 
               </Routes>

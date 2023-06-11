@@ -175,7 +175,7 @@ const AddVacansie = (props) => {
                 <p><span>Шаг 1</span> из 3</p>
             </div>
             <div className="bar_1"></div>
-            <NavLink to="/vacansies" className="back">Назад</NavLink>
+            <a onClick={() => nav(-1)} className='back'>Назад</a>
             <ToastContainer />
             {/* <Editor
   editorState={editorState}

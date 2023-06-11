@@ -84,7 +84,7 @@ const AddResume = (props) => {
                 <p><span>Шаг 1</span> из 3</p>
             </div>
             <div className="bar_1"></div>
-            <NavLink to="/resumes" className='back'>Назад</NavLink>
+            <a onClick={() => nav(-1)} className='back'>Назад</a>
             <form>
                 <div className="form form_resume">
                     <div className="field_input">

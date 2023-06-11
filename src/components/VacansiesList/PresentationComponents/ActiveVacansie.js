@@ -37,7 +37,7 @@ const ActiveVacansie = (props) => {
         return titles[(number % 100 > 4 && number % 100 < 20) ? 2 : cases[(number % 10 < 5) ? number % 10 : 5]];
     }
     var declension = ['год', 'года', 'лет'];
-    let [similarVacansies, setSimilarVacansies] = useState()
+    let [similarVacansies, setSimilarVacansies] = useState('')
     let similarVacansieElements = []
     if (similarVacansies) {
         similarVacansieElements = similarVacansies.map(vacansie =>
@@ -180,7 +180,8 @@ const ActiveVacansie = (props) => {
                     <div className="bar_3"></div>
                 </div>
             }
-            <NavLink to="/vacansies" className='back'>Назад</NavLink>
+            {/* <NavLink to="/vacansies" className='back'>Назад</NavLink> */}
+            <a onClick={() => nav(-1)} className='back'>Назад</a>
             {(location.state.user.id == user.id && location.state.status !== 1) && <NavLink to={path} state={location.state} className="grey edit_vacansie">Редактировать</NavLink>}
             <div className="active_block_vacansie">
                 <div className="name_vacancie">
@@ -218,8 +219,9 @@ const ActiveVacansie = (props) => {
 
             {(location.state.user.id !== user.id) &&
                 <div className="send_request_vacansie">
-                    {similarVacansies && <div className="similar-elements">
-                        {similarVacansies && <h3>Похожие вакансии</h3>}
+                    {similarVacansies != '' && 
+                    <div className="similar-elements">
+                        <h3>Похожие вакансии</h3>
                         {similarVacansieElements}
                     </div>}
 

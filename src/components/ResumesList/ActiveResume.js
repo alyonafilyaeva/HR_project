@@ -113,7 +113,7 @@ const ActiveResume = (props) => {
                     <div className="bar_3"></div>
                 </div>
             }
-            <NavLink to="/resumes" className='back'>Назад</NavLink>
+            <a onClick={() => nav(-1)} className='back'>Назад</a>
 
             {location.state.user.id == user.id && <NavLink to={path} state={location.state} className='grey edit_resume'>Редактировать</NavLink>}
             <div className="active_resume">
